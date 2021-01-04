@@ -19,10 +19,10 @@
 
 #### 历史版本官方商店获取地址
 - Mojave：*
-- [官方原版商店获取地址]：(https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12)
+- [官方原版商店获取地址](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12)
 
 - Catalina：
-- [官方原版商店获取地址]：(https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12)
+- [官方原版商店获取地址](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12)
 #### 维护计划
 - 近期将转oc引导
 - 华南x79蓝色版型配备e5_2670 v1 c2步进的有一点难度需要刷新bios
