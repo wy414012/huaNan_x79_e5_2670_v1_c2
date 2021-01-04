@@ -24,7 +24,7 @@
 - 可用的编程器：CH341A 24 25
 - 某宝上可以在20元以下买到以上部件，所以别被骗了
 - 1、制作一个DOS启动U盘
-- 2、复制clover-x79/BIOS/ROM/x7947.rom 到制作好的dos U盘内，复制clover-x79/BIOS/tool路径内的FPT.EXE 到u盘根目录，启动到dos界面 `fat -f x7947.rom` 进行刷新中途请勿断电与关闭电脑
+- 2、复制clover-x79/BIOS/ROM/x7947.rom 到制作好的dos U盘内，复制clover-x79/BIOS/tool路径内的FPT.EXE 到u盘根目录，启动到dos界面 `fpt -f x7947.rom` 进行刷新中途请勿断电与关闭电脑
 - 3、刷新bios后会锁定cpu限制访问区域无法继续通过fpt工具来刷其他bios需要用编程器才可以刷其它bios
 
 ### 文件夹结构说明 ###
