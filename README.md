@@ -75,3 +75,4 @@
 - CPUFriend 升级到1.2.3
 - 新增测试显卡七彩虹gtx760 铭瑄770 （已测试通过完美MacOS big sur 11.2 bate版依然免驱）
 - 新增硬件博通 Wi-Fi蓝牙9426 新版测试
+### [变更日志](/OpenCore/docs/Changelog.md) ###
