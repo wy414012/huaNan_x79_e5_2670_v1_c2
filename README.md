@@ -1,6 +1,6 @@
 # clover-x79-e5-2670-rx588
 # OpenCore-华南x79_e5 2670 v1 c2
-[imge](/OpenCore/docs/OpenCore_with_text_Small.png)
+![image](/OpenCore/docs/OpenCore_with_text_Small.png)
 ### 介绍
 黑果爱好者华南金牌x79主板
 
