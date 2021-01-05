@@ -4,7 +4,8 @@
 ### 介绍
 
 - 黑果爱好者华南金牌x79主板
-- macOS Big Sur ![image](/OpenCore/docs/mac big sur.png)
+- macOS Big Sur 
+![image](/OpenCore/docs/mac_big_sur.png)
 
 ### 软件架构 ###
 - 主板具体型号：华南X79蓝色内存槽版本 主板BIOS V2.47
