@@ -47,7 +47,7 @@
 
 - Catalina：
 - [官方原版商店获取地址](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12)
-#### 维护计划
+### 维护计划
 - 近期将转oc引导
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - 华南x79蓝色版型配备e5_2670 v1 c2步进的有一点难度需要刷新bios
@@ -64,3 +64,9 @@
 - 需要使用Wi-Fi和蓝牙请参考相关免驱硬件这里不做任何测试
 - Open Core维护周期为每个正式版发布后进行维护以及日常驱动支持更新
 - 该库安装测试环境均为官方正式版OS与bate OS测试通过后发布
+#### v0.6.5 Open Core
+- WhateverGreen 升级到1.4.6
+- AppleALC 升级到1.5.6
+- HibernationFixup 升级到1.3.9
+- CPUFriend 升级到1.2.3
+- 
