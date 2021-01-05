@@ -68,7 +68,7 @@
 - 需要使用Wi-Fi和蓝牙请参考相关免驱硬件这里不做任何测试
 - Open Core维护周期为每个正式版发布后进行维护以及日常驱动支持更新
 - 该库安装测试环境均为官方正式版OS与bate OS测试通过后发布
-#### v0.6.5 Open Core
+#### [v0.6.5 Open Core](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588/attach_files/575697/download/OpenCore-0.6.5.zip)
 - WhateverGreen 升级到1.4.6
 - AppleALC 升级到1.5.6
 - HibernationFixup 升级到1.3.9
