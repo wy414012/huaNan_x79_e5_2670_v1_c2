@@ -2,7 +2,9 @@
 # OpenCore-华南x79_e5 2670 v1 c2
 ![image](/OpenCore/docs/OpenCore_with_text_Small.png)
 ### 介绍
-黑果爱好者华南金牌x79主板
+
+- 黑果爱好者华南金牌x79主板
+- macOS Big Sur ![image](/OpenCore/docs/mac big sur.png)
 
 ### 软件架构 ###
 - 主板具体型号：华南X79蓝色内存槽版本 主板BIOS V2.47
@@ -70,4 +72,5 @@
 - AppleALC 升级到1.5.6
 - HibernationFixup 升级到1.3.9
 - CPUFriend 升级到1.2.3
-- 
+- 新增测试显卡七彩虹gtx760 铭瑄770 （已测试通过完美MacOS big sur 11.2 bate版依然免驱）
+- 新增硬件博通 Wi-Fi蓝牙9426 新版测试
