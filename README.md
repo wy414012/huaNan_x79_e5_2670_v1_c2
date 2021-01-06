@@ -87,6 +87,11 @@ python ./ProperTree/ProperTree.command```
 - CPUFriend 升级到1.2.3
 - 新增测试显卡七彩虹gtx760 铭瑄770 （已测试通过完美MacOS big sur 11.2 bate版依然免驱）
 - 新增硬件博通 Wi-Fi蓝牙9426 新版测试
+##### 仓库内默认最新代码说明
+- 新增SMBIOS iMacPro1,1 测试
+- 已知问题直接安装可能会出现板载声卡不识别
+- 已知免驱蓝牙Wi-Fi可能会出现不识别（但是其它网友使用1650cpu的并没有出现）
+- 已知添加图形界面后黑屏（使用1650cpu的并没有出现问题）
 ### [变更日志](/OpenCore/docs/Changelog.md) ###
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)

@@ -1001,21 +1001,21 @@
 			<key>AdviseWindows</key>
 			<false/>
 			<key>MLB</key>
-			<string>F5K4023004NFHDD1H</string>
+			<string>C02838500J9JG361H</string>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>AOBMaAG7</data>
+			<data>ESIzRFVm</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
 			<string>Auto</string>
 			<key>SystemProductName</key>
-			<string>MacPro6,1</string>
+			<string>iMacPro1,1</string>
 			<key>SystemSerialNumber</key>
-			<string>F5KM30SNF9VM</string>
+			<string>C02XF0GJHX87</string>
 			<key>SystemUUID</key>
-			<string>26D08C66-D42C-5EF6-873F-E5BE67773861</string>
+			<string>DA5281A1-D743-476C-9D72-0D4EB63FBFD9</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
