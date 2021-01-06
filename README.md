@@ -36,8 +36,8 @@
 ### 文件夹结构说明 ###
 - clover-x79`最后维护的存档`
 - OpenCore·新的主要维护`
--- tools··工具维护`
--- docs·未来的说明文档存放路径`
+- tools··工具维护`
+- docs·未来的说明文档存放路径`
 ### mac下制作制作安装U盘 ###
 - macOS BigSur
 - `sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac` 其中usbmac为你自己的U盘名称
@@ -87,8 +87,10 @@ python ./ProperTree/ProperTree.command```
 - CPUFriend 升级到1.2.3
 - 新增测试显卡七彩虹gtx760 铭瑄770 （已测试通过完美MacOS big sur 11.2 bate版依然免驱）
 - 新增硬件博通 Wi-Fi蓝牙9426 新版测试
+- USB3.0驱动是经过定制的请勿放入其它usb万能注入驱动使用我的efi无需进行其它操作基本没问题3.0接口5g速度
+- 如果发现RealtekRTL8111 千兆网卡有断流情况请下载2.2.2版本替换掉内含的2.3.0版本
 ##### 仓库内默认最新代码说明
-- 新增SMBIOS iMacPro1,1 测试
+- 新增SMBIOS S 测试
 - 已知问题直接安装可能会出现板载声卡不识别
 - 已知免驱蓝牙Wi-Fi可能会出现不识别（但是其它网友使用1650cpu的并没有出现）
 - 已知添加图形界面后黑屏（使用1650cpu的并没有出现问题）
