@@ -22,6 +22,8 @@
 - 开启 Hyper-Threading
 - 开启 Execute Disable Bit
 - 如果bios看不到上面的选项 请刷新bios
+- 安装时间选择抹掉磁盘请直接抹掉为apfs格式
+![image](/OpenCore/docs/apfs.png)
 ### bios 刷新请注意 ###
 - BIOS ROM型号：EN25F64
 - 非常需要注意的是主办pcie插槽旁白呢印有华南金牌x79 2.4x的才可以
