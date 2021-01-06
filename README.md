@@ -57,6 +57,7 @@
 - 近期将转oc引导
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - 华南x79蓝色版型配备e5_2670 v1 c2步进的有一点难度需要刷新bios
+- 等待一段时间后会增加对应英文说明文档
 #### 配置编辑器地址 ####
 - [GenSMBIOS生成三码必备工具](https://github.com/corpnewt/GenSMBIOS)``` git clone https://github.com/corpnewt/GenSMBIOS
     cd GenSMBIOS
