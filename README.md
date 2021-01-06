@@ -98,3 +98,4 @@ python ./ProperTree/ProperTree.command```
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
+- [github同步地址华南x79](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2)
