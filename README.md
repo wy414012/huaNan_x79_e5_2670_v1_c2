@@ -57,6 +57,16 @@
 - 近期将转oc引导
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - 华南x79蓝色版型配备e5_2670 v1 c2步进的有一点难度需要刷新bios
+#### 配置编辑器地址 ####
+- [GenSMBIOS生成三码必备工具](https://github.com/corpnewt/GenSMBIOS)``` git clone https://github.com/corpnewt/GenSMBIOS
+    cd GenSMBIOS
+    chmod +x GenSMBIOS.command```
+- [ProperTree](https://github.com/corpnewt/ProperTree)```git clone https://github.com/corpnewt/ProperTree
+python ./ProperTree/ProperTree.command```
+- 配置器使用需要安装[python环境](https://www.python.org/downloads/)
+- 修复配置器在[MacOS Big Sur macOS 11上面崩溃的问题](https://www.python.org/downloads/mac-osx/)下载最新版本安装后 使用脚本目录内的`buildapp-python3.command`生成app后即可正常使用
+- win最少需要在版本win10 1703以上系统安装py后执行`ProperTree.bat`即可运行编辑器
+- 请勿使用occ配置器编辑配置文件，因为如果版本错误会损坏配置文件导致各种异常
 ### 发布版本说明 ###
 #### v0001 四叶草r5126首次项目发布版本
 #### v-os10.15.7 四叶草修正版本
