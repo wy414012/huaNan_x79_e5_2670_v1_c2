@@ -78,3 +78,6 @@
 - 新增测试显卡七彩虹gtx760 铭瑄770 （已测试通过完美MacOS big sur 11.2 bate版依然免驱）
 - 新增硬件博通 Wi-Fi蓝牙9426 新版测试
 ### [变更日志](/OpenCore/docs/Changelog.md) ###
+### 对应自维护机型地址 ###
+- [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
+- [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
