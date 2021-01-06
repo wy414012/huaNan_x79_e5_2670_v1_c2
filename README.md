@@ -46,7 +46,7 @@
 - macOS Mojave
 - `sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac`
 
-
+- [win下创建安装u盘]((/OpenCore/docs/windows.md)
 ### 历史版本官方商店获取地址 ###
 - Mojave：*
 - [官方原版商店获取地址](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12)
