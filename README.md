@@ -58,6 +58,7 @@
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - 华南x79蓝色版型配备e5_2670 v1 c2步进的有一点难度需要刷新bios
 - 等待一段时间后会增加对应英文说明文档
+- 近期将录制视频做一些修复的答疑
 #### 配置编辑器地址 ####
 - [GenSMBIOS生成三码必备工具](https://github.com/corpnewt/GenSMBIOS)``` git clone https://github.com/corpnewt/GenSMBIOS
     cd GenSMBIOS
@@ -95,6 +96,7 @@ python ./ProperTree/ProperTree.command```
 - 已知问题直接安装可能会出现板载声卡不识别
 - 已知免驱蓝牙Wi-Fi可能会出现不识别（但是其它网友使用1650cpu的并没有出现）
 - 已知添加图形界面后黑屏（使用1650cpu的并没有出现问题）
+- 
 ### [变更日志](/OpenCore/docs/Changelog.md) ###
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
