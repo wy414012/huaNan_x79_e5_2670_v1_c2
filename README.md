@@ -91,7 +91,7 @@ python ./ProperTree/ProperTree.command```
 - 新增硬件博通 Wi-Fi蓝牙9426 新版测试
 - USB3.0驱动是经过定制的请勿放入其它usb万能注入驱动使用我的efi无需进行其它操作基本没问题3.0接口5g速度
 - 如果发现RealtekRTL8111 千兆网卡有断流情况请下载2.2.2版本替换掉内含的2.3.0版本
-#### [v0.6.6 Open core ]()
+#### [v0.6.6 Open core ](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588/attach_files/587278/download/v0.6.6%20Open%20Core.zip)
 - 重点更新驱动版本
 - 已知问题Mac big sur 11.2bate版本中cpu变频出现故障没有变频效果，暂时请勿升级最新bate版（预计修复时间在正式版发布后一周）
 - 配置文件中添加facetim通话，短信，固定网卡实列在配置文件上 只需修改为自己对应en0网卡pcie地址即可完美修复
