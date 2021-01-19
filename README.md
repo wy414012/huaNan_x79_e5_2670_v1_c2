@@ -103,7 +103,10 @@ python ./ProperTree/ProperTree.command```
 - 已知问题直接安装可能会出现板载声卡不识别
 - 已知免驱蓝牙Wi-Fi可能会出现不识别（但是其它网友使用1650cpu的并没有出现）
 - 已知添加图形界面后黑屏（使用1650cpu的并没有出现问题）
-- 
+- 2021年1月19日，对新版本中预计发布的OpenHfsPlus驱动进行兼容测试
+- 对opencore0.6.6开发版中的efi驱动进行大版本变更测试 
+- 预计新版本发布时间在正式版发布一周内
+
 ### [变更日志](/OpenCore/docs/Changelog.md) ###
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
