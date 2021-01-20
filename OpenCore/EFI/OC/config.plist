@@ -1006,7 +1006,7 @@
 			<key>AdviseWindows</key>
 			<false/>
 			<key>MLB</key>
-			<string>C02926270CDJG361H</string>
+			<string>C02101802GUJG36CB</string>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
@@ -1018,9 +1018,9 @@
 			<key>SystemProductName</key>
 			<string>iMacPro1,1</string>
 			<key>SystemSerialNumber</key>
-			<string>C02YX0FRHX87</string>
+			<string>C02F2AZTHX87</string>
 			<key>SystemUUID</key>
-			<string>9B698D37-F089-47BD-BD5D-B139AF83313A</string>
+			<string>5323B469-AD82-4F21-9D24-FD478DB67C1B</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -1071,7 +1071,7 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>HfsPlusLegacy.efi</string>
+			<string>OpenHfsPlus.efi</string>
 			<string>OpenRuntime.efi</string>
 		</array>
 		<key>Input</key>
