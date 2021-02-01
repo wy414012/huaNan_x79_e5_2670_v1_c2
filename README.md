@@ -32,7 +32,9 @@
 - 1、制作一个DOS启动U盘
 - 2、复制clover-x79/BIOS/ROM/x7947.rom 到制作好的dos U盘内，复制clover-x79/BIOS/tool路径内的FPT.EXE 到u盘根目录，启动到dos界面 `fpt -f x7947.rom` 进行刷新中途请勿断电与关闭电脑
 - 3、刷新bios后会锁定cpu限制访问区域无法继续通过fpt工具来刷其他bios需要用编程器才可以刷其它bios
-
+### 原版BIOS适配说明 ###
+- 应网友要求希望适配原版BIOS来进行安装的需求已经开始适配中
+- 预计完成日期Open Core核心正式版0.6.6发布一周内，目前只会推送bate版本
 ### 文件夹结构说明 ###
 - clover-x79`最后维护的存档`
 - OpenCore·新的主要维护`
