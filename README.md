@@ -100,7 +100,7 @@ python ./ProperTree/ProperTree.command```
 - 配置文件中添加facetim通话，短信，固定网卡实列在配置文件上 只需修改为自己对应en0网卡pcie地址即可完美修复
 - 修复一个异常导致使用中电源崩溃的严重问题建议所有使用该efi用户都升级到当前版本
 - 升级后请将配置文件中三码重新生成，ROM码修改为自己对应en0网卡Mac地址
-#### [v0.6.6 Open core ]
+#### [v0.6.7 Open core ](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588/attach_files/607044/download/OpenCore0.6.7.zip)
 - 重点更新适配原厂BIOS
 - 无需任何BIOS更改 使用uefi U盘启动即可安装
 - 修复一盘双系统情况下win无法正常关机（原厂BIOS下正常，刷BIOS版本暂未修复）
