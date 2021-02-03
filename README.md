@@ -23,6 +23,7 @@
 - 开启 Execute Disable Bit
 - 如果bios看不到上面的选项 请刷新bios
 - 安装时间选择抹掉磁盘请直接抹掉为apfs格式
+- 原厂BIOS在0.6.7版本中已经支持 无需做任何设置均可直接安装
 ![image](/OpenCore/docs/apfs.png)
 ### bios 刷新请注意 ###
 - BIOS ROM型号：EN25F64
@@ -57,7 +58,6 @@
 - Catalina：
 - [官方原版商店获取地址](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12)
 ### 维护计划
-- 近期将转oc引导
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - 华南x79蓝色版型配备e5_2670 v1 c2步进的有一点难度需要刷新bios
 - 等待一段时间后会增加对应英文说明文档
@@ -106,18 +106,8 @@ python ./ProperTree/ProperTree.command```
 - 修复一盘双系统情况下win无法正常关机（原厂BIOS下正常，刷BIOS版本暂未修复）
 - 默认机型依旧定义为MacPro6,1(苹果垃圾桶)
 - 已知在iMacPro1,1机型下会出现安装的时候驱动注入不正常导致声卡无法启用 alc声卡ID 662选择注入5 892的注入7更多请自行测试
-#### [v0.6.6 Open core_beta_02 变更](/OpenCore/docs/Changelog.md)
 
-##### 仓库内默认最新代码说明
-- 新增SMBIOS S 测试
-- 已知问题直接安装可能会出现板载声卡不识别
-- 已知免驱蓝牙Wi-Fi可能会出现不识别（但是其它网友使用1650cpu的并没有出现）
-- 已知添加图形界面后黑屏（使用1650cpu的并没有出现问题）
-- 2021年1月19日，对新版本中预计发布的OpenHfsPlus驱动进行兼容测试
-- 对opencore0.6.6开发版中的efi驱动进行大版本变更测试 
-- 预计新版本发布时间在正式版发布一周内
-
-### [变更日志](/OpenCore/docs/Changelog.md) ###
+### [变更日志点击查看](/OpenCore/docs/Changelog.md) ###
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
