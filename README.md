@@ -27,11 +27,11 @@
 ![image](/OpenCore/docs/apfs.png)
 ### bios 刷新请注意 ###
 - BIOS ROM型号：EN25F64
-- 非常需要注意的是主办pcie插槽旁白呢印有华南金牌x79 2.4x的才可以
+- 非常需要注意的是主板pcie插槽旁边印有华南金牌x79 2.4x的才可以
 - 可用的编程器：CH341A 24 25
 - 某宝上可以在20元以下买到以上部件，所以别被骗了
 - 1、制作一个DOS启动U盘
-- 2、复制clover-x79/BIOS/ROM/x7947.rom 到制作好的dos U盘内，复制clover-x79/BIOS/tool路径内的FPT.EXE 到u盘根目录，启动到dos界面 `fpt -f x7947.rom` 进行刷新中途请勿断电与关闭电脑
+- 2、复制OpenCore/tools/BIOS/ROM/x7947.rom 到制作好的dos U盘内，复制OpenCore\tools\BIOS\Tools\FPT路径内的FPT.EXE 到u盘根目录，启动到dos界面 `fpt -f x7947.rom` 进行刷新中途请勿断电与关闭电脑
 - 3、刷新bios后会锁定cpu限制访问区域无法继续通过fpt工具来刷其他bios需要用编程器才可以刷其它bios
 ### 原版BIOS适配说明 ###
 - 应网友要求希望适配原版BIOS来进行安装的需求已经开始适配中
@@ -63,10 +63,10 @@
 - 等待一段时间后会增加对应英文说明文档
 - 近期将录制视频做一些修复的答疑
 #### 配置编辑器地址 ####
-- [GenSMBIOS生成三码必备工具](https://github.com/corpnewt/GenSMBIOS)``` git clone https://github.com/corpnewt/GenSMBIOS
+- [GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)``` git clone https://gitee.com/yaming-network/GenSMBIOS
     cd GenSMBIOS
     chmod +x GenSMBIOS.command```
-- [ProperTree](https://github.com/corpnewt/ProperTree)```git clone https://github.com/corpnewt/ProperTree
+- [ProperTree](https://gitee.com/yaming-network/ProperTree)```git clone https://gitee.com/yaming-network/ProperTree
 python ./ProperTree/ProperTree.command```
 - 配置器使用需要安装[python环境](https://www.python.org/downloads/)
 - 修复配置器在[MacOS Big Sur macOS 11上面崩溃的问题](https://www.python.org/downloads/mac-osx/)下载最新版本安装后 使用脚本目录内的`buildapp-python3.command`生成app后即可正常使用
