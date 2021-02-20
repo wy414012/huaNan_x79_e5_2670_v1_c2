@@ -106,7 +106,13 @@ python ./ProperTree/ProperTree.command```
 - 修复一盘双系统情况下win无法正常关机（原厂BIOS下正常，刷BIOS版本暂未修复）
 - 默认机型依旧定义为MacPro6,1(苹果垃圾桶)
 - 已知在iMacPro1,1机型下会出现安装的时候驱动注入不正常导致声卡无法启用 alc声卡ID 662选择注入5 892的注入7更多请自行测试
-
+#### [v0.6.8 Open core ](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588/attach_files/607044/download/OpenCore0.6.8.zip)
+- 尝试修复2689CPU变频问题
+- 更新驱动到最新版本
+- 核心升级到OpenCore官方稳定版0.6.6
+- 添加一盘双系统引导实例
+- 用绝对路径来引导win预防被win10覆盖掉引导项的尴尬
+- 测试升级到macOS big sur 11.2.1无任何错误
 ### [变更日志点击查看](/OpenCore/docs/Changelog.md) ###
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
