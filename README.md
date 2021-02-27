@@ -72,48 +72,10 @@ python ./ProperTree/ProperTree.command```
 - 修复配置器在[MacOS Big Sur macOS 11上面崩溃的问题](https://www.python.org/downloads/mac-osx/)下载最新版本安装后 使用脚本目录内的`buildapp-python3.command`生成app后即可正常使用
 - win最少需要在版本win10 1703以上系统安装py后执行`ProperTree.bat`即可运行编辑器
 - 请勿使用occ配置器编辑配置文件，因为如果版本错误会损坏配置文件导致各种异常
-### 发布版本说明 ###
-#### v0001 四叶草r5126首次项目发布版本
-#### v-os10.15.7 四叶草修正版本
-#### v0.6.4 正式转Open Core
-- OpenCore 0.6.4
-- 支持Mac10.15.7升级MacOS big sur
-- 由于e5 2670 v1 c2缺少一个指令集导致启动黑屏问题已经修复（非e5 2670请将hfs驱动换成uefi的）
-- 版本制作了8档2670的cpu变频显卡免驱，安装前请重新生成三码，修改rom为自己的网卡mac地址
-- bios请在四叶草存档目录中获取-刷新命令 `fpt -f xxx.rom`
-- 刷新bios后只需要关闭csm 兼容改为纯uefi引导即可-安装完成后驱动完美
-- 需要使用Wi-Fi和蓝牙请参考相关免驱硬件这里不做任何测试
-- Open Core维护周期为每个正式版发布后进行维护以及日常驱动支持更新
-- 该库安装测试环境均为官方正式版OS与bate OS测试通过后发布
-#### [v0.6.5 Open Core](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588/attach_files/575697/download/OpenCore-0.6.5.zip)
-- WhateverGreen 升级到1.4.6
-- AppleALC 升级到1.5.6
-- HibernationFixup 升级到1.3.9
-- CPUFriend 升级到1.2.3
-- 新增测试显卡七彩虹gtx760 铭瑄770 （已测试通过完美MacOS big sur 11.2 bate版依然免驱）
-- 新增硬件博通 Wi-Fi蓝牙9426 新版测试
-- USB3.0驱动是经过定制的请勿放入其它usb万能注入驱动使用我的efi无需进行其它操作基本没问题3.0接口5g速度
-- 如果发现RealtekRTL8111 千兆网卡有断流情况请下载2.2.2版本替换掉内含的2.3.0版本
-#### [v0.6.6 Open core ](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588/attach_files/587278/download/v0.6.6%20Open%20Core.zip)
-- 重点更新驱动版本
-- 已知问题Mac big sur 11.2bate版本中cpu变频出现故障没有变频效果，暂时请勿升级最新bate版（预计修复时间在正式版发布后一周）
-- 配置文件中添加facetim通话，短信，固定网卡实列在配置文件上 只需修改为自己对应en0网卡pcie地址即可完美修复
-- 修复一个异常导致使用中电源崩溃的严重问题建议所有使用该efi用户都升级到当前版本
-- 升级后请将配置文件中三码重新生成，ROM码修改为自己对应en0网卡Mac地址
-#### [v0.6.7 Open core ](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588/attach_files/607044/download/OpenCore0.6.7.zip)
-- 重点更新适配原厂BIOS
-- 无需任何BIOS更改 使用uefi U盘启动即可安装
-- 修复一盘双系统情况下win无法正常关机（原厂BIOS下正常，刷BIOS版本暂未修复）
-- 默认机型依旧定义为MacPro6,1(苹果垃圾桶)
-- 已知在iMacPro1,1机型下会出现安装的时候驱动注入不正常导致声卡无法启用 alc声卡ID 662选择注入5 892的注入7更多请自行测试
-#### [v0.6.8 Open core ](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588/attach_files/607044/download/OpenCore0.6.8.zip)
-- 尝试修复2689CPU变频问题
-- 更新驱动到最新版本
-- 核心升级到OpenCore官方稳定版0.6.6
-- 添加一盘双系统引导实例
-- 用绝对路径来引导win预防被win10覆盖掉引导项的尴尬
-- 测试升级到macOS big sur 11.2.1无任何错误
-### [变更日志点击查看](/OpenCore/docs/Changelog.md) ###
+### [版本说明日志点击查看](/OpenCore/docs/Changelog.md) ###
+### cpu变频以及其它问题请参考该文档 ###
+- OpenCore/docs/cpu变频修复详细教程.pdf
+- 2689V2无法变频请参考该教程
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
