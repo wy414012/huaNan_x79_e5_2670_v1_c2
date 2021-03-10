@@ -79,6 +79,12 @@ python ./ProperTree/ProperTree.command```
 ### cpu变频以及其它问题请参考该文档 ###
 - OpenCore/docs/cpu变频修复详细教程.pdf
 - 2689V2无法变频请参考该教程
+### efi内对应ssdt说明 ###
+- ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
+- 尽量自行生成相同的ssdt
+- 生成工具使用SSDTTime
+- 使用方法安装py运行环境在win下生成自己主板专用的 ` git clone https://gitee.com/yaming-network/SSDTTime.git ` 替换到efi里面即可 在0.6.9测试中 cpu无须生成专用ssdt也可享受三档变频 即 1.2g和2.5g以及3.3g频率
+
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
