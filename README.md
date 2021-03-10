@@ -7,6 +7,9 @@
 - macOS Big Sur 
 ![image](/OpenCore/docs/mac_big_sur.png)
 
+- macOS Big Sur正常升级11.2.3 
+![image](/OpenCore/docs/11.2.3.png)
+
 ### 软件架构 ###
 - 主板具体型号：华南X79蓝色内存槽版本 主板BIOS V2.47
 
