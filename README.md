@@ -14,20 +14,12 @@
 - 主板具体型号：华南X79蓝色内存槽版本 主板BIOS V2.47
 ### 注意事项 ###
 - 由于板型众多，不能通用刷新bios请注意查看板型
-- 新开企鹅交流群感谢各位关注为各位处理cpu变频问题 允许加入的时间仅限2021年3月16到3月25日过期后不可加入
-- 群号591391580
+- 新开企鹅交流群感谢各位关注为各位处理cpu变频问题 允许加入的时间仅限2021年3月16到3月30日过期后不可加入
+- 千人群号591391580
 ### 安装教程 ###
 - 开始安装之前
 - 注意bios设置
-- 关闭串口 (Serial Port)
-- 禁用 VT-d
-- 禁用 USB ECHI
 - 禁用 CSM
-- 开启 USB XHCI
-- 开启 Above 4G decoding
-- 开启 Hyper-Threading
-- 开启 Execute Disable Bit
-- 如果bios看不到上面的选项 请刷新bios
 - 安装时间选择抹掉磁盘请直接抹掉为apfs格式
 - 原厂BIOS在0.6.7版本中已经支持 无需做任何设置均可直接安装
 ![image](/OpenCore/docs/apfs.png)
@@ -39,10 +31,6 @@
 - 1、制作一个DOS启动U盘
 - 2、复制OpenCore/tools/BIOS/ROM/x7947.rom 到制作好的dos U盘内，复制OpenCore\tools\BIOS\Tools\FPT路径内的FPT.EXE 到u盘根目录，启动到dos界面 `fpt -f x7947.rom` 进行刷新中途请勿断电与关闭电脑
 - 3、刷新bios后会锁定cpu限制访问区域无法继续通过fpt工具来刷其他bios需要用编程器才可以刷其它bios
-### 原版BIOS适配说明 ###
-- 应网友要求希望适配原版BIOS来进行安装的需求已经开始适配中
-- 预计完成日期Open Core核心正式版0.6.6发布一周内，目前只会推送bate版本
-- 添加原版BIOS示范SSDT到目录OpenCore\ssdt，这里面为原版BIOS制作的，和刷新BIOS后制作的SSDT路径有所不同，请勿乱用确认自己主板BIOS是华南原版还是修改版
 ### 文件夹结构说明 ###
 - clover-x79`最后维护的存档`
 - OpenCore·新的主要维护`
@@ -79,9 +67,6 @@ python ./ProperTree/ProperTree.command```
 - win最少需要在版本win10 1703以上系统安装py后执行`ProperTree.bat`即可运行编辑器
 - 请勿使用occ配置器编辑配置文件，因为如果版本错误会损坏配置文件导致各种异常
 ### [版本说明日志点击查看](/OpenCore/docs/Changelog.md) ###
-### cpu变频以及其它问题请参考该文档 ###
-- OpenCore/docs/cpu变频修复详细教程.pdf
-- 2689V2无法变频请参考该教程
 ### efi内对应ssdt说明 ###
 - ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
 - 尽量自行生成相同的ssdt
