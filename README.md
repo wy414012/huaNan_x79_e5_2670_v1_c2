@@ -78,7 +78,7 @@ python ./ProperTree/ProperTree.command```
 - 多次运行```sudo ./ssdtPRGen.sh```直到生成正确的ssd
 - 放入oc对应目录中
 - 将/OpenCore/tools/oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完整修复
-### Fusion Drive（融合硬盘技术）####
+### Fusion Drive（融合硬盘技术）###
 #### 创建方法
 - 1. 列出所有磁盘:
 
