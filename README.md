@@ -78,6 +78,25 @@ python ./ProperTree/ProperTree.command```
 - 多次运行```sudo ./ssdtPRGen.sh```直到生成正确的ssd
 - 放入oc对应目录中
 - 将/OpenCore/tools/oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完整修复
+### Fusion Drive（融合硬盘技术）####
+#### 创建方法
+- 1. 列出所有磁盘:
+
+- ```diskutil list```
+
+- 2. 建立一块 fusion drive:
+
+- ```diskutil cs create "Cheney Fusion Drive" disk0 disk1```
+
+- 建立完成后，它会告诉你一个uuid，复制下来。
+
+- 3. 给这个 fusion drive 分区:
+
+- ```diskutil cs createVolume BDF819F4-06C0-4D49-943A-1A23E8B20928 jhfs+ "Macintosh FD" 100%```
+
+- 到这里你可以发现所有磁盘变成一块磁盘了 然后正常的使用磁盘工具抹盘安装即可了！
+- 注意要使用该技术必须在安装时候进行该操作，操作后不可拆分，如果拆分会损失数据，请自行选择是否使用！
+
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
