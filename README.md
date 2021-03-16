@@ -53,9 +53,7 @@
 - [官方原版商店获取地址](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12)
 ### 维护计划
 - 四叶草由于驱动不再进行兼容测试不再维护。
-- 华南x79蓝色版型配备e5_2670 v1 c2步进的有一点难度需要刷新bios
-- 等待一段时间后会增加对应英文说明文档
-- 近期将录制视频做一些修复的答疑
+- open core每次稳定版发布一周内推送新版
 #### 配置编辑器地址 ####
 - [GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)``` git clone https://gitee.com/yaming-network/GenSMBIOS
     cd GenSMBIOS
@@ -72,7 +70,15 @@ python ./ProperTree/ProperTree.command```
 - 尽量自行生成相同的ssdt
 - 生成工具使用SSDTTime
 - 使用方法安装py运行环境在win下生成自己主板专用的 ` git clone https://gitee.com/yaming-network/SSDTTime.git ` 替换到efi里面即可 在0.6.9测试中 cpu无须生成专用ssdt也可享受三档变频 即 1.2g和2.5g以及3.3g频率
+### CPU变频详细修复教程 ###
+- Mac下使用ssdtPRGen.sh生成专属的cpu变频文件 ```curl -o ~/ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/Beta/ssdtPRGen.sh
 
+wc -c ssdtPRGen.sh
+
+chmod +x ~/ssdtPRGen.sh ```
+- 多次运行```sudo ./ssdtPRGen.sh```直到生成正确的ssd
+- 放入oc对应目录中
+- 将oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完整修复
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
