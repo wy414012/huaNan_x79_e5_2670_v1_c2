@@ -77,7 +77,7 @@ python ./ProperTree/ProperTree.command```
 - ```chmod +x ~/ssdtPRGen.sh```
 - 多次运行```sudo ./ssdtPRGen.sh```直到生成正确的ssd
 - 放入oc对应目录中
-- 将oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完整修复
+- 将/OpenCore/tools/oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完整修复
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
