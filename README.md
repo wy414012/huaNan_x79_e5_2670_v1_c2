@@ -72,9 +72,9 @@ python ./ProperTree/ProperTree.command```
 - 使用方法安装py运行环境在win下生成自己主板专用的 ` git clone https://gitee.com/yaming-network/SSDTTime.git ` 替换到efi里面即可 在0.6.9测试中 cpu无须生成专用ssdt也可享受三档变频 即 1.2g和2.5g以及3.3g频率
 ### CPU变频详细修复教程 ###
 - Mac下使用ssdtPRGen.sh生成专属的cpu变频文件 
-- ```curl -o ~/ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/Beta/ssdtPRGen.sh
-wc -c ssdtPRGen.sh
-chmod +x ~/ssdtPRGen.sh```
+- 执行如下命令```curl -o ~/ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/Beta/ssdtPRGen.sh```
+- ```wc -c ssdtPRGen.sh```
+- ```chmod +x ~/ssdtPRGen.sh```
 - 多次运行```sudo ./ssdtPRGen.sh```直到生成正确的ssd
 - 放入oc对应目录中
 - 将oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完整修复
