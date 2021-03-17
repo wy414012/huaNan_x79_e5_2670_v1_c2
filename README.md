@@ -13,7 +13,6 @@
 ### 软件架构 ###
 - 主板具体型号：华南X79蓝色内存槽版本 主板BIOS V2.47
 ### 注意事项 ###
-- 由于板型众多，不能通用刷新bios请注意查看板型
 - 新开企鹅交流群感谢各位关注为各位处理cpu变频问题 允许加入的时间仅限2021年3月16到3月30日过期后不可加入
 - 千人群号591391580
 ### 安装教程 ###
@@ -23,19 +22,12 @@
 - 安装时间选择抹掉磁盘请直接抹掉为apfs格式
 - 原厂BIOS在0.6.7版本中已经支持 无需做任何设置均可直接安装
 ![image](/OpenCore/docs/apfs.png)
-### bios 刷新请注意 ###
-- BIOS ROM型号：EN25F64
-- 非常需要注意的是主板pcie插槽旁边印有华南金牌x79 2.4x的才可以
-- 可用的编程器：CH341A 24 25
-- 某宝上可以在20元以下买到以上部件，所以别被骗了
-- 1、制作一个DOS启动U盘
-- 2、复制OpenCore/tools/BIOS/ROM/x7947.rom 到制作好的dos U盘内，复制OpenCore\tools\BIOS\Tools\FPT路径内的FPT.EXE 到u盘根目录，启动到dos界面 `fpt -f x7947.rom` 进行刷新中途请勿断电与关闭电脑
-- 3、刷新bios后会锁定cpu限制访问区域无法继续通过fpt工具来刷其他bios需要用编程器才可以刷其它bios
 ### 文件夹结构说明 ###
-- clover-x79`最后维护的存档`
-- OpenCore·新的主要维护`
-- tools··工具维护`
-- docs·未来的说明文档存放路径`
+- clover-x79 最后维护的存档
+- OpenCore   新的主要维护
+- tools      工具维护
+- docs       未来的说明文档存放路径
+- patch      补丁配置单独目录 
 ### mac下制作制作安装U盘 ###
 - macOS BigSur
 - `sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac` 其中usbmac为你自己的U盘名称
