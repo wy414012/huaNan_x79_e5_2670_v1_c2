@@ -64,6 +64,7 @@ python ./ProperTree/ProperTree.command```
 - 使用方法安装py运行环境在win下生成自己主板专用的 ` git clone https://gitee.com/yaming-network/SSDTTime.git ` 替换到efi里面即可 
 ### CPU变频详细修复教程 ###
 - Mac下使用ssdtPRGen.sh生成专属的cpu变频文件 
+- 使用之前请打开终端先安装```xcode-select --install``` 命令行开发中工具
 - 执行如下命令```curl -o ~/ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/Beta/ssdtPRGen.sh```
 - ```wc -c ssdtPRGen.sh```
 - ```chmod +x ~/ssdtPRGen.sh```
