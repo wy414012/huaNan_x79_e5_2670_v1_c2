@@ -25,10 +25,10 @@
 ### 文件夹结构说明 ###
 ---
 clover-x79: 最后维护的存档
-OpenCore:   新的主要维护
-tools:      工具维护
-docs:       未来的说明文档存放路径
-patch:      补丁配置单独目录
+OpenCore: 新的主要维护
+tools: 工具维护
+docs: 未来的说明文档存放路径
+patch: 补丁配置单独目录
 --- 
 ### mac下制作制作安装U盘 ###
 - macOS BigSur
