@@ -22,13 +22,15 @@
 - 安装时间选择抹掉磁盘请直接抹掉为apfs格式
 - 原厂BIOS在0.6.7版本中已经支持 无需做任何设置均可直接安装
 ![image](/OpenCore/docs/apfs.png)
-### 文件夹结构说明 ###
-- clover-x79: 最后维护的存档
-- OpenCore: 新的主要维护
-- tools: 工具维护
-- docs: 未来的说明文档存放路径
-- patch: 补丁配置单独目录
-
+# 文件夹结构说明
+类别 | 描述
+--- | ---
+**clover-x79** | 最后维护的存档
+**OpenCore** | 新的主要维护
+**tools** | 工具维护
+**docs** | 未来的说明文档存放路径
+**patch** | 补丁配置单独目录
+---
 ### mac下制作制作安装U盘 ###
 - macOS BigSur
 - `sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac` 其中usbmac为你自己的U盘名称
