@@ -59,7 +59,18 @@ python ./ProperTree/ProperTree.command```
 - win最少需要在版本win10 1703以上系统安装py后执行`ProperTree.bat`即可运行编辑器
 - 请勿使用occ配置器编辑配置文件，因为如果版本错误会损坏配置文件导致各种异常
 ### [版本说明日志点击查看](/Changelog.md) ###
-### efi内对应ssdt说明 ###
+# ACPI 内对应ssdt说明
+名称 | 作用 | 是否必须
+--- | --- | ---
+**SSDT-UNC.aml** | 所有X99和许多X79板都需要这个SSDT，它专门禁用ACPI中的未使用设备，随后IOPCIFamily不会内核恐慌。这对于最终用户来说只需要很少的配置. | 是
+**SSDT-SBUS-MCHC** ｜ 这一部分涉及修复 macOS 中对 AppleSMBus 的支持，什么是 AppleSMBus？那么这个主要处理系统管理总线，它有很多功能 ｜ 否
+**SSDT-PMC.aml** ｜ 所有“真正的”300系列主板（不包括Z370），它特别带回了NVRAM支持，对最终用户只需要很少的配置。 ｜ 是
+**SSDT-HPET.aml** | 来自三叶草的花式热补丁，如FixIPIC、FixTMR、FixRTC、FixHPET等 | 是
+**SSDT-PLUG.aml** ｜ SSDT-PLUG的目的是允许内核的XCPM（XNU的CPU电源管理）管理我们的CPU电源管理。 | 是
+**SSDT-EC.aml** | SSDT-EC/USBX的目的是几件事：在台式机上，EC（或更广为人知的是嵌入式控制器）与AppleACPIEC驱动程序不兼容，为了绕过这一点，我们在运行macOS时禁用此设备AppleBusPowerController将寻找一个名为EC的设备，因此我们希望为这个kext创建一个假设备以加载到AppleBusPowerController还需要USBX设备为Skylake及更新机型提供USB电源属性，因此我们将将此设备与EC修复程序捆绑在一起在笔记本电脑上，EC用于热键和电池，因此禁用这并不理想。问题是我们的EC名称不兼容，因此我们将创建一个简单的“假”EC设备，以满足苹果 | 是
+**SSDT-USB-Reset.aml** | USB端口固定 | 是
+**SSDT-CPUM** | cpu变频修正 | 是
+---
 - ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
 - 尽量自行生成相同的ssdt
 - 生成工具使用SSDTTime
