@@ -31,13 +31,12 @@
 **docs** | 未来的说明文档存放路径
 **patch** | 补丁配置单独目录
 ---
-### mac下制作制作安装U盘 ###
-- macOS BigSur
-- `sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac` 其中usbmac为你自己的U盘名称
-- macOS Catalina
-- `sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac`
-- macOS Mojave
-- `sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac`
+# mac下制作制作安装U盘
+系统版本 | 使用的命令 | 备注
+--- | --- | ---
+**macOS BigSur** | sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 其中usbmac为你自己的U盘名称
+**macOS Catalina** | sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 
+**macOS Mojave** | sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 
 
 - [win下创建安装u盘](/OpenCore/docs/windows.md)
 ### 历史版本官方商店获取地址 ###
@@ -59,7 +58,7 @@ python ./ProperTree/ProperTree.command```
 - 修复配置器在[MacOS Big Sur macOS 11上面崩溃的问题](https://www.python.org/downloads/mac-osx/)下载最新版本安装后 使用脚本目录内的`buildapp-python3.command`生成app后即可正常使用
 - win最少需要在版本win10 1703以上系统安装py后执行`ProperTree.bat`即可运行编辑器
 - 请勿使用occ配置器编辑配置文件，因为如果版本错误会损坏配置文件导致各种异常
-### [版本说明日志点击查看](/OpenCore/docs/Changelog.md) ###
+### [版本说明日志点击查看](/Changelog.md) ###
 ### efi内对应ssdt说明 ###
 - ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
 - 尽量自行生成相同的ssdt
