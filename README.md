@@ -48,6 +48,7 @@
 ### 维护计划
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - open core每次稳定版发布一周内推送新版
+- [open core自行配置发布版下载地址](https://gitee.com/yaming-network/OpenCorePkg/releases/)
 #### 配置编辑器地址 ####
 - [GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)``` git clone https://gitee.com/yaming-network/GenSMBIOS
     cd GenSMBIOS
