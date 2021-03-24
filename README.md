@@ -111,3 +111,8 @@ python ./ProperTree/ProperTree.command```
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
 - [github同步地址华南x79_e5_2670c2](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2)
+# 鸣谢支持：
+名称 | 日期 | 金额 | 渠道
+--- | --- | --- | ---
+**黄昏** | 2021.3.23 | 9.9元 | 微信红包
+---
