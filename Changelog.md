@@ -14,6 +14,10 @@
 - 对即将发布的Mac OS big sur 11.3bate版本进行了驱动以及核心兼容性测试
 - 规范0.7.0中将要启用的ssdt表
 - 添加（SBUS系统总线支持ssdt示范）安装为目的的时候我们不需要，该ssdt为系统润色用途，可用可不用
+- 替换VoodooTSCSync.kext为CpuTscSync.kext提升启动效率
+- 启动参数必须存在ncpi=0x2000 不然会卡住cpu频率同步
+- 核心升级到REL-068-2021-03-25 0.6.8
+- 添加当前运行的OC核心版本查询指令“nvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:opencore-version ”
 
 ### 0.6.9 ###
 - 添加cpu变频修复详细教程
