@@ -20,6 +20,7 @@
 - 添加当前运行的OC核心版本查询指令“nvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:opencore-version ”
 - 修复了温度传感器与系统总线管理
 - 更正仓库内默认的cpu变频ssdt v1_32纳米（2670_v1_c2） v2_22纳米（2670_v2） 
+- 更新AppleALC至1.5.8，Lilu至1.5.1 ，WhateverGreen至1.4.8 其余驱动还在进行兼容性测试
 
 ### 0.6.9 ###
 - 添加cpu变频修复详细教程
