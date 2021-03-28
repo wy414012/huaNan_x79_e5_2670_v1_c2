@@ -64,7 +64,7 @@ python ./ProperTree/ProperTree.command```
 名称 | 作用 | 是否必须
 --- | --- | ---
 **SSDT-UNC.aml** | 所有X99和许多X79板都需要这个SSDT，它专门禁用ACPI中的未使用设备，随后IOPCIFamily不会内核恐慌。这对于最终用户来说只需要很少的配置. | 是
-**SSDT-SBUS-MCHC** | 这一部分涉及修复 macOS 中对 AppleSMBus 的支持，什么是 AppleSMBus？那么这个主要处理系统管理总线，它有很多功能,验证是否正常工作指令（kextstat | grep -E "AppleSMBusController|AppleSMBusPCI"） | 否
+**SSDT-SBUS-MCHC** | 这一部分涉及修复 macOS 中对 AppleSMBus 的支持，什么是 AppleSMBus？那么这个主要处理系统管理总线，它有很多功能,验证是否正常工作指令 | 否
 **SSDT-PMC.aml** | 所有“真正的”300系列主板（不包括Z370），它特别带回了NVRAM支持，对最终用户只需要很少的配置 | 是
 **SSDT-HPET.aml** | 来自三叶草的花式热补丁，如FixIPIC、FixTMR、FixRTC、FixHPET等 | 是
 **SSDT-PLUG.aml** | SSDT-PLUG的目的是允许内核的XCPM（XNU的CPU电源管理）管理我们的CPU电源管理. | 是
@@ -73,6 +73,7 @@ python ./ProperTree/ProperTree.command```
 **SSDT-CPUM** | cpu变频修正 | 是
 **SSDT-SSDT-IMEI.aml** | 屏蔽一个不规范的pci设备但是目前暂时还是没有屏蔽到，等待修正后将不在需要npci=0x2000参数 ｜ 否
 ---
+- 验证SSDT-SBUS-MCHC是否正常工作时指令```kextstat | grep -E "AppleSMBusController|AppleSMBusPCI"```
 - ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
 - 尽量自行生成相同的ssdt
 - 生成工具使用SSDTTime
