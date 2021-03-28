@@ -64,7 +64,7 @@ python ./ProperTree/ProperTree.command```
 名称 | 作用 | 是否必须
 --- | --- | ---
 **SSDT-UNC.aml** | 所有X99和许多X79板都需要这个SSDT，它专门禁用ACPI中的未使用设备，随后IOPCIFamily不会内核恐慌。这对于最终用户来说只需要很少的配置. | 是
-**SSDT-SBUS-MCHC** | 这一部分涉及修复 macOS 中对 AppleSMBus 的支持，什么是 AppleSMBus？那么这个主要处理系统管理总线，它有很多功能 | 否
+**SSDT-SBUS-MCHC** | 这一部分涉及修复 macOS 中对 AppleSMBus 的支持，什么是 AppleSMBus？那么这个主要处理系统管理总线，它有很多功能,验证是否正常工作指令（kextstat | grep -E "AppleSMBusController|AppleSMBusPCI"） | 否
 **SSDT-PMC.aml** | 所有“真正的”300系列主板（不包括Z370），它特别带回了NVRAM支持，对最终用户只需要很少的配置 | 是
 **SSDT-HPET.aml** | 来自三叶草的花式热补丁，如FixIPIC、FixTMR、FixRTC、FixHPET等 | 是
 **SSDT-PLUG.aml** | SSDT-PLUG的目的是允许内核的XCPM（XNU的CPU电源管理）管理我们的CPU电源管理. | 是

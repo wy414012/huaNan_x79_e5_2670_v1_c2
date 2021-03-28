@@ -21,6 +21,7 @@
 - 修复了温度传感器与系统总线管理
 - 更正仓库内默认的cpu变频ssdt v1_32纳米（2670_v1_c2） v2_22纳米（2670_v2） 
 - 更新AppleALC至1.5.8，Lilu至1.5.1 ，WhateverGreen至1.4.8 其余驱动还在进行兼容性测试
+- 添加subs系统总系支持是否正常工作指令到说明文档 kextstat | grep -E "AppleSMBusController|AppleSMBusPCI"
 
 ### 0.6.9 ###
 - 添加cpu变频修复详细教程
