@@ -91,6 +91,7 @@ python ./ProperTree/ProperTree.command```
 - 注意不可以先进行打补丁，除非是在已有Cpu ssdt才可以先进行补丁操作
 - 定义0.7.0发布版本中CPU变频ssdt名称为SSDT-CPUM.aml
 - 对于v2版本cpu中将会默认开启图形引导界面
+- 对于alc声卡id我们Mac终端自带16进制转换命令```printf '%x\n' 11```这样的意思是将11转换为16进制返回显示b 这样填写就是```0b000000```
 ### Fusion Drive（融合硬盘技术) ###
 #### 创建方法
 - 1. 列出所有磁盘:
