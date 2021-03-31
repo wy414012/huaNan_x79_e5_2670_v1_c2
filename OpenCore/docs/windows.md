@@ -40,7 +40,7 @@ python macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download
 python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000000000 download
 
 macOS 11，大苏尔注：由于这个操作系统相当新，某些系统仍然存在一些问题需要解决
-![image](/OpenCore/docs/macrecovery-done.1b0960bc)
+![image](/OpenCore/docs/macrecovery-done.1b0960bc.png)
 - 现在需要一些时间来等待下载完成
 - 我们开始格式化u盘 执行```Windows + R ``` ```运行diskpart```
 - ```list disk```
@@ -52,7 +52,7 @@ macOS 11，大苏尔注：由于这个操作系统相当新，某些系统仍然
 - ```format fs=fat32 quick```
 - ```ASSIGN LETTER=E```
 - 接下来，转到此USB驱动器的根目录，创建一个名为com.apple.recovery.boot的文件夹。然后移动下载的BaseSystem或RecoveryImage文件。请确保您通过.dmg和.chunklist文件复制到此文件夹：
-![image](/OpenCore/docs/com-recovery.805dc41f)
+![image](/OpenCore/docs/com-recovery.805dc41f.png)
 - 完成后我们看到的应该是这样
-![image](/OpenCore/docs/com-efi-done.a6fb730e)
+![image](/OpenCore/docs/com-efi-done.a6fb730e.png)
 - 这样就完整的创建好了
