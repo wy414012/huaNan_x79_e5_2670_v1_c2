@@ -23,6 +23,7 @@
 - 更新AppleALC至1.5.8，Lilu至1.5.1 ，WhateverGreen至1.4.8 其余驱动还在进行兼容性测试
 - 添加subs系统总系支持是否正常工作指令到说明文档 kextstat | grep -E "AppleSMBusController|AppleSMBusPCI"
 - 添加16进制转换指令到readme说明文档中
+- 请勿将网卡驱动升级到2.4.0断流严重
 
 ### 0.6.9 ###
 - 添加cpu变频修复详细教程
