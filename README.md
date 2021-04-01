@@ -82,10 +82,26 @@ python ./ProperTree/ProperTree.command```
 #### 开始修复:
 - Mac下使用ssdtPRGen.sh生成专属的cpu变频文件 
 - 使用之前请打开终端先安装```xcode-select --install``` 命令行开发者工具
-- 执行如下命令```curl -o ~/ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/Beta/ssdtPRGen.sh```
-- ```wc -c ssdtPRGen.sh```
-- ```chmod +x ~/ssdtPRGen.sh```
-- 多次运行```sudo ./ssdtPRGen.sh```直到生成正确的ssd
+- 执行如下命令
+```
+curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/Beta/ssdtPRGen.sh
+```
+
+
+```
+wc -c ssdtPRGen.sh
+```
+
+```
+chmod +x ~/ssdtPRGen.sh
+```
+
+多次运行
+
+```
+sudo ./ssdtPRGen.sh
+```
+直到生成正确的ssd
 - 放入oc对应目录中
 - 将/OpenCore/tools/oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完整修复
 - 注意不可以先进行打补丁，除非是在已有Cpu ssdt才可以先进行补丁操作
