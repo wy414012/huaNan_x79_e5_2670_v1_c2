@@ -78,6 +78,11 @@ python ./ProperTree/ProperTree.command```
 - 尽量自行生成相同的ssdt
 - 生成工具使用SSDTTime
 - 使用方法安装py运行环境在win下生成自己主板专用的 ` git clone https://gitee.com/yaming-network/SSDTTime.git ` 替换到efi里面即可 
+# Wi-Fi网卡原拆支持系统说明列表
+系统版本 | 支持芯片| 最高支持
+--- | --- | ---
+**Big Sur(11)+** ｜ BCM943602，BCM94360，BCM94352，DW1560，BCM94350，DW1820A ｜ 兼容所有系统
+---
 ### CPU变频修复 ###
 #### 开始修复:
 - Mac下使用ssdtPRGen.sh生成专属的cpu变频文件 
