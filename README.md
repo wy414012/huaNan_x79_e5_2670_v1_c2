@@ -143,4 +143,5 @@ sudo ./ssdtPRGen.sh
 **Pteromyini** | 2021.3.29 | 9.9元 | QQ红包
 **zhenli** | 2021.3.31 | 9.9元 | QQ红包
 **Eawen** | 2021.3.31 | 9.9元 | 微信红包
+**Pteromyini** | 2021.4.02 | 5.99元 | QQ红包
 ---
