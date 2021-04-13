@@ -1066,6 +1066,7 @@
 		<array>
 			<string>HfsPlusLegacy.efi</string>
 			<string>OpenRuntime.efi</string>
+			<string>NvmExpressDxe.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
