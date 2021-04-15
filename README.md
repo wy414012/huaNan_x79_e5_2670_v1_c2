@@ -70,6 +70,7 @@ python ./ProperTree/ProperTree.command```
 **SSDT-PLUG.aml** | SSDT-PLUG的目的是允许内核的XCPM（XNU的CPU电源管理）管理我们的CPU电源管理，虽然不是必须但是可能会需要存在. | 否
 **SSDT-EC.aml** | SSDT-EC/USBX的目的是几件事：在台式机上，EC（或更广为人知的是嵌入式控制器）与AppleACPIEC驱动程序不兼容，为了绕过这一点，我们在运行macOS时禁用此设备AppleBusPowerController将寻找一个名为EC的设备，因此我们希望为这个kext创建一个假设备以加载到AppleBusPowerController还需要USBX设备为Skylake及更新机型提供USB电源属性，因此我们将将此设备与EC修复程序捆绑在一起在笔记本电脑上，EC用于热键和电池，因此禁用这并不理想。问题是我们的EC名称不兼容，因此我们将创建一个简单的“假”EC设备，以满足苹果 | 是
 **SSDT-USB-Reset.aml** | USB端口固定 | 是
+**SSDT-USBX.aml** | USB电源设备供电修复，在10.15以上系统中我们需要该ssdt来修复usb设备供电问题，因为macOS已经不在驱动中提供电源管理了 | 否
 **SSDT-CPUM** | cpu变频修正安装为目的的时候我们可以没有 | 否
 **SSDT-SSDT-IMEI.aml** | 屏蔽一个不规范的pci设备但是目前暂时还是没有屏蔽到，等待修正后将不在需要npci=0x2000参数 ｜ 否
 ---
