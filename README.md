@@ -107,9 +107,9 @@ chmod +x ~/ssdtPRGen.sh
 ```
 sudo ./ssdtPRGen.sh
 ```
-直到生成正确的ssd
+直到生成正确的ssdt
 - 放入oc对应目录中
-- 将/OpenCore/tools/oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完整修复
+- 将/OpenCore/patch/oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完成修复，部分不知名原因不生效请查阅oc相关文档
 - 注意不可以先进行打补丁，除非是在已有Cpu ssdt才可以先进行补丁操作
 - 定义0.7.0发布版本中CPU变频ssdt名称为SSDT-CPUM.aml
 - 对于v2版本cpu中将会默认开启图形引导界面
