@@ -3,9 +3,17 @@
 ### 0.7.1 ###
 - 更新版本号
 - 添加HPET示范补丁和示范SSDT
-- 预备适配10.3.X系统兼容安装
+- 预备适配10.13.X系统兼容安装
 - 对最新版本11.3.1进行了测试兼容性良好，无任何驱动损坏问题出现
-
+- 核心升级到 OpenCore REL-069-2021-05-05稳定版本检测当前运行版本核心指令"nvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:opencore-version"
+- 更新AppleALC到1.6.0-RELEASE
+- 更新Lilu到1.5.3-RELEASE
+- 更新VirtualSMC到1.2.3-RELEASE
+- 更新WhateverGreen到1.4.9-RELEASE
+- 替换VoodooTSCSync为CpuTscSync-1.0.3-RELEASE
+- 修复多个可能在非纯uefi环境下安装造成内核恐慌的bug具体表现为 MACHreboot附近
+- 新增部分驱动旧版保留目录以解决部分硬件对驱动不兼容的bug，目录名称为“旧kext”
+- 
 ### 0.7.0 ###
 - 添加了ssdt说明
 - 校验了n卡在最新版本中的支持情况
