@@ -13,7 +13,8 @@
 - 替换VoodooTSCSync为CpuTscSync-1.0.3-RELEASE
 - 修复多个可能在非纯uefi环境下安装造成内核恐慌的bug具体表现为 MACHreboot附近
 - 新增部分驱动旧版保留目录以解决部分硬件对驱动不兼容的bug，目录名称为“旧kext”
-- 
+- 新增完整dmg下载脚本命令到readme.md文档
+
 ### 0.7.0 ###
 - 添加了ssdt说明
 - 校验了n卡在最新版本中的支持情况

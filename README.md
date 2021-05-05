@@ -42,12 +42,8 @@
 **macOS Mojave** | sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 
 
 - [win下创建安装u盘](/OpenCore/docs/windows.md)
-### 历史版本官方商店获取地址 ###
-- Mojave：*
-- [官方原版商店获取地址](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12)
-
-- Catalina：
-- [官方原版商店获取地址](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12)
+### 历史版本完整dmg镜像下载 ###
+- ```mkdir ~/macOS-installer && cd ~/macOS-installer && curl -O https://gitee.com/yaming-network/macadmin-scripts/raw/main/installinstallmacos.py && sudo python installinstallmacos.py```
 ### 维护计划
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - open core每次稳定版发布一周内推送新版
