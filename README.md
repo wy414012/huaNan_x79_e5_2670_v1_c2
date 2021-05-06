@@ -1,19 +1,13 @@
-# clover-x79-e5-2670-rx588
-# OpenCore-华南x79_e5 2670 v1 c2
+# OpenCore-华南x79_e5 2670 v1 c2 v2 rx588
 ![image](/OpenCore/docs/OpenCore_with_text_Small.png)
 ### 介绍
-
-- 黑果爱好者华南金牌x79主板
+- 项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配
 - 当前仓库代码支持OS版本：10.14.x-11.3.x
-- 10.13.x以及更低版本适配中
-- macOS Big Sur 
-![image](/OpenCore/docs/mac_big_sur.png)
-
-- macOS Big Sur正常升级11.2.3 
-![image](/OpenCore/docs/11.2.3.png)
-
-### 软件架构 ###
+- 10.13.x以及更低版本正在适配中，由于版本系统固件比较老旧适配进度会相当慢
+### 软件硬件 ###
 - 主板具体型号：华南X79主板印有 华南金牌 ver2.4.x 蓝色四内存槽版本 主板BIOS V2.47
+- 目前经过测试的相关华南x79主板基本上都能直接安装个别双路版本的由于没有该板型不知道具体情况
+- x79版型众多请谨慎选择
 
 ### 注意事项 ###
 - 新开企鹅交流群感谢各位关注为各位处理cpu变频问题 
