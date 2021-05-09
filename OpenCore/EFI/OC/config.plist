@@ -1105,6 +1105,7 @@
 			<string>OpenRuntime.efi</string>
 			<string>HfsPlusLegacy.efi</string>
 			<string>NvmExpressDxe.efi</string>
+			<string>HiiDatabase.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
