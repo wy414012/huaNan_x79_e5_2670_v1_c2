@@ -25,9 +25,9 @@
 		<key>MacPro6,1-AppleUSBXHCIPCI</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
+			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
-			<string>AppleUSBHostMergeProperties</string>
+			<string>AppleUSBMergeNub</string>
 			<key>IOParentMatch</key>
 			<dict>
 				<key>IOPropertyMatch</key>
@@ -101,9 +101,9 @@
 		<key>MacPro6,1-EUSB</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
+			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
-			<string>AppleUSBHostMergeProperties</string>
+			<string>AppleUSBMergeNub</string>
 			<key>IOParentMatch</key>
 			<dict>
 				<key>IOPropertyMatch</key>
@@ -150,9 +150,9 @@
 		<key>MacPro6,1-USBE</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
+			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
-			<string>AppleUSBHostMergeProperties</string>
+			<string>AppleUSBMergeNub</string>
 			<key>IOParentMatch</key>
 			<dict>
 				<key>IOPropertyMatch</key>
