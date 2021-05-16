@@ -71,6 +71,7 @@ python ./ProperTree/ProperTree.command```
 **SSDT-USBX.aml** | USB电源设备供电修复，在10.15以上系统中我们需要该ssdt来修复usb设备供电问题，因为macOS已经不在驱动中提供电源管理了 | 否
 **SSDT-CPUM** | cpu变频修正安装为目的的时候我们可以没有 | 否
 **SSDT-SSDT-IMEI.aml** | 屏蔽一个不规范的pci设备但是目前暂时还是没有屏蔽到，等待修正后将不在需要npci=0x2000参数 ｜ 否
+**SSDT-NVMe.aml** | 修正默认nvme磁盘显示外置问题，安装时候我们可以不需要 ｜ 否
 ---
 - 验证SSDT-SBUS-MCHC是否正常工作时指令```kextstat | grep -E "AppleSMBusController|AppleSMBusPCI"```
 - ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
