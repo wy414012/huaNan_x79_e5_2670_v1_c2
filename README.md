@@ -106,8 +106,8 @@ chmod +x ~/ssdtPRGen.sh
 ```
 sudo ./ssdtPRGen.sh
 ```
-直到生成正确的ssdt
-- 放入oc对应目录中
+生成的SSDT-CPUM.aml在 ~/Desktop/CPUssdt目录中
+- 放入oc对应目录中替换默认的
 - 将/OpenCore/patch/oc_cpu_patch.plist中的补丁添加到对应的oc配置文件 acpi中 重启后即完成修复，部分不知名原因不生效请查阅oc相关文档
 - 注意不可以先进行打补丁，除非是在已有Cpu ssdt才可以先进行补丁操作
 - 定义0.7.0发布版本中CPU变频ssdt名称为SSDT-CPUM.aml
@@ -147,4 +147,5 @@ sudo ./ssdtPRGen.sh
 **Leoist** | 2021.4.05 | 10元 | QQ红包
 **Leoist** | 2021.4.14 | 20元 | QQ红包
 **click** | 2021.4.20 | 20元 | QQ红包
+**zhenli** | 2021.5.16 | 18.8元 | QQ红包
 ---
