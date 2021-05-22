@@ -3,6 +3,7 @@
 ### 0.7.2 ###
 - 添加SSDT-NVMe.aml用以解决磁盘显示外置问题
 - 更新HfsPlusLegacy.efi与HfsPlus.efi驱动版本，支持最新cpu
+- 更新 Open Core 核心版本到version:0.7.2
 - 
 ### 0.7.1 ###
 - 更新版本号
