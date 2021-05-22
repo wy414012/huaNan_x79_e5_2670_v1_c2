@@ -4,7 +4,9 @@
 - 添加SSDT-NVMe.aml用以解决磁盘显示外置问题
 - 更新HfsPlusLegacy.efi与HfsPlus.efi驱动版本，支持最新cpu
 - 更新 Open Core 核心版本到version:0.7.2
-- 
+- 改进图形引导资源路径现在可以按照文件夹来制作自己的专属图形了！/EFI/OC/Resources/Image/Acidanthera!
+- 改进配置文件，添加新的热纠错选项
+- 修复部分错误，已支持11.5beta测试完成并没什么损坏问题出现！
 ### 0.7.1 ###
 - 更新版本号
 - 添加HPET示范补丁和示范SSDT
