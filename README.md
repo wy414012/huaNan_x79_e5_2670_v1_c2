@@ -28,7 +28,7 @@
 类别 | 描述
 --- | ---
 **clover-x79** | 最后维护的存档
-**OpenCore** | 新的主要维护
+**OpenCore** | 新的主要维护,内含v1 v2两个目录其中v1为32纳米系列cpu者该选择的efi，v2为22纳米，选择的efi
 **tools** | 工具维护
 **docs** | 未来的说明文档存放路径
 **patch** | 补丁配置单独目录
@@ -101,7 +101,7 @@ wc -c ssdtPRGen.sh
 chmod +x ~/ssdtPRGen.sh
 ```
 
-多次运行
+运行
 
 ```
 sudo ./ssdtPRGen.sh
