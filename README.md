@@ -34,15 +34,16 @@
 **patch** | 补丁配置单独目录
 ---
 # mac下制作制作安装U盘
-系统版本 | 使用的命令 | 备注
---- | --- | ---
-**macOS BigSur** | sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 其中usbmac为你自己的U盘名称
-**macOS Catalina** | sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 
-**macOS Mojave** | sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 
+系统版本 | 使用的命令 | 备注 | 官方商店获取地址
+--- | --- | --- | ---
+**macOS BigSur** | sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 其中usbmac为你自己的U盘名称 | [macOS BigSur](https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12)
+**macOS Catalina** | sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS Catalina](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12) 
+**macOS Mojave** | sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS Mojave](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12) 
+**macOS High Sierra** | sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS High Sierra](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12) 
+**macOS El Capitan** | sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app | [macOS El Capitan](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg) 
 
 - [win下创建安装u盘](/OpenCore/docs/windows.md)
-### 历史版本完整dmg镜像下载 ###
-- ```mkdir ~/macOS-installer && cd ~/macOS-installer && curl -O https://gitee.com/yaming-network/macadmin-scripts/raw/main/installinstallmacos.py && sudo python installinstallmacos.py```
+
 ### 维护计划
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - open core每次稳定版发布一周内推送新版
