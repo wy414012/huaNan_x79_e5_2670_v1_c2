@@ -493,13 +493,13 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>VoodooTSCSync.kext</string>
+				<string>CpuTscSync.kext</string>
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/VoodooTSCSync</string>
+				<string>Contents/MacOS/CpuTscSync</string>
 				<key>Arch</key>
 				<string>Any</string>
 				<key>MaxKernel</key>
