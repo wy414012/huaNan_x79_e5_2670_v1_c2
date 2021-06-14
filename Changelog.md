@@ -17,6 +17,11 @@
 - 优化GUI引导能效
 - x79由于主板bios是双xpu核心暂时无法直接升级Mac OS 12.0_beta等待适配
 - 11.5_beta版本验证测试完成无损升级
+- 升级核心版本到 REL-072-2021-06-12 开启macOS 12的支持适配作业
+- 添加cpu预设值 至强e5 16xx-26xx 值固定为2561 16进制显示为<0A01>
+- 将VoodooTSCSync保留到旧kext目录中 因为在macOS 12中已经不在受支持 改为支持M macOS 12 的 CpuTscSync.kext
+- macOS Monterey  
+
 
 ### 0.7.1 ###
 - 更新版本号
