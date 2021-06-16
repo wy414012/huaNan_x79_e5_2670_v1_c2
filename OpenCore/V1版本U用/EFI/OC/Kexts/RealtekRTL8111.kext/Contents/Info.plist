@@ -3,13 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>14B25</string>
+	<string>16G1114</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>RealtekRTL8111</string>
-	<key>CFBundleGetInfoString</key>
-	<string>Realtek RTL8168/RTL8111 and D-Link GigaFast GE1000-AXP 8169 series network card driver for Mac OS X.</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.insanelymac.RealtekRTL8111</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,82 +17,47 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3.5</string>
+	<string>2.2.2</string>
 	<key>CFBundleSignature</key>
-	<string>RTLN</string>
+	<string>????</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1.3.5</string>
+	<string>2.2.2</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>6A2008a</string>
+	<string>8E3004b</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>14A382</string>
+	<string>16E185</string>
 	<key>DTSDKName</key>
-	<string>PrivateMacOSX10.10</string>
+	<string>macosx10.12</string>
 	<key>DTXcode</key>
-	<string>0611</string>
+	<string>0833</string>
 	<key>DTXcodeBuild</key>
-	<string>6A2008a</string>
+	<string>8E3004b</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>D-Link GigaFast GE1000-AXP 8169</key>
+		<key>RTL8111 PCIe Adapter</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.insanelymac.RealtekRTL8111</string>
 			<key>Driver_Version</key>
-			<string>1.3.5</string>
+			<string>2.2.2</string>
 			<key>IOClass</key>
 			<string>RTL8111</string>
-			<key>IOMACAddress</key>
-			<data>fG34rJ4f</data>
 			<key>IOPCIMatch</key>
-			<string>0x81681186</string>
+			<string>0x816810ec 0x81681186</string>
 			<key>IOProbeScore</key>
 			<integer>1000</integer>
 			<key>IOProviderClass</key>
 			<string>IOPCIDevice</string>
-			<key>IOUserClientClass</key>
-			<string>RTL8111Client</string>
 			<key>Model</key>
-			<string>GE1000-AXP 8169</string>
-			<key>Vendor</key>
-			<string>D-Link</string>
-			<key>disableASPM</key>
-			<true/>
-			<key>enableCSO6</key>
-			<true/>
-			<key>enableEEE</key>
-			<true/>
-			<key>enableTSO4</key>
-			<true/>
-			<key>enableTSO6</key>
-			<true/>
-			<key>intrMitigate</key>
-			<integer>53080</integer>
-		</dict>
-		<key>Realtek RTL8111/RTL8168 PCIe Adapter</key>
-		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>com.insanelymac.RealtekRTL8111</string>
-			<key>Driver_Version</key>
-			<string>1.3.5</string>
-			<key>IOClass</key>
 			<string>RTL8111</string>
-			<key>IOMACAddress</key>
-			<data>fG34rJ4f</data>
-			<key>IOPCIMatch</key>
-			<string>0x816810ec</string>
-			<key>IOProbeScore</key>
-			<integer>1000</integer>
-			<key>IOProviderClass</key>
-			<string>IOPCIDevice</string>
-			<key>IOUserClientClass</key>
-			<string>RTL8111Client</string>
-			<key>Model</key>
-			<string>RTL8111/RTL8168</string>
 			<key>Vendor</key>
 			<string>Realtek</string>
 			<key>disableASPM</key>
@@ -109,30 +72,26 @@
 			<true/>
 			<key>intrMitigate</key>
 			<integer>53080</integer>
+			<key>rxPolling</key>
+			<true/>
 		</dict>
 	</dict>
-	<key>LSMinimumSystemVersion</key>
-	<string>10.10</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2013 Laura Müller. All rights reserved, enhancements copyright © 2014 AnV Software. All rights reserved.</string>
-	<key>OSBundleCompatibleVersion</key>
-	<string>1.0.0b1</string>
+	<string>Copyright © 2013 Laura Müller. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IONetworkingFamily</key>
-		<string>1.0.0b1</string>
+		<string>1.5.0</string>
 		<key>com.apple.iokit.IOPCIFamily</key>
-		<string>1.0.0b1</string>
+		<string>1.7</string>
 		<key>com.apple.kpi.bsd</key>
-		<string>9.0.0</string>
+		<string>8.10.0</string>
 		<key>com.apple.kpi.iokit</key>
-		<string>9.0.0</string>
+		<string>8.10.0</string>
 		<key>com.apple.kpi.libkern</key>
-		<string>9.0.0</string>
+		<string>8.10.0</string>
 		<key>com.apple.kpi.mach</key>
-		<string>9.0.0</string>
-		<key>com.apple.kpi.unsupported</key>
-		<string>9.0.0</string>
+		<string>8.10.0</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Network-Root</string>
