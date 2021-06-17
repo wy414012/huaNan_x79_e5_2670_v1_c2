@@ -23,6 +23,7 @@
 - 验证macOS11.5 beta3 的支持 
 - 升级驱动RealtekRTL8111.kext至2.4.2版本 如遇到没网情况请回退至2.2.2版本以下！该驱动可以在旧kext目录中找到！
 - 经过验证测试RealtekRTL8111.kext目前稳定支持的为2.2.2现进行固定
+- 合并USBX与USB-Reset两个ssdt为USB-Reset-X.aml
 
 ### 0.7.1 ###
 - 更新版本号
