@@ -2,7 +2,7 @@
 ![image](/OpenCore/docs/OpenCore_with_text_Small.png)
 ### 介绍
 - 项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配
-- 当前仓库代码支持OS版本：10.14.x-11.5beta1
+- 当前仓库代码支持OS版本：10.14.x-11.5beta2
 - 旧版本支持10.9--10.12.6
 - 10.13.x由于区别较大目前已经安排了适配，但是进度缓慢
 ### 软件硬件 ###
@@ -31,7 +31,6 @@
 **OpenCore** | 新的主要维护,内含v1 v2两个目录其中v1为32纳米系列cpu者该选择的efi，v2为22纳米，选择的efi
 **tools** | 工具维护
 **docs** | 未来的说明文档存放路径
-**patch** | 补丁配置单独目录
 ---
 # mac下制作制作安装U盘
 系统版本 | 使用的命令 | 备注 | 官方商店获取地址
@@ -67,12 +66,11 @@ python ./ProperTree/ProperTree.command```
 **SSDT-PMC.aml** | 所有“真正的”300系列主板（不包括Z370），它特别带回了NVRAM支持，对最终用户只需要很少的配置 | 否
 **SSDT-HPET.aml** | 来自三叶草的花式热补丁，如FixIPIC、FixTMR、FixRTC、FixHPET等，当我们完全转换完成后不在需要该ssdt存在 | 否
 **SSDT-PLUG.aml** | SSDT-PLUG的目的是允许内核的XCPM（XNU的CPU电源管理）管理我们的CPU电源管理，虽然不是必须但是可能会需要存在. | 否
-**SSDT-EC.aml** | SSDT-EC/USBX的目的是几件事：在台式机上，EC（或更广为人知的是嵌入式控制器）与AppleACPIEC驱动程序不兼容，为了绕过这一点，我们在运行macOS时禁用此设备AppleBusPowerController将寻找一个名为EC的设备，因此我们希望为这个kext创建一个假设备以加载到AppleBusPowerController还需要USBX设备为Skylake及更新机型提供USB电源属性，因此我们将将此设备与EC修复程序捆绑在一起在笔记本电脑上，EC用于热键和电池，因此禁用这并不理想。问题是我们的EC名称不兼容，因此我们将创建一个简单的“假”EC设备，以满足苹果 | 是
-**SSDT-USB-Reset.aml** | USB端口固定 | 是
-**SSDT-USBX.aml** | USB电源设备供电修复，在10.15以上系统中我们需要该ssdt来修复usb设备供电问题，因为macOS已经不在驱动中提供电源管理了 | 否
+**SSDT-EC.aml** | 现在我们在EC中加入了RTC修正用于解决在引导win/Linux时候出现的时间错误 | 是
+**SSDT-USB-Reset-X.aml** | USB端口固定与usb供电合并了现在 | 是
 **SSDT-CPUM** | cpu变频修正安装为目的的时候我们可以没有 | 否
-**SSDT-SSDT-IMEI.aml** | 屏蔽一个不规范的pci设备但是目前暂时还是没有屏蔽到，等待修正后将不在需要npci=0x2000参数 ｜ 否
-**SSDT-NVMe.aml** | 修正默认nvme磁盘显示外置问题，安装时候我们可以不需要 ｜ 否
+**SSDT-SSDT-IMEI.aml** | 目前我们不需要该ssdt ｜ 否
+**SSDT-NVMe.aml** | 修正默认nvme磁盘显示外置问题，安装时候我们可以不需要 | 否
 ---
 - 验证SSDT-SBUS-MCHC是否正常工作时指令```kextstat | grep -E "AppleSMBusController|AppleSMBusPCI"```
 - ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
