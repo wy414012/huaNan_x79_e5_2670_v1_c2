@@ -26,6 +26,9 @@
 - 合并USBX与USB-Reset两个ssdt为USB-Reset-X.aml
 - 更新了SSDT-EC.aml 解决双系统情况下oc引导到win时间错误的bug
 - 所有驱动均按照项目仓库最新提交来进行日更新，用于推进macOS12的适配 
+- 10.13.6适配完成，用专版目录来放置存档
+- 10.13.6专版默认用的v2版本cpu适配如果是v1版本u使用请去除OpenCanopy.efi，将HfsPlus.efi替换为HfsPlusLegacy.efi即可，如果机器有Nvme磁盘还需要加入NvmExpressDxe.efi。
+
 
 ### 0.7.1 ###
 - 更新版本号
