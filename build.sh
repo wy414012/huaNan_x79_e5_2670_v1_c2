@@ -17,11 +17,18 @@ if [ -d $targetPath ];then
 tar -zcvf  $targetPath/$name$version$cpu.tar.gz --exclude=.DS_Store $srcPath/$srcFile
 if [ -d $targetPath ];then
 tar -zcvf  $targetPath/$name$version$cpu1.tar.gz --exclude=.DS_Store $srcPath1/$srcFile1
+echo "打包完成开始生成sha256sum码"
+if [ -d $targetPath ];then
+sha256sum $targetPath/$name$version$cpu.tar.gz >$targetPath/$name$version$cpu.tar.gz.sha256sum.txt
+if [ -d $targetPath ];then
+sha256sum $targetPath/$name$version$cpu1.tar.gz >$targetPath/$name$version$cpu1.tar.gz.sha256sum.txt
 else
 echo "打包目录不存在"
 fi
 else
 echo "存放目录不存在"
+fi
+fi
 fi
 fi
 fi
