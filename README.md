@@ -84,14 +84,16 @@
 - open core每次稳定版发布一周内推送新版
 - [open core自行配置发布版下载地址](https://gitee.com/yaming-network/OpenCorePkg/releases/)
 #### 配置编辑器地址 ####
-- [GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)``` git clone https://gitee.com/yaming-network/GenSMBIOS
-    cd GenSMBIOS
-    chmod +x GenSMBIOS.command```
-- [ProperTree](https://gitee.com/yaming-network/ProperTree)```git clone https://gitee.com/yaming-network/ProperTree
-python ./ProperTree/ProperTree.command```
+- [GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)
+- ``` git clone https://gitee.com/yaming-network/GenSMBIOS```
+- ```cd GenSMBIOS ```
+- ```chmod +x GenSMBIOS.command```
+- [ProperTree](https://gitee.com/yaming-network/ProperTree)
+- ```git clone https://gitee.com/yaming-network/ProperTree```
+- ```python ./ProperTree/ProperTree.command```
 - 配置器使用需要安装[python环境](https://www.python.org/downloads/)
-- 修复配置器在[MacOS Big Sur macOS 11上面崩溃的问题](https://www.python.org/downloads/mac-osx/)下载最新版本安装后 使用脚本目录内的`buildapp-python3.command`生成app后即可正常使用
-- win最少需要在版本win10 1703以上系统安装py后执行`ProperTree.bat`即可运行编辑器
+- 修复配置器在[MacOS Big Sur macOS 11上面崩溃的问题](https://www.python.org/downloads/mac-osx/)下载最新版本安装后 使用脚本目录内的```buildapp-python3.command```生成app后即可正常使用
+- win最少需要在版本win10 1703以上系统安装py后执行```ProperTree.bat```即可运行编辑器
 - 请勿使用occ配置器编辑配置文件，因为如果版本错误会损坏配置文件导致各种异常
 ### [版本说明日志点击查看](/Changelog.md) ###
 # ACPI 内对应ssdt说明
@@ -112,7 +114,7 @@ python ./ProperTree/ProperTree.command```
 - ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
 - 尽量自行生成相同的ssdt
 - 生成工具使用SSDTTime
-- 使用方法安装py运行环境在win下生成自己主板专用的 ` git clone https://gitee.com/yaming-network/SSDTTime.git ` 替换到efi里面即可 
+- 使用方法安装py运行环境在win下生成自己主板专用的 ``` git clone https://gitee.com/yaming-network/SSDTTime.git ``` 替换到efi里面即可 
 # Wi-Fi网卡原拆支持系统说明列表
 系统版本 | 支持芯片| 最高支持
 --- | --- | ---
