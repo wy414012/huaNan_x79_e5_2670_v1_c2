@@ -41,7 +41,43 @@
 **macOS High Sierra** | sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS High Sierra](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12) 
 **macOS El Capitan** | sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app | [macOS El Capitan](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg) 
 
-### [win下创建安装u盘](/OpenCore/docs/windows.md)
+# win下创建安装u盘
+### 首先，您需要以下内容：
+- 4GB U盘
+- [macrecovery](/OpenCore/docs/macrecovery)这里必须安装[python](https://www.python.org/downloads/)
+- 下载macOS
+- 这里开始我们要进入下载的目录内
+- ![image](/OpenCore/docs/macos_usb.png)
+- ```cd /d clover-x79-e5-2670-rx588/OpenCore/docs/macrecovery```
+- 现在根据您想要的 macOS 版本运行以下之一（请注意，这些脚本依赖于 [Python](https://www.python.org/downloads/)（打开新窗口）支持，如果您尚未安装，请安装：
+- Lion(10.7):```python macrecovery.py -b Mac-2E6FAB96566FE58C -m 00000000000F25Y00 download```或者```python macrecovery.py -b Mac-C3EC7CD22292981F -m 00000000000F0HM00 download```
+- Mountain Lion(10.8):```python macrecovery.py -b Mac-7DF2A3B5E5D671ED -m 00000000000F65100 download```
+- Mavericks(10.9):```python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000FNN100 download```
+- Yosemite(10.10):```python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000GDVW00 download```
+- El Capitan(10.11):```python macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000GQRX00 download```
+- Sierra(10.12):```python macrecovery.py -b Mac-77F17D7DA9285301 -m 00000000000J0DX00 download```
+- High Sierra(10.13):```python macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000J80300 download```或者```python macrecovery.py -b Mac-BE088AF8C5EB4FA2 -m 00000000000J80300 download```
+- Mojave(10.14):```python macrecovery.py -b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 download```
+- Catalina(10.15):```python macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download```
+- Big Sur(11):```python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000000000 download```
+- 现在我们等待一些时间即可下载好需要的系统镜像
+- ![image](/OpenCore/docs/macrecovery-done.1b0960bc.png)
+- 开始建立USB引导驱动
+- 我们开始格式化u盘 执行```Windows + R ``` ```运行diskpart```
+- 显示当前磁盘列表```list disk```
+- 选中USB驱动磁盘```select disk 1``` 其中1为看到的磁盘位置id请替换为自己的
+- 清除磁盘```clean```
+- 将磁盘转换为GPT分区```convert gpt```
+- 创建物理分区```create partition primary```
+- 选中物理分区```select partition 1```
+- 格式化分区为FAT32格式 ```format fs=fat32 quick```
+- 分配盘符为E，与机器现有磁盘的盘符不冲突即可非固定```ASSIGN LETTER=E```
+- 接下来进入USB驱动器的根目录，创建一个名为com.apple.recovery.boot的文件夹```md com.apple.recovery.boot```
+- 然后移动下载的BaseSystem或RecoveryImage文件。请确保您通过.dmg和.chunklist文件复制到此文件夹:
+- ![image](/OpenCore/docs/com-recovery.805dc41f.png)
+- 完成后我们看到的应该是这样
+- ![image](/OpenCore/docs/com-efi-done.a6fb730e.png)
+- 这样就完整的创建好了。
 
 ### 维护计划
 - 四叶草由于驱动不再进行兼容测试不再维护。
