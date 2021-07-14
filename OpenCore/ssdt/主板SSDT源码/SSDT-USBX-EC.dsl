@@ -5,23 +5,25 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of SSDT-USB-Reset-X.aml, Sat Jul 10 16:12:59 2021
+ * Disassembly of SSDT-USB-Reset-X.aml, Wed Jul 14 18:24:59 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x0000016A (362)
+ *     Length           0x00000177 (375)
  *     Revision         0x02
- *     Checksum         0xA1
+ *     Checksum         0x42
  *     OEM ID           "CORP"
  *     OEM Table ID     "UsbReset"
  *     OEM Revision     0x00001000 (4096)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20180427 (538444839)
+ *     Compiler Version 0x20200925 (538970405)
  */
 DefinitionBlock ("", "SSDT", 2, "CORP", "UsbReset", 0x00001000)
 {
     External (_SB_.PCI0.EUSB.HUBN, DeviceObj)
     External (_SB_.PCI0.USBE.HUBN, DeviceObj)
+    External (_SB_.PCI0.SBRG, DeviceObj)
+    External (_SB_.USBX, DeviceObj)
 
     Scope (\_SB.PCI0.EUSB.HUBN)
     {
@@ -52,7 +54,24 @@ DefinitionBlock ("", "SSDT", 2, "CORP", "UsbReset", 0x00001000)
             }
         }
     }
-
+    Scope (\_SB.PCI0.SBRG)
+    {
+        Device (EC)
+        {
+            Name (_HID, "ACID0001")  // _HID: Hardware ID
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If (_OSI ("Darwin"))
+                {
+                    Return (0x0F)
+                }
+                Else
+                {
+                    Return (Zero)
+                }
+            }
+        }
+    }
     Scope (\_SB)
     {
         Device (USBX)

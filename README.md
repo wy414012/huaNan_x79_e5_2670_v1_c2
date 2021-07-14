@@ -99,18 +99,19 @@
 # ACPI 内对应ssdt说明
 名称 | 作用 | 是否必须
 --- | --- | ---
-**SSDT-UNC.aml** | 所有X99和许多X79板都需要这个SSDT，它专门禁用ACPI中的未使用设备，随后IOPCIFamily不会内核恐慌。这对于最终用户来说只需要很少的配置. | 是
+**SSDT-UNC.aml** | 所有X99和许多X79板都需要这个SSDT，它专门禁用ACPI中的未使用设备，随后IOPCIFamily不会内核恐慌。这对于最终用户来说只需要很少的配置 | 是
 **SSDT-SBUS-MCHC** | 这一部分涉及修复 macOS 中对 AppleSMBus 的支持，什么是 AppleSMBus？那么这个主要处理系统管理总线，它有很多功能,验证是否正常工作指令 | 否
 **SSDT-PMC.aml** | 所有“真正的”300系列主板（不包括Z370），它特别带回了NVRAM支持，对最终用户只需要很少的配置 | 否
 **SSDT-HPET.aml** | 来自三叶草的花式热补丁，如FixIPIC、FixTMR、FixRTC、FixHPET等，当我们完全转换完成后不在需要该ssdt存在 | 否
 **SSDT-PLUG.aml** | SSDT-PLUG的目的是允许内核的XCPM（XNU的CPU电源管理）管理我们的CPU电源管理，虽然不是必须但是可能会需要存在. | 否
-**SSDT-EC.aml** | 现在我们在EC中加入了RTC修正用于解决在引导win/Linux时候出现的时间错误 | 是
-**SSDT-USB-Reset-X.aml** | USB端口固定与usb供电合并了现在 | 是
+**SSDT-EC.aml** | 现在我们在EC中加入了RTC修正用于解决在引导win/Linux时候出现的时间错误 | 否
+**SSDT-USB-Reset-X.aml** | USB端口固定与usb供电合并了现在 | 否
+**SSDT-USBX-EC.aml** | ssdt-ec与ssdt-usb合并后的产物 |是
 **SSDT-CPUM** | cpu变频修正安装为目的的时候我们可以没有 | 否
 **SSDT-SSDT-IMEI.aml** | 目前我们不需要该ssdt ｜ 否
 **SSDT-NVMe.aml** | 修正默认nvme磁盘显示外置问题，安装时候我们可以不需要 | 否
 ---
-- 验证SSDT-SBUS-MCHC是否正常工作时指令```kextstat | grep -E "AppleSMBusController|AppleSMBusPCI"```
+- 我们现在只需要保障acpi目录内存在SSDT-USBX-EC.aml、SSDT-UNC.aml即可正常进行安装
 - ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
 - 尽量自行生成相同的ssdt
 - 生成工具使用SSDTTime

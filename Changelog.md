@@ -7,7 +7,8 @@
 - 新增v1变频补丁到配置中默认启用
 - 更新了usb驱动，修正了后置2个前置（机箱）两个只有不能同时运行在3.0协议速率的bug
 - 将SSDT-NVMe.aml，SSDT-SBUS-MCHC.aml重默认启用中移除
-
+- 合并了SSDT-USB-Reset-X与SSDT-EC，重命名为SSDT-USBX-EC.aml。
+- 移除了默认固定声卡设备，改为启动引导处注入id方便不同id的注入测试。
 ### 0.7.2-a ###
 - 添加SSDT-NVMe.aml用以解决磁盘显示外置问题
 - 更新HfsPlusLegacy.efi与HfsPlus.efi驱动版本，支持最新cpu
