@@ -9,6 +9,8 @@
 - 将SSDT-NVMe.aml，SSDT-SBUS-MCHC.aml重默认启用中移除
 - 合并了SSDT-USB-Reset-X与SSDT-EC，重命名为SSDT-USBX-EC.aml。
 - 移除了默认固定声卡设备，改为启动引导处注入id方便不同id的注入测试。
+- 跟具反馈将默认的AppleALC声卡单节点alc662+892替换为全节点驱动
+
 ### 0.7.2-a ###
 - 添加SSDT-NVMe.aml用以解决磁盘显示外置问题
 - 更新HfsPlusLegacy.efi与HfsPlus.efi驱动版本，支持最新cpu
