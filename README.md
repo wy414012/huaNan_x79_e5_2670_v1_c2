@@ -108,7 +108,7 @@
 **SSDT-USB-Reset-X.aml** | USB端口固定与usb供电合并了现在 | 否
 **SSDT-USBX-EC.aml** | ssdt-ec与ssdt-usb合并后的产物 |是
 **SSDT-CPUM** | cpu变频修正安装为目的的时候我们可以没有 | 否
-**SSDT-SSDT-IMEI.aml** | 目前我们不需要该ssdt ｜ 否
+**SSDT-SSDT-IMEI.aml** | 目前我们不需要该ssdt | 否
 **SSDT-NVMe.aml** | 修正默认nvme磁盘显示外置问题，安装时候我们可以不需要 | 否
 ---
 - 我们现在只需要保障acpi目录内存在SSDT-USBX-EC.aml、SSDT-UNC.aml即可正常进行安装
@@ -119,52 +119,40 @@
 # Wi-Fi网卡原拆支持系统说明列表
 系统版本 | 支持芯片| 最高支持
 --- | --- | ---
-**Big Sur(11)+** ｜ BCM943602，BCM94360，BCM94352，DW1560，BCM94350，DW1820A ｜ 兼容所有系统
+**Big Sur(11)+** | BCM943602,BCM94360,BCM94352,DW1560,BCM94350,DW1820A | 兼容所有系统
 ---
 ### CPU变频修复 ###
 #### 开始修复:
 - Mac下使用ssdtPRGen.sh生成专属的cpu变频文件 
 - 使用之前请打开终端先安装```xcode-select --install``` 命令行开发者工具
-- 执行如下命令
-```
-curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/Beta/ssdtPRGen.sh
-```
-
-
-```
-wc -c ssdtPRGen.sh
-```
-
-```
-chmod +x ~/ssdtPRGen.sh
-```
-
-运行
-
-```
-sudo ./ssdtPRGen.sh
-```
-生成的SSDT-CPUM.aml在 ~/Desktop/CPUssdt目录中
+- 执行如下命令:
+- ```curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/Beta/ssdtPRGen.sh```
+- ```wc -c ssdtPRGen.sh```
+- ```chmod +x ~/ssdtPRGen.sh```
+- 运行 ```sudo ./ssdtPRGen.sh```
+- 生成的SSDT-CPUM.aml在 ~/Desktop/CPUssdt目录中
 - 放入oc对应目录中替换默认的
-- 定义0.7.0发布版本中CPU变频ssdt名称为SSDT-CPUM.aml
-- 对于v2版本cpu中将会默认开启图形引导界面
+- 在0.7.0发布版本之后CPU变频ssdt名称已经统一名称 SSDT-CPUM.aml
+### 注意: ###
+#### 部分cpu不仅需要ssdt还需要开启配置文件上面的对应补丁 ####
+- 1、ACPI -> Delete ![image](/OpenCore/docs/Delete.png)
+- 2、v1（32纳米版本的cpu还需要启用内核补丁) ![image](/OpenCore/docs/CpuPatch.png)
+### alc声卡驱动说明 ###
+- alc声卡因为主板不同，携带的声卡芯片也不同我们需要在引导位置注入自己合适的id，如下图：
+- ![image](/OpenCore/docs/alc.png)
+- 测试好后我们的声卡后我们可以按照如下方式进行固定：
+- ![image](/OpenCore/docs/Device.png)
 - 对于alc声卡id我们Mac终端自带16进制转换命令```printf '%x\n' 11```这样的意思是将11转换为16进制返回显示b 这样填写就是```0b000000```
+
 ### Fusion Drive（融合硬盘技术) ###
 #### 创建方法
 - 1. 列出所有磁盘:
-
 - ```diskutil list```
-
 - 2. 建立一块 fusion drive:
-
 - ```diskutil cs create "Cheney Fusion Drive" disk0 disk1```
-
 - 建立完成后，它会告诉你一个uuid，复制下来。
-
 - 3. 给这个 fusion drive 分区:
-
 - ```diskutil cs createVolume BDF819F4-06C0-4D49-943A-1A23E8B20928 jhfs+ "Macintosh FD" 100%```
-
 - 到这里你可以发现所有磁盘变成一块磁盘了 然后正常的使用磁盘工具抹盘安装即可了！
 - 注意要使用该技术必须在安装时候进行该操作，操作后不可拆分，如果拆分会损失数据，请自行选择是否使用！
 
