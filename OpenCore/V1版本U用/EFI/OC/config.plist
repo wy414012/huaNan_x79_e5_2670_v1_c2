@@ -10,7 +10,7 @@
 				<key>Comment</key>
 				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
 				<string>SSDT-UNC.aml</string>
 			</dict>
