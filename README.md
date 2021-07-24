@@ -42,6 +42,18 @@
 **macOS High Sierra** | sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS High Sierra](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12) 
 **macOS El Capitan** | sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app | [macOS El Capitan](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg) 
 
+# 在Mac下制作虚拟机用的iso镜像
+
+- 首先下载我们需要的系统镜像我们用macOS Big Sur举例说明
+
+- 1、创建一个用于惊醒制作的空dmg文件镜像并且挂载 ```hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur```
+- 2、写入镜像道dmg盘```sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/BigSur --nointeraction```
+- 3、卸载写好后的磁盘```hdiutil detach /volumes/"Install macOS Big sur"```
+- 4、转换dmg镜像为cdr格式,并且拷贝道桌面```hdiutil convert /tmp/BigSur.dmg -format UDTO -o ~/Desktop/BigSur.cdr```
+- 5、重命名为iso格式```mv ~/Desktop/BigSur.cdr ~/Desktop/BigSur.iso```
+- 6、删除不在需要的临时文件```rm -rf /tmp/BigSur.dmg``` 
+- 这样我们就制作完成了，可以往虚拟机里面安装了。
+
 # win下创建安装u盘
 ### 首先，您需要以下内容：
 - 4GB U盘
