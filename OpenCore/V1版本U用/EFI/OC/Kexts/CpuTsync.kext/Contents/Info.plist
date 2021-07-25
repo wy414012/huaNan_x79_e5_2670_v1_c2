@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>CpuTsync</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.0.0, 峨眉山市雅铭网络工作室修正。</string>
+	<string>1.0.0</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.yamingnetwork.driver.CpuTsync</string>
 	<key>CFBundleInfoDictionaryVersion</key>
