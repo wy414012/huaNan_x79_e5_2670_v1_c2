@@ -470,11 +470,11 @@
 				<key>MinKernel</key>
 				<string></string>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/CpuTsync</string>
+				<string>Contents/MacOS/CpuTscSync</string>
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>CpuTsync.kext</string>
+				<string>CpuTscSync.kext</string>
 			</dict>
 		</array>
 		<key>Block</key>
