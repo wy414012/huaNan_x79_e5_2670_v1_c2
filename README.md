@@ -139,7 +139,7 @@
 - Mac下使用ssdtPRGen.sh生成专属的cpu变频文件 
 - 使用之前请打开终端先安装```xcode-select --install``` 命令行开发者工具
 - 执行如下命令:
-- ```curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/Beta/ssdtPRGen.sh```
+- ```curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/master/ssdtPRGen.sh```
 - ```wc -c ssdtPRGen.sh```
 - ```chmod +x ~/ssdtPRGen.sh```
 - 运行 ```sudo ./ssdtPRGen.sh```
