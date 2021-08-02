@@ -46,7 +46,7 @@
 
 - 首先下载我们需要的系统镜像我们用macOS Big Sur举例说明
 
-- 1、创建一个用于惊醒制作的空dmg文件镜像并且挂载 ```hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur```
+- 1、创建一个用于进行制作的空dmg文件镜像并且挂载 ```hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur```
 - 2、写入镜像道dmg盘```sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/BigSur --nointeraction```
 - 3、卸载写好后的磁盘```hdiutil detach /volumes/"Install macOS Big sur"```
 - 4、转换dmg镜像为cdr格式,并且拷贝道桌面```hdiutil convert /tmp/BigSur.dmg -format UDTO -o ~/Desktop/BigSur.cdr```
