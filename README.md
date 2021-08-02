@@ -149,7 +149,7 @@
 ### 注意: ###
 #### 部分cpu不仅需要ssdt还需要开启配置文件上面的对应补丁 ####
 - 1、ACPI -> Delete ![image](/OpenCore/docs/Delete.png)
-- 2、v1（32纳米版本的cpu还需要启用内核补丁) ![image](/OpenCore/docs/CpuPatch.png)
+- 2、v1（32纳米版本的cpu还需要启用内核补丁，当Patch不存在时，需要自己在Config文件中添加) ![image](/OpenCore/docs/CpuPatch.png)
 ### alc声卡驱动说明 ###
 - alc声卡因为主板不同，携带的声卡芯片也不同我们需要在引导位置注入自己合适的id，如下图：
 - ![image](/OpenCore/docs/alc.png)
