@@ -21,9 +21,20 @@
 DefinitionBlock ("", "SSDT", 2, "ACDT", "UNC", 0x00000000)
 {
     External (_SB_.PCI0.UNC0, DeviceObj)
+    External (_SB_.PCI1.UNC1, DeviceObj)
     External (PRBM, IntObj)
 
     Scope (\_SB.PCI0.UNC0)
+    {
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            If (_OSI ("Darwin"))
+            {
+                PRBM = Zero
+            }
+        }
+    }
+    Scope (\_SB.PCI1.UNC1)
     {
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
