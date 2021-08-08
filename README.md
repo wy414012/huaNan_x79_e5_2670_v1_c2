@@ -160,7 +160,9 @@
 - 测试好后我们的声卡后我们可以按照如下方式进行固定：
 - ![image](/OpenCore/docs/Device.png)
 - 对于alc声卡id我们Mac终端自带16进制转换命令```printf '%x\n' 11```这样的意思是将11转换为16进制返回显示b 这样填写就是```0b000000```
-
+### 关于USB驱动定制说明
+- 使用仓库内可以找到的USB定制工具 
+- 参考[bilibili视频教程](https://www.bilibili.com/video/BV1w44y127Ks?share_source=copy_web)
 ### Fusion Drive（融合硬盘技术) ###
 #### 创建方法
 - 1. 列出所有磁盘:
