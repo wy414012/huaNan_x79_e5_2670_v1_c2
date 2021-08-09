@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of /Users/wumingquan/Desktop/clover-x79-e5-2670-rx588/OpenCore/V1版本U用/EFI/OC/ACPI/SSDT-USBX-EC.aml, Mon Aug  9 12:58:23 2021
+ * Disassembly of /Users/wumingquan/Desktop/clover-x79-e5-2670-rx588/OpenCore/ssdt/主板SSDT源码/SSDT-USBX-EC.aml, Mon Aug  9 13:04:33 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000119 (281)
+ *     Length           0x0000010C (268)
  *     Revision         0x02
- *     Checksum         0xBB
+ *     Checksum         0x0F
  *     OEM ID           "CORP"
  *     OEM Table ID     "UsbReset"
  *     OEM Revision     0x00001000 (4096)
@@ -23,7 +23,6 @@ DefinitionBlock ("", "SSDT", 2, "CORP", "UsbReset", 0x00001000)
     External (_SB_.PCI0.EUSB.HUBN, DeviceObj)
     External (_SB_.PCI0.SBRG, DeviceObj)
     External (_SB_.PCI0.USBE.HUBN, DeviceObj)
-    External (_SB_.USBX, DeviceObj)
 
     Scope (\_SB.PCI0.EUSB.HUBN)
     {
