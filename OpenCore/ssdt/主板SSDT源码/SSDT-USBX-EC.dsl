@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of SSDT-USB-Reset-X.aml, Wed Jul 14 18:24:59 2021
+ * Disassembly of /Users/wumingquan/Desktop/clover-x79-e5-2670-rx588/OpenCore/V1版本U用/EFI/OC/ACPI/SSDT-USBX-EC.aml, Mon Aug  9 12:58:23 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000177 (375)
+ *     Length           0x00000119 (281)
  *     Revision         0x02
- *     Checksum         0x42
+ *     Checksum         0xBB
  *     OEM ID           "CORP"
  *     OEM Table ID     "UsbReset"
  *     OEM Revision     0x00001000 (4096)
@@ -21,8 +21,8 @@
 DefinitionBlock ("", "SSDT", 2, "CORP", "UsbReset", 0x00001000)
 {
     External (_SB_.PCI0.EUSB.HUBN, DeviceObj)
-    External (_SB_.PCI0.USBE.HUBN, DeviceObj)
     External (_SB_.PCI0.SBRG, DeviceObj)
+    External (_SB_.PCI0.USBE.HUBN, DeviceObj)
     External (_SB_.USBX, DeviceObj)
 
     Scope (\_SB.PCI0.EUSB.HUBN)
@@ -54,52 +54,12 @@ DefinitionBlock ("", "SSDT", 2, "CORP", "UsbReset", 0x00001000)
             }
         }
     }
+
     Scope (\_SB.PCI0.SBRG)
     {
         Device (EC)
         {
             Name (_HID, "ACID0001")  // _HID: Hardware ID
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If (_OSI ("Darwin"))
-                {
-                    Return (0x0F)
-                }
-                Else
-                {
-                    Return (Zero)
-                }
-            }
-        }
-    }
-    Scope (\_SB)
-    {
-        Device (USBX)
-        {
-            Name (_ADR, Zero)  // _ADR: Address
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                If ((Arg2 == Zero))
-                {
-                    Return (Buffer (One)
-                    {
-                         0x03                                             // .
-                    })
-                }
-
-                Return (Package (0x08)
-                {
-                    "kUSBSleepPowerSupply", 
-                    0x13EC, 
-                    "kUSBSleepPortCurrentLimit", 
-                    0x0834, 
-                    "kUSBWakePowerSupply", 
-                    0x13EC, 
-                    "kUSBWakePortCurrentLimit", 
-                    0x0834
-                })
-            }
-
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (_OSI ("Darwin"))
