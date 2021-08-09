@@ -49,7 +49,7 @@
 
 - 首先下载我们需要的系统镜像我们用macOS Big Sur举例说明
 
-- 1、创建一个用于惊醒制作的空dmg文件镜像并且挂载 ```hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur```
+- 1、创建一个用于镜像制作的空dmg文件镜像并且挂载 ```hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur```
 - 2、写入镜像道dmg盘```sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/BigSur --nointeraction```
 - 3、卸载写好后的磁盘```hdiutil detach /volumes/"Install macOS Big sur"```
 - 4、转换dmg镜像为cdr格式,并且拷贝道桌面```hdiutil convert /tmp/BigSur.dmg -format UDTO -o ~/Desktop/BigSur.cdr```
@@ -161,8 +161,10 @@
 - ![image](/OpenCore/docs/Device.png)
 - 对于alc声卡id我们Mac终端自带16进制转换命令```printf '%x\n' 11```这样的意思是将11转换为16进制返回显示b 这样填写就是```0b000000```
 ### 关于USB驱动定制说明
+
 - 使用仓库内可以找到的USB定制工具 
 - 参考[bilibili视频教程](https://www.bilibili.com/video/BV1w44y127Ks?share_source=copy_web)
+
 ### Fusion Drive（融合硬盘技术) ###
 #### 创建方法
 - 1. 列出所有磁盘:
