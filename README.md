@@ -1,5 +1,6 @@
 # OpenCore-华南x79_e5 2670 v1 c2 v2 rx588
 ![image](/OpenCore/docs/OpenCore_with_text_Small.png)
+
 ### 介绍
 - 项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配
 - 当前仓库代码支持OS版本：10.9-11.5.1正式版全系列安装运行，经过多款华南x79主板验证完全运行正常及其个别声卡驱动id不适配需要自行处理。
