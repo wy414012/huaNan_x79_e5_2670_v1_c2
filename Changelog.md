@@ -10,6 +10,8 @@
 - 启用appleSmcIO=true
 - Add AppleAlc 32-bit support
 - The test enables five native energy-saving items and removes unnecessary sleep patches. 
+- 删除cpu专属ssdt目录不在保留cpu变频SSDT请自行生成
+- 
 ### 0.7.2-b ###
 - 因项目还未完全同步oc核心接下来的版本依然是0.7.2新建立了0.7.2b版来进行过度
 - 现在我们不再需要CPUFriendDataProvider.kext了，如果遇到需要请自行定制该驱动，因为只是一个config电源配置，并无实际需求。
