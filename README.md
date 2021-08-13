@@ -3,7 +3,7 @@
 
 ### 介绍
 - 项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配
-- 当前仓库代码支持OS版本：10.9-11.5.1正式版全系列安装运行，经过多款华南x79主板验证完全运行正常及其个别声卡驱动id不适配需要自行处理。
+- 当前仓库代码支持OS版本：10.9-11.5.2正式版全系列安装运行，经过多款华南x79主板验证完全运行正常及其个别声卡驱动id不适配需要自行处理。
 - 10.13.x适配完成该版本机型默认iMac Pro1,1最低系统支持10.13.2如果低于那么会出现禁止符号
 
 ### 软件硬件 ###
@@ -54,7 +54,7 @@
 - 1、创建一个用于镜像制作的空dmg文件镜像并且挂载 ```hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur```
 - 2、写入镜像道dmg盘```sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/BigSur --nointeraction```
 - 3、卸载写好后的磁盘```hdiutil detach /volumes/"Install macOS Big sur"```
-- 4、转换dmg镜像为cdr格式,并且拷贝道桌面```hdiutil convert /tmp/BigSur.dmg -format UDTO -o ~/Desktop/BigSur.cdr```
+- 4、转换dmg镜像为cdr格式,并且拷贝到桌面```hdiutil convert /tmp/BigSur.dmg -format UDTO -o ~/Desktop/BigSur.cdr```
 - 5、重命名为iso格式```mv ~/Desktop/BigSur.cdr ~/Desktop/BigSur.iso```
 - 6、删除不在需要的临时文件```rm -rf /tmp/BigSur.dmg``` 
 - 这样我们就制作完成了，可以往虚拟机里面安装了。
@@ -163,7 +163,7 @@
 - 测试好后我们的声卡后我们可以按照如下方式进行固定：
 - ![image](/OpenCore/docs/Device.png)
 - 对于alc声卡id我们Mac终端自带16进制转换命令```printf '%x\n' 11```这样的意思是将11转换为16进制返回显示b 这样填写就是```0b000000```
-### 关于USB驱动定制说明
+# 关于USB驱动定制说明
 
 - 使用仓库内可以找到的USB定制工具 
 - 参考[bilibili视频教程](https://www.bilibili.com/video/BV1w44y127Ks?share_source=copy_web)
@@ -184,6 +184,7 @@
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
 - [github同步地址华南x79_e5_2670c2](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2)
+
 # 鸣谢支持：
 名称 | 日期 | 金额 | 渠道
 --- | --- | --- | ---
