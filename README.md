@@ -28,7 +28,7 @@
 ![image](/OpenCore/docs/apfs.png)
 # 文件夹结构说明
 类别 | 描述
---- | ---
+:--- | :---
 **clover-x79** | 最后维护的存档
 **OpenCore** | 新的主要维护,内含v1 v2两个目录其中v1为32纳米系列cpu者该选择的efi，v2为22纳米，选择的efi
 **tools** | 工具维护
@@ -39,13 +39,14 @@
 
 # mac下制作制作安装U盘
 系统版本 | 使用的命令 | 备注 | 官方商店获取地址
---- | --- | --- | ---
+:--- | :--- | :--- | :---
 **macOS Monterey** | sudo /Applications/Install\ macOS\ Monterey\ beta.app /Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 其中usbmac为你自己的U盘名称 | [macOS Monterey]() 
 **macOS BigSur** | sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 其中usbmac为你自己的U盘名称 | [macOS BigSur](https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12)
 **macOS Catalina** | sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS Catalina](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12) 
 **macOS Mojave** | sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS Mojave](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12) 
 **macOS High Sierra** | sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS High Sierra](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12) 
 **macOS El Capitan** | sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app | [macOS El Capitan](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg) 
+---
 
 # 在Mac下制作虚拟机用的iso镜像
 
@@ -117,18 +118,18 @@
 ### [版本说明日志点击查看](/Changelog.md) ###
 # ACPI 内对应ssdt说明
 名称 | 作用 | 是否必须
---- | --- | ---
-**SSDT-UNC.aml** | 所有X99和许多X79板都需要这个SSDT，它专门禁用ACPI中的未使用设备，随后IOPCIFamily不会内核恐慌。这对于最终用户来说只需要很少的配置 | 是
-**SSDT-SBUS-MCHC** | 这一部分涉及修复 macOS 中对 AppleSMBus 的支持，什么是 AppleSMBus？那么这个主要处理系统管理总线，它有很多功能,验证是否正常工作指令 | 否
-**SSDT-PMC.aml** | 所有“真正的”300系列主板（不包括Z370），它特别带回了NVRAM支持，对最终用户只需要很少的配置 | 否
-**SSDT-HPET.aml** | 来自三叶草的花式热补丁，如FixIPIC、FixTMR、FixRTC、FixHPET等，当我们完全转换完成后不在需要该ssdt存在 | 否
-**SSDT-PLUG.aml** | SSDT-PLUG的目的是允许内核的XCPM（XNU的CPU电源管理）管理我们的CPU电源管理，虽然不是必须但是可能会需要存在. | 否
-**SSDT-EC.aml** | 现在我们在EC中加入了RTC修正用于解决在引导win/Linux时候出现的时间错误 | 否
-**SSDT-USB-Reset-X.aml** | USB端口固定与usb供电合并了现在 | 否
-**SSDT-USBX-EC.aml** | ssdt-ec与ssdt-usb合并后的产物 |是
-**SSDT-CPUM** | cpu变频修正安装为目的的时候我们可以没有 | 否
-**SSDT-SSDT-IMEI.aml** | 目前我们不需要该ssdt | 否
-**SSDT-NVMe.aml** | 修正默认nvme磁盘显示外置问题，安装时候我们可以不需要 | 否
+:--- | :--- | :---
+**SSDT-UNC.aml** | **所有X99和许多X79板都需要这个SSDT，它专门禁用ACPI中的未使用设备，随后IOPCIFamily不会内核恐慌。这对于最终用户来说只需要很少的配置** | **是**
+**SSDT-SBUS-MCHC** | **这一部分涉及修复 macOS 中对 AppleSMBus 的支持，什么是 AppleSMBus？那么这个主要处理系统管理总线，它有很多功能,验证是否正常工作指令** | **否**
+**SSDT-PMC.aml** | **所有“真正的”300系列主板（不包括Z370），它特别带回了NVRAM支持，对最终用户只需要很少的配置** | **否**
+**SSDT-HPET.aml** | **来自三叶草的花式热补丁，如FixIPIC、FixTMR、FixRTC、FixHPET等，当我们完全转换完成后不在需要该ssdt存在** | **否**
+**SSDT-PLUG.aml** | **SSDT-PLUG的目的是允许内核的XCPM（XNU的CPU电源管理）管理我们的CPU电源管理，虽然不是必须但是可能会需要存在.** | **否**
+**SSDT-EC.aml** | **现在我们在EC中加入了RTC修正用于解决在引导win/Linux时候出现的时间错误** | **否**
+**SSDT-USB-Reset-X.aml** | **USB端口固定与usb供电合并了现在** | **否**
+**SSDT-USBX-EC.aml** | **ssdt-ec与ssdt-usb合并后的产物** | **是**
+**SSDT-CPUM** | **cpu变频修正安装为目的的时候我们可以没有** | **否**
+**SSDT-SSDT-IMEI.aml** | **目前我们不需要该ssdt** | **否**
+**SSDT-NVMe.aml** | **修正默认nvme磁盘显示外置问题，安装时候我们可以不需要** | **否**
 ---
 ### Acpi 内SSDT的生成说明
 - 我们现在只需要保障acpi目录内存在SSDT-USBX-EC.aml、SSDT-UNC.aml即可正常进行安装
@@ -138,8 +139,8 @@
 - 使用方法安装py运行环境在win下生成自己主板专用的 ``` git clone https://gitee.com/yaming-network/SSDTTime.git ``` 替换到efi里面即可 
 # Wi-Fi网卡原拆支持系统说明列表
 系统版本 | 支持芯片| 最高支持
---- | --- | ---
-**Big Sur(11)+** | BCM943602,BCM94360,BCM94352,DW1560,BCM94350,DW1820A | 当前最新正式版
+:--- | :--- | :---
+**Big Sur(11)+** | **BCM943602,BCM94360,BCM94352,DW1560,BCM94350,DW1820A** | **当前最新正式版**
 ---
 ### CPU变频修复 ###
 #### 开始修复:
@@ -190,7 +191,7 @@
 
 # 鸣谢支持：
 名称 | 日期 | 金额 | 渠道
---- | --- | --- | ---
+:--- | :--- | :--- | :---
 **黄昏** | 2021.3.23 | 9.9元 | 微信红包
 **Pteromyini** | 2021.3.29 | 9.9元 | QQ红包
 **zhenli** | 2021.3.31 | 9.9元 | QQ红包
