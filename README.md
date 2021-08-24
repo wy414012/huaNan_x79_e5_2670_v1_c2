@@ -1,5 +1,5 @@
 # OpenCore-华南x79_e5 2670 v1 c2 v2 rx588
-![image](/OpenCore/docs/OpenCore_with_text_Small.png)
+![image](./OpenCore/docs/OpenCore_with_text_Small.png)
 
 ### 介绍
 - 项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配
@@ -25,7 +25,7 @@
 - 禁用 CSM
 - 安装时间选择抹掉磁盘请直接抹掉为apfs格式
 - 原厂BIOS在0.6.7版本中已经支持 无需做任何设置均可直接安装
-![image](/OpenCore/docs/apfs.png)
+![image](./OpenCore/docs/apfs.png)
 # 文件夹结构说明
 类别 | 描述
 :--- | :---
@@ -80,7 +80,7 @@
 - Catalina(10.15):```python macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download```
 - Big Sur(11):```python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000000000 download```
 - 现在我们等待一些时间即可下载好需要的系统镜像
-- ![image](/OpenCore/docs/macrecovery-done.1b0960bc.png)
+- ![image](./OpenCore/docs/macrecovery-done.1b0960bc.png)
 - 开始建立USB引导驱动
 - 我们开始格式化u盘 执行```Windows + R ``` ```运行diskpart```
 - 显示当前磁盘列表```list disk```
@@ -93,12 +93,12 @@
 - 分配盘符为E，与机器现有磁盘的盘符不冲突即可非固定```ASSIGN LETTER=E```
 - 接下来进入USB驱动器的根目录，创建一个名为com.apple.recovery.boot的文件夹```md com.apple.recovery.boot```
 - 然后移动下载的BaseSystem或RecoveryImage文件。请确保您通过.dmg和.chunklist文件复制到此文件夹:
-- ![image](/OpenCore/docs/com-recovery.805dc41f.png)
+- ![image](./OpenCore/docs/com-recovery.805dc41f.png)
 - 完成后我们看到的应该是这样
-- ![image](/OpenCore/docs/com-efi-done.a6fb730e.png)
+- ![image](./OpenCore/docs/com-efi-done.a6fb730e.png)
 - 这样就完整的创建好了。
 - 完全正确的U盘内的目录结构应该是这样：
-![image](/OpenCore/docs/EFI.png)
+![image](./OpenCore/docs/EFI.png)
 ### 维护计划
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - open core每次稳定版发布一周内推送新版
@@ -156,30 +156,19 @@
 - 在0.7.0发布版本之后CPU变频ssdt名称已经统一名称 SSDT-CPUM.aml
 ### 注意: ###
 #### 部分cpu不仅需要ssdt还需要开启配置文件上面的对应补丁 ####
-- 1、ACPI -> Delete ![image](/OpenCore/docs/Delete.png)
-- 2、v1（32纳米版本的cpu还需要启用内核补丁) ![image](/OpenCore/docs/CpuPatch.png)
+- 1、ACPI -> Delete ![image](./OpenCore/docs/Delete.png)
+- 2、v1（32纳米版本的cpu还需要启用内核补丁) ![image](./OpenCore/docs/CpuPatch.png)
 ### alc声卡驱动说明 ###
 - alc声卡因为主板不同，携带的声卡芯片也不同我们需要在引导位置注入自己合适的id，如下图：
-- ![image](/OpenCore/docs/alc.png)
+- ![image](./OpenCore/docs/alc.png)
 - 测试好后我们的声卡后我们可以按照如下方式进行固定：
-- ![image](/OpenCore/docs/Device.png)
+- ![image](./OpenCore/docs/Device.png)
 - 对于alc声卡id我们Mac终端自带16进制转换命令```printf '%x\n' 11```这样的意思是将11转换为16进制返回显示b 这样填写就是```0b000000```
 # 关于USB驱动定制说明
 
 - 使用仓库内可以找到的USB定制工具 
 - 参考[bilibili视频教程](https://www.bilibili.com/video/BV1w44y127Ks?share_source=copy_web)
 
-### Fusion Drive（融合硬盘技术) ###
-#### 创建方法
-- 1. 列出所有磁盘:
-- ```diskutil list```
-- 2. 建立一块 fusion drive:
-- ```diskutil cs create "Cheney Fusion Drive" disk0 disk1```
-- 建立完成后，它会告诉你一个uuid，复制下来。
-- 3. 给这个 fusion drive 分区:
-- ```diskutil cs createVolume BDF819F4-06C0-4D49-943A-1A23E8B20928 jhfs+ "Macintosh FD" 100%```
-- 到这里你可以发现所有磁盘变成一块磁盘了 然后正常的使用磁盘工具抹盘安装即可了！
-- 注意要使用该技术必须在安装时候进行该操作，操作后不可拆分，如果拆分会损失数据，请自行选择是否使用！
 
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
