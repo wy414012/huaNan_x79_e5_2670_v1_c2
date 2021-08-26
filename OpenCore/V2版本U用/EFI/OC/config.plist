@@ -813,6 +813,7 @@
 			<string>OpenRuntime.efi</string>
 			<string>OpenCanopy.efi</string>
 			<string>NvmExpressDxe.efi</string>
+			<string>OpenPartitionDxe.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
