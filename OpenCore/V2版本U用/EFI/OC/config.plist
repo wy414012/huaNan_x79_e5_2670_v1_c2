@@ -18,7 +18,7 @@
 				<key>Comment</key>
 				<string>SSDT-CPUM.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-CPUM.aml</string>
 			</dict>
@@ -43,11 +43,11 @@
 		<array>
 			<dict>
 				<key>All</key>
-				<true/>
+				<false/>
 				<key>Comment</key>
 				<string>Delete CpuPm</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>OemTableId</key>
 				<data>Q3B1UG0AAAA=</data>
 				<key>TableLength</key>
@@ -57,11 +57,11 @@
 			</dict>
 			<dict>
 				<key>All</key>
-				<true/>
+				<false/>
 				<key>Comment</key>
 				<string>Delete Cpu0Ist</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>OemTableId</key>
 				<data>Q3B1MElzdAA=</data>
 				<key>TableLength</key>
