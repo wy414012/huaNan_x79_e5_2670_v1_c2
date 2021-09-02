@@ -24,6 +24,8 @@
 - 优化图形化引导加载性能
 - 对默认SSDT集中的CPU列表描述删除补丁开启，用于解决部分机型报错 ```erro acpi(_SB.SCKN.C100)```错误。
 - 将默认```config.plist```上对于cpu变频相关的补丁变更为关闭状态。
+- 将```HfsPlus.efi,ExFatDxe.efi```更新为```MP61_0116_B17原生固件```暂未在V1版本中测试兼容性
+- 添加```ExFatDxe.efi```，用于支持BOOTCAMP
 ### 0.7.2-b ###
 - 因项目还未完全同步oc核心接下来的版本依然是0.7.2新建立了0.7.2b版来进行过度
 - 现在我们不再需要CPUFriendDataProvider.kext了，如果遇到需要请自行定制该驱动，因为只是一个config电源配置，并无实际需求。
