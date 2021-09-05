@@ -910,6 +910,22 @@
 				<key>Arguments</key>
 				<string></string>
 			</dict>
+			<dict>
+				<key>Path</key>
+				<string>btrfs_x64.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>Path</key>
+				<string>ext4_x64.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+			</dict>
 		</array>
 		<key>Input</key>
 		<dict>
