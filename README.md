@@ -30,7 +30,7 @@
 类别 | 描述
 :--- | :---
 **clover-x79** | 最后维护的存档
-**OpenCore** | 新的主要维护,内含v1 v2两个目录其中v1为32纳米系列cpu者该选择的efi，v2为22纳米，选择的efi
+**OpenCore** | 新的主要维护,新驱动验证完成不在区分v1与v2差别了
 **tools** | 工具维护
 **ocvalidate** | 对应版本config配置合规性检查器
 **ssdt** | 该目录为一些参考的参数以及代码
@@ -155,6 +155,9 @@
 - 放入oc对应目录中替换默认的
 - 在0.7.0发布版本之后CPU变频ssdt名称已经统一名称 SSDT-CPUM.aml
 ### 注意: ###
+- ** **
+- **仓库内代码默认为开发版，只想稳定使用者请勿直接克隆。**
+- ** ** 
 #### 部分cpu不仅需要ssdt还需要开启配置文件上面的对应补丁 ####
 - 1、ACPI -> Delete ![image](./OpenCore/docs/Delete.png)
 - 2、v1（32纳米版本的cpu还需要启用内核补丁) ![image](./OpenCore/docs/CpuPatch.png)

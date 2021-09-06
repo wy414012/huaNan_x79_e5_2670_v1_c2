@@ -27,6 +27,10 @@
 - 将```HfsPlus.efi,ExFatDxe.efi```更新为```MP61_0116_B17原生固件```暂未在V1版本中测试兼容性
 - 添加```ExFatDxe.efi```，用于支持BOOTCAMP
 - 升级核心架构到最新```支持Linux了，配置文件与之前版本在于UEFI驱动路径位置改变```
+- 添加单盘双系统存放win引导路径```\EFI\win\Microsoft\Boot\bootmgfw.efi```默认对其进行了注释
+- ```HfsPlus.efi```驱动验证完成，现在不在区分v1 与v2版本了 可通用了现在
+- 合并文件和补丁
+
 ### 0.7.2-b ###
 - 因项目还未完全同步oc核心接下来的版本依然是0.7.2新建立了0.7.2b版来进行过度
 - 现在我们不再需要CPUFriendDataProvider.kext了，如果遇到需要请自行定制该驱动，因为只是一个config电源配置，并无实际需求。
