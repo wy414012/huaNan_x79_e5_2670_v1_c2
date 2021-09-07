@@ -4,7 +4,7 @@ name="OpenCore-"
 srcFile="EFI"
 srcPath="./OpenCore"
 targetPath="./build"
-version=0.7.3
+version=0.7.4
 date=$(date +%Y%m%d)
 cpu=-REL-
 
