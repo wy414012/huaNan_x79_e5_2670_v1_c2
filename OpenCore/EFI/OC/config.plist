@@ -940,6 +940,14 @@
 			</dict>
 			<dict>
 				<key>Path</key>
+				<string>OpenRuntime.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>Path</key>
 				<string>NvmExpressDxe.efi</string>
 				<key>Enabled</key>
 				<true/>
@@ -957,14 +965,6 @@
 			<dict>
 				<key>Path</key>
 				<string>OpenPartitionDxe.efi</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Arguments</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>Path</key>
-				<string>OpenRuntime.efi</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Arguments</key>

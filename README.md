@@ -168,10 +168,11 @@
 - ![image](./OpenCore/docs/Device.png)
 - 对于alc声卡id我们Mac终端自带16进制转换命令```printf '%x\n' 11```这样的意思是将11转换为16进制返回显示b 这样填写就是```0b000000```
 # 关于USB驱动定制说明
-
-- 使用仓库内可以找到的USB定制工具 
-- 参考[bilibili视频教程](https://www.bilibili.com/video/BV1w44y127Ks?share_source=copy_web)
-
+- ** **
+- **使用仓库内可以找到的USB定制工具 
+- **参考[bilibili视频教程](https://www.bilibili.com/video/BV1w44y127Ks?share_source=copy_web)**
+- **[快速更换三码b站视频地址](https://www.bilibili.com/video/BV1S44y187vE?share_source=copy_web)**
+- ** **
 
 ### 对应自维护机型地址 ###
 - [技嘉_b75m_d3v+e3_1230_v2](https://gitee.com/yaming-network/OpenCore-GA-b75)
