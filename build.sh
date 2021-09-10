@@ -1,7 +1,7 @@
 #!/bin/bash
 
 name="OpenCore-"
-srcFile="EFI"
+srcFile="/"
 srcPath="./OpenCore"
 targetPath="./build"
 version=0.7.4
