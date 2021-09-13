@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>20G71</string>
+	<string>20G95</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>CpuTscSync</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.lvs1974.driver.CpuTscSync</string>
+	<string>as.Yaming.CpuTscSync</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.4</string>
+	<string>1.0.5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,29 +25,29 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.4</string>
+	<string>1.0.5</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>13A5192j</string>
+	<string>13A5212g</string>
 	<key>DTPlatformName</key>
 	<string>macosx</string>
 	<key>DTPlatformVersion</key>
 	<string>12.0</string>
 	<key>DTSDKBuild</key>
-	<string>21A5284e</string>
+	<string>21A5304f</string>
 	<key>DTSDKName</key>
 	<string>macosx12.0</string>
 	<key>DTXcode</key>
 	<string>1300</string>
 	<key>DTXcodeBuild</key>
-	<string>13A5192j</string>
+	<string>13A5212g</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>CpuTscSync</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>org.lvs1974.driver.CpuTscSync</string>
+			<string>as.Yaming.CpuTscSync</string>
 			<key>IOClass</key>
 			<string>CpuTscSync</string>
 			<key>IOMatchCategory</key>
@@ -60,7 +60,7 @@
 		<key>VoodooTSCSync</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>org.lvs1974.driver.CpuTscSync</string>
+			<string>as.Yaming.CpuTscSync</string>
 			<key>IOClass</key>
 			<string>VoodooTSCSync</string>
 			<key>IOMatchCategory</key>
