@@ -3,8 +3,8 @@
 
 ### 介绍
 - **项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配**
-- **当前仓库代码支持OS版本：10.9.1-11.5.2正式版全系列安装运行，经过多款华南x79主板验证完全运行正常及其个别声卡驱动id不适配需要自行处理。**
-- **10.13.x适配完成该版本机型默认iMac Pro1,1最低系统支持10.13.2如果低于那么会出现禁止符号！**
+- **当前仓库代码支持OS版本：10.9.1-10.12.x,10.14.x-11.6.x正式版全系列安装运行，经过多款华南x79主板验证完全运行正常及其个别声卡驱动id不适配需要自行处理。**
+- **10.13.x排除不对该版本进行支持,需要使用请自行适配！**
 - **现在支持linux使用oc来引导了**
 ### 硬件 ###
 - **主板：华南金牌 ver2.4.x 蓝色四内存槽版本**
@@ -49,6 +49,10 @@
 :--- | :--- | :--- 
 **[英特尔变频监测工具macOS ](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** | **macOS** | **macOS Big Sur 11.5.2** 
 **[英特尔变频监测工具win10OS](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/PowerGadget_3.6.msi)** | **win** | **win10+** 
+**[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | ** macOS，win** | **macOS Big Sur 11.6,win101703+**
+**[OpenCore升级包](https://gitee.com/yaming-network/OpenCorePkg/releases/)** | **macOS** | **10.9+ **
+**[GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)** | **macOS，win10** | ** **
+
 ---
 # mac下制作制作安装U盘
 系统版本 | 使用的命令 | 备注 | 官方商店获取地址
@@ -115,19 +119,6 @@
 ### 维护计划
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - open core每次稳定版发布一周内推送新版
-- [open core自行配置发布版下载地址](https://gitee.com/yaming-network/OpenCorePkg/releases/)
-#### 配置编辑器地址 ####
-- [GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)
-- ``` git clone https://gitee.com/yaming-network/GenSMBIOS```
-- ```cd GenSMBIOS ```
-- ```chmod +x GenSMBIOS.command```
-- [ProperTree](https://gitee.com/yaming-network/ProperTree)
-- ```git clone https://gitee.com/yaming-network/ProperTree```
-- ```python ./ProperTree/ProperTree.command```
-- 配置器使用需要安装[python环境](https://www.python.org/downloads/)
-- 修复配置器在[MacOS Big Sur macOS 11上面崩溃的问题](https://www.python.org/downloads/mac-osx/)下载最新版本安装后 使用脚本目录内的```buildapp-python3.command```生成app后即可正常使用
-- win最少需要在版本win10 1703以上系统安装py后执行```ProperTree.bat```即可运行编辑器
-- 请勿使用occ配置器编辑配置文件，因为如果版本错误会损坏配置文件导致各种异常
 ### [版本说明日志点击查看](/Changelog.md) ###
 # ACPI 内对应ssdt说明
 名称 | 作用 | 是否必须
