@@ -45,10 +45,11 @@
 ---
 
 # 工具下载地址
-名称 | 支持系统 ｜ 最大支持版本
+名称 | 支持系统 | 最大支持版本
 :--- | :--- | :--- 
-**[英特尔变频监测工具macOS ](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** ｜ **macOS** | **macOS Big Sur 11.5.2** 
-**[英特尔变频监测工具win10OS](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/PowerGadget_3.6.msi)** ｜ **win** | **win10+** 
+**[英特尔变频监测工具macOS ](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** | **macOS** | **macOS Big Sur 11.5.2** 
+**[英特尔变频监测工具win10OS](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/PowerGadget_3.6.msi)** | **win** | **win10+** 
+---
 # mac下制作制作安装U盘
 系统版本 | 使用的命令 | 备注 | 官方商店获取地址
 :--- | :--- | :--- | :---
