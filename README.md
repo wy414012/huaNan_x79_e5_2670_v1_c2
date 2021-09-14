@@ -39,12 +39,16 @@
 :--- | :---
 **clover-x79** | 最后维护的存档
 **OpenCore** | 新的主要维护,新驱动验证完成不在区分v1与v2差别了
-**tools** | 工具维护
 **ocvalidate** | 对应版本config配置合规性检查器
 **ssdt** | 该目录为一些参考的参数以及代码
 **docs** | 未来的说明文档存放路径
 ---
 
+# 工具下载地址
+名称 | 支持系统 ｜ 最大支持版本
+:--- | :--- | :--- 
+**[英特尔变频监测工具macOS ](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** ｜ **macOS** | **macOS Big Sur 11.5.2** 
+**[英特尔变频监测工具win10OS](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/PowerGadget_3.6.msi)** ｜ **win** | **win10+** 
 # mac下制作制作安装U盘
 系统版本 | 使用的命令 | 备注 | 官方商店获取地址
 :--- | :--- | :--- | :---
