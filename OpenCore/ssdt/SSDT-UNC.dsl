@@ -20,11 +20,14 @@
  */
 DefinitionBlock ("", "SSDT", 2, "ACDT", "UNC", 0x00000000)
 {
-    External (_SB_.PCI0.UNC0, DeviceObj)
+    External (_SB_.PCI0, DeviceObj)
     External (PRBM, IntObj)
 
-    Scope (\_SB.PCI0.UNC0)
+    Scope (\_SB.PCI0)
     {
+        Device (^UNC0)
+        {
+        Name (_HID, EisaId ("PNP0A03") /* PCI Bus */)  // _HID: Hardware ID
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
             If (_OSI ("Darwin"))
@@ -33,5 +36,6 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "UNC", 0x00000000)
             }
         }
     }
+}
 }
 
