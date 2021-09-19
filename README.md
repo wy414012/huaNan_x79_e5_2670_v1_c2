@@ -20,13 +20,35 @@
 ### 注意事项 ###
 - **新开企鹅交流群感谢各位关注为各位处理cpu变频问题** 
 - **千人群号591391580**
-- **对两个可用smbios机型支持添加一个说明**
-- **Mac pro 6,1 该机型支持最低系统为10.9.1**
-- **iMac pro1,1 该机型支持最低系统版本为：10.13.2**
-- **Mac Pro7,1 该机型最低支持系统版本为：10.15.0**
 - **无核显,硬解开启机型推荐iMac Pro1,1或者Mac Pro7,1,英伟达免驱显卡在10.13.6之后无法在没有核心显卡的情况下开启硬件解码**
 - **如果要安装的系统低于支持的机型最低系统版本将会出现禁止符号**
 - **仓库内最新代码均为测试中代码，不建议使用，请于发布页面下载稳定版本**
+### iMac Pro
+
+| SMBIOS | CPU 内部型号 | GPU | board-id | 最低支持 | 当前最高支持版本 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| iMacPro1,1     | Skylake-W    | Vega 56                       | Mac-7BA5B2D9E42DDD94       | 10.13.2 (17C2111) | Current |
+
+### Mac Pro
+
+| SMBIOS | CPU 内部型号 | GPU | board-id | 最低支持 | 当前最高支持版本 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| MacPro1,1      | Woodcrest     | GeForce 7300 GT               | Mac-F4208DC8           | 10.4.7 (8K1079) | 10.7.5 |
+| MacPro2,1      | Clovertown    | ^^                            | Mac-F4208DA9           | 10.4.9 (8P4037) | ^^ |
+| MacPro3,1      | Harpertown    | Radeon HD 2600 XT             | Mac-F42C88C8           | 10.5.1 (9B2117) | 10.11.6 |
+| MacPro4,1      | Nehalem       | GeForce GT 120                | Mac-F221BEC8           | 10.5.6 (9G3553) | ^^ |
+| MacPro5,1      | Nehalem       | Radeon HD 5770                | Mac-F221BEC8           | 10.6.4 (10F2521) | 10.14.6 |
+| MacPro5,1      | Westmere EP   | ^^                            | Mac-F221BEC8           | 10.6.4 (10F2521) | ^^ |
+| MacPro6,1      | Ivy Bridge EP | FirePro D300                  | Mac-F60DEB81FF30ACF6   | 10.9.1 (13B4116) | Current |
+| MacPro7,1      | Cascade Lake-W| Radeon Pro 580X               | Mac-27AD2F918AE68F61   | 10.15.0 (19A583) | ^^ |
+
+### Xserve
+
+| SMBIOS | CPU 内部型号 | GPU | board-id | 最低支持 | 当前最高支持版本 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Xserve1,1      | Woodcrest    | Radeon X1300                  | Mac-F4208AC8           | Server 10.4.8 (8N1215) | Server 10.7.5 |
+| Xserve2,1      | Harpertown   | ^^                            | Mac-F42289C8           | Server 10.5 (9B2117) | ^^ |
+| Xserve3,1      | Nehalem EP   | GeForce GT 120                | Mac-F223BEC8           | Server 10.5.6 | 10.11.6 |
 ### 安装教程 ###
 - 开始安装之前
 - 注意bios设置
