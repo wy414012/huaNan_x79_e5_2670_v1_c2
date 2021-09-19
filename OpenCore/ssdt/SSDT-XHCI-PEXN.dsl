@@ -21,8 +21,56 @@
 DefinitionBlock ("", "SSDT", 2, "ACDT", "XHCI", 0x00000000)
 {
     External (_SB_.PCI0.PEX1, DeviceObj)
+    External (_SB_.PCI0.PEX2, DeviceObj)
+    External (_SB_.PCI0.PEX3, DeviceObj)
+    External (_SB_.PCI0.PEX4, DeviceObj)
+    External (_SB_.PCI0.PEX5, DeviceObj)
+    External (_SB_.PCI0.PEX6, DeviceObj)
+    External (_SB_.PCI0.PEX7, DeviceObj)
 
     Scope (\_SB.PCI0.PEX1)
+    {
+        Device (XHCI)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+        }
+    }
+    Scope (\_SB.PCI0.PEX2)
+    {
+        Device (XHCI)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+        }
+    }
+    Scope (\_SB.PCI0.PEX3)
+    {
+        Device (XHCI)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+        }
+    }
+    Scope (\_SB.PCI0.PEX4)
+    {
+        Device (XHCI)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+        }
+    }
+    Scope (\_SB.PCI0.PEX5)
+    {
+        Device (XHCI)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+        }
+    }
+    Scope (\_SB.PCI0.PEX6)
+    {
+        Device (XHCI)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+        }
+    }
+    Scope (\_SB.PCI0.PEX7)
     {
         Device (XHCI)
         {
