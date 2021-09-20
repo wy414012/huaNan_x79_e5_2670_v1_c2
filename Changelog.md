@@ -8,6 +8,7 @@
 - ```UEFI -> Quirks -> ReleaseUsbOwnership -> True```
 - 添加缺失```XHCI```控制桥描述修补示例添加到SSDT参考目录
 - 重写UNC设备屏蔽SSDT
+
 ### 0.7.3 ###
 - 同步版本日志
 - 正式添加版本配置文件合规性检查器，该工具每个版本的配置文件中附带，用于检查config是否有损坏

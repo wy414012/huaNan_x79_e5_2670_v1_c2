@@ -72,7 +72,7 @@
 :--- | :--- | :--- 
 **[英特尔变频监测工具macOS ](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** | **macOS** | **macOS Big Sur 11.5.2** 
 **[英特尔变频监测工具win10OS](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/PowerGadget_3.6.msi)** | **win** | **win10+** 
-**[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | ** macOS，win** | **macOS Big Sur 11.6,win101703+**
+**[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | ** macOS，win** | **OpenCore0.7.4**
 **[OpenCore升级包](https://gitee.com/yaming-network/OpenCorePkg/releases/)** | **macOS** | **10.9+ **
 **[GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)** | **macOS，win10** | ** **
 
