@@ -926,16 +926,6 @@
 				<key>Arguments</key>
 				<string></string>
 				<key>Comment</key>
-				<string>ExFat+ Driver</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>ExFatDxe.efi</string>
-			</dict>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Comment</key>
 				<string>Hfs+ Driver</string>
 				<key>Enabled</key>
 				<true/>
@@ -971,16 +961,6 @@
 				<string>OpenCanopy Driver</string>
 				<key>Path</key>
 				<string>OpenCanopy.efi</string>
-			</dict>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>Comment</key>
-				<string>OpenPartition Driver</string>
-				<key>Path</key>
-				<string>OpenPartitionDxe.efi</string>
 			</dict>
 		</array>
 		<key>Input</key>
