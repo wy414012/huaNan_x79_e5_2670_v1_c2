@@ -42,7 +42,7 @@ jobs:
       - name: 打包上传工作件
         uses: actions/upload-artifact@v2
         with:
-          name: OpenCore_macOS_build
+          name: sha256sum
           path: build/*.txt
       - name: 上传发布版本
         if: github.event_name == 'release'
