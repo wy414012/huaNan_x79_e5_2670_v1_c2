@@ -39,12 +39,24 @@ jobs:
         with:
           name: OpenCore_macOS_build
           path: build/*.tar.gz
-
+      - name: 打包上传工作件
+        uses: actions/upload-artifact@v2
+        with:
+          name: OpenCore_macOS_build
+          path: build/*.txt
       - name: 上传发布版本
         if: github.event_name == 'release'
         uses: svenstaro/upload-release-action@483c1e56f95e88835747b1c7c60581215016cbf2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: Binaries/*.zip
+          file: build/*.tar.gz
+          tag: ${{ github.ref }}
+          file_glob: true
+      - name: 上传发布版本
+        if: github.event_name == 'release'
+        uses: svenstaro/upload-release-action@483c1e56f95e88835747b1c7c60581215016cbf2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: build/*.txt
           tag: ${{ github.ref }}
           file_glob: true
