@@ -19,7 +19,7 @@ fi
 echo "打包完成开始生成sha256sum码"
 fi
 if [ -d $targetPath ];then
-md5 $targetPath/$name$version$cpu$date.tar.gz >$targetPath/$name$version$cpu$date.tar.gz.sha256sum.txt
+md5sum $targetPath/$name$version$cpu$date.tar.gz >$targetPath/$name$version$cpu$date.tar.gz.sha256sum.txt
 else
 echo "存放目录不存在"
 fi

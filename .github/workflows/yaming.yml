@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+env:
+  PROJECT_TYPE: UEFI
+  FORCE_INSTALL: 1
+  HAS_OPENSSL_BUILD: 1
+  HAS_OPENSSL_W32BUILD: 0
+  WERROR: 1
+
+jobs:
+  build-linux64:
+    name: 使用Linux自动打包
+    runs-on: [self-hosted, linxu, x64]
+    env:
+      JOB_TYPE: BUILD
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: ./build.sh
+
+
+      - name: 打包上传工作件
+        uses: actions/upload-artifact@v2
+        with:
+          name: OpenCore_macOS_build
+          path: build/*.tar.gz
+
+      - name: 上传发布版本
+        if: github.event_name == 'release'
+        uses: svenstaro/upload-release-action@483c1e56f95e88835747b1c7c60581215016cbf2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: Binaries/*.zip
+          tag: ${{ github.ref }}
+          file_glob: true
