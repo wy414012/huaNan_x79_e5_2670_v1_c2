@@ -15,9 +15,9 @@ env:
   WERROR: 1
 
 jobs:
-  build-linux64:
-    name: 使用Linux自动打包
-    runs-on: [self-hosted, linux, x64]
+  build-macos:
+    name: 使用macOS自动打包
+    runs-on: macos-11
     env:
       JOB_TYPE: BUILD
     steps:
