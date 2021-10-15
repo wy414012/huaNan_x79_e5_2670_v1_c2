@@ -17,7 +17,7 @@ env:
 jobs:
   build-linux64:
     name: 使用Linux自动打包
-    runs-on: [self-hosted, linxu, x64]
+    runs-on: [self-hosted, linux, x64]
     env:
       JOB_TYPE: BUILD
     steps:
