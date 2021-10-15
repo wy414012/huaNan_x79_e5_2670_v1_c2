@@ -22,7 +22,15 @@ jobs:
       JOB_TYPE: BUILD
     steps:
       - uses: actions/checkout@v2
+
+      - name: 安装打包依赖
+        run: brew install md5sha1sum
+        env:
+          HOMEBREW_NO_INSTALL_CLEANUP: 1
+          HOMEBREW_NO_AUTO_UPDATE: 1
+
       - run: mkdir -p build
+
       - run: ./build.sh
 
 
