@@ -70,7 +70,7 @@
 		</dict>
 	</dict>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.8</string>
+	<string>10.9</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 lvs1974. All rights reserved.</string>
 	<key>OSBundleCompatibleVersion</key>
