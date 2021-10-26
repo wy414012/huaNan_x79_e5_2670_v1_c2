@@ -90,7 +90,8 @@
 - Sierra(10.12):```python macrecovery.py -b Mac-77F17D7DA9285301 -m 00000000000J0DX00 download```
 - Mojave(10.14):```python macrecovery.py -b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 download```
 - Catalina(10.15):```python macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download```
-- Big Sur(11):```python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000000000 download```
+- Big Sur(11.6):```python macrecovery.py -b Mac-42FD25EABCABB274 -m 00000000000000000 download```
+- Monterey(12):```python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000000000 -os latest download```
 - 现在我们等待一些时间即可下载好需要的系统镜像
 - ![image](./OpenCore/docs/macrecovery-done.1b0960bc.png)
 - 开始建立USB引导驱动
