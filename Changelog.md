@@ -4,6 +4,8 @@
 - 将OpenCanopy资源读取路径层级降低遍历目录，优化层级
 - 添加了github自动打包CI
 - 添加`SSDT-PLUG.aml`补丁
+- 完整更新全机型内置固件数据
+
 ### 0.7.4 ###
 - 将机型调整至默认iMacPro1,1
 - ```CpuTscSync.kext```当前仓库内驱动在macOS12下支持良好，请勿更新该驱动
