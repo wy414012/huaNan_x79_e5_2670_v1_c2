@@ -40,6 +40,7 @@ Utility to validate whether a `config.plist` matches requirements and convention
 - When `AllowRelocationBlock` is enabled, `ProvideCustomSlide` should be enabled altogether.
 - When `EnableSafeModeSlide` is enabled, `ProvideCustomSlide` should be enabled altogether.
 - If `ProvideMaxSlide` is set to a number greater than zero, `ProvideCustomSlide` should be enabled altogether.
+- `ResizeAppleGpuBars` must be set to `0` or `-1`.
 - When `DisableVariableWrite`, `EnableWriteUnprotector`, or `ProvideCustomSlide` is enabled, `OpenRuntime.efi` should be loaded in `UEFI->Drivers`.
 
 ### DeviceProperties
@@ -110,6 +111,7 @@ Utility to validate whether a `config.plist` matches requirements and convention
 - When `AudioSupport` is enabled, AudioDevice cannot be empty and must be a valid path.
 #### Quirks
 - When `RequestBootVarRouting` is enabled, `OpenRuntime.efi` should be loaded in `UEFI->Drivers`.
+- `ResizeGpuBars` must be set to an integer value between `-1` and `19`.
 #### Drivers
 - When `OpenUsbKbDxe.efi` is in use, `KeySupport` in `UEFI->Input` should never be enabled altogether.
 - When `Ps2KeyboardDxe.efi` is in use, `KeySupport` in `UEFI->Input` should always be enabled altogether.
@@ -122,5 +124,6 @@ Utility to validate whether a `config.plist` matches requirements and convention
 #### Output
 - `ClearScreenOnModeSwitch`, `IgnoreTextInGraphics`, `ReplaceTabWithSpace`, and `SanitiseClearScreen` only apply to `System` TextRenderer
 - `Resolution` should match `NUMBERxNUMBER` or `NUMBERxNUMBER@NUMBER` sequences (unless it is an `Empty string` or is set to `Max`).
+- `UIScale` must be set to an integer value between `-1` and `2`.
 #### ReservedMemory
 - Type: Only `Reserved`, `LoaderCode`, `LoaderData`, `BootServiceCode`, `BootServiceData`, `RuntimeCode`, `RuntimeData`, `Available`, `Persistent`, `UnusableMemory`, `ACPIReclaimMemory`, `ACPIMemoryNVS`, `MemoryMappedIO`, `MemoryMappedIOPortSpace`, or `PalCode` are accepted.
