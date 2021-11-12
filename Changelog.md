@@ -3,6 +3,7 @@
 ### 0.7.6 ###
 - 新增`UIScale`设置项
 - 将辅助菜单默认更改为隐藏`Misc->boot->HideAuxiliary=true`false=不隐藏
+- 更新`Lilu.kext`修复10.15下导致内核崩溃的bug
 ### 0.7.5 ###
 - 将OpenCanopy资源读取路径层级降低遍历目录，优化层级
 - 添加了github自动打包CI
