@@ -1,11 +1,15 @@
 # OpenCore-华南x79_e5 2670 v1 c2 v2 rx588
 ![image](./OpenCore/docs/OpenCore_with_text_Small.png)
-[![CI](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml/badge.svg)](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml)
+![CI](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml/badge.svg)(https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml)
 ### 介绍
 - **项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配**
 - **当前仓库代码支持OS版本：10.9.1-10.12.x,10.14.x-11.6.x正式版全系列安装运行，经过多款华南x79主板验证完全运行正常及其个别声卡驱动id不适配需要自行处理。**
 - **10.13.x排除不对该版本进行支持,需要使用请自行适配！**
 - **现在支持linux使用oc来引导了**
+### 关于macOS Monterey支持说明
+- 目前已知UEFI在核心数量低于6核心12线程的CPU上没有任何问题
+- 暂时无法确定更多核心为什么会发生内核恐慌或者acpi注册异常
+![](./OpenCore/docs/macOSMonterey.JPG)
 ### 硬件 ###
 - **主板：华南金牌 ver2.4.x 蓝色四内存槽版本**
 - **Cpu:E5_2670_c2 + E5_2670_v2**
