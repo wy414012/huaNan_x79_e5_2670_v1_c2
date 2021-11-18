@@ -1,1 +1,14 @@
 theme: jekyll-theme-cayman
+	- title: "wy414012"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: wy414012
+theme: minima
+header_pages:
+  - web/index.md
+
+plugins:
+  - jekyll-feed
+  - jekyll-mentions
+disqus:
+  shortname: placeholder # this is a placeholder to enable comments
