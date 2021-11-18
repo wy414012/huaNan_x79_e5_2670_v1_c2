@@ -1,0 +1,7 @@
+*.DS_Store
+*.empty
+.empty
+.DS_Store
+/build
+# Other
+.DS_Store
