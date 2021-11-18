@@ -9,6 +9,7 @@
 - 将辅助菜单`Misc->boot->HideAuxiliary=false`恢复为默认不隐藏
 - 对于USB3.0缺失XHCI控制桥请使用`SSDT-XHCI-PEXN.aml`补丁添加到acpi内启用即可解决
 - 将系统驱动加载情况查看工具`acdtinfo`添加到文档目录中，用法`./acdtinfo`
+- 优化`OpenCanopy`逻辑减少图形撕裂
 ### 0.7.5 ###
 - 将OpenCanopy资源读取路径层级降低遍历目录，优化层级
 - 添加了github自动打包CI
