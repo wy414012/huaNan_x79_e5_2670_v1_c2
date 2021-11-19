@@ -1,11 +1,1 @@
 theme: jekyll-theme-cayman
-github_username: wy414012
-theme: minima
-header_pages:
-  - web/index.md
-
-plugins:
-  - jekyll-feed
-  - jekyll-mentions
-disqus:
-  shortname: placeholder # this is a placeholder to enable comments
