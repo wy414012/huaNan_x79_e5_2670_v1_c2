@@ -11,6 +11,7 @@
 - 将系统驱动加载情况查看工具`acdtinfo`添加到文档目录中，用法`./acdtinfo`
 - 优化`OpenCanopy`逻辑减少图形撕裂
 - 修复了在 `ScanPolicy` 中使用逻辑单元处理PCI设备路径
+- 同步新增配置参数
 ### 0.7.5 ###
 - 将OpenCanopy资源读取路径层级降低遍历目录，优化层级
 - 添加了github自动打包CI
