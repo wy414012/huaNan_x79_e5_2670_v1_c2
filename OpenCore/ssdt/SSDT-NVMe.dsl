@@ -18,7 +18,7 @@
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20161210 (538317328)
  */
-DefinitionBlock ("", "SSDT", 2, "hack", "nvme", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "hack", "NVME", 0x00000000)
 {
     External (_SB_.PCI0.NPE1, DeviceObj)    // (from opcode)
     External (_SB_.PCI0.NPE1.H000._ADR, UnknownObj)    // (from opcode)
