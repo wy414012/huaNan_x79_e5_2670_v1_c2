@@ -1,5 +1,5 @@
 # OpenCore-华南x79_e5 2670 v1 c2 v2 rx588
-![image](./OpenCore/docs/OpenCore_with_text_Small.png)
+
 ![![CI](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml/badge.svg)](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml)
 ### 介绍
 - **项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配**
@@ -48,9 +48,9 @@
 # 工具下载地址
 名称 | 支持系统 | 最大支持版本
 :--- | :--- | :--- 
-**[英特尔变频监测工具macOS ](https://www.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** | **macOS** | **macOS Big Sur 11.5.2** 
+**[英特尔变频监测工具macOS ](https://www.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** | **macOS** | **macOS Big Sur 11.6.2** 
 **[英特尔变频监测工具win10OS](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/PowerGadget_3.6.msi)** | **win** | **win10+** 
-**[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | ** macOS，win** | **OpenCore0.7.4**
+**[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | ** macOS，win** | **OpenCore0.7.6**
 **[OpenCore升级包](https://gitee.com/yaming-network/OpenCorePkg/releases/)** | **macOS** | **10.9+ **
 **[GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)** | **macOS，win10** | ** **
 
