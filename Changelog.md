@@ -6,6 +6,15 @@
 - 添加对于部分机器缺失的HDEF控制桥
 - 将对应版本开机音频驱动添加到目录
 - 为32纳米制程CPU添加了macOS12的支持测试补丁
+- 当`AudioSupport`启用，`AudioDevice`必须是空的或有效的路径。
+- 当`AudioSupport`启用，`AudioOutMask`必须是非零。
+- 实现多声道（例如低音+主扬声器；扬声器+耳机）UEFI 声音配置 AudioOutMask
+- 修复了当 Nvidia HDA 音频存在时 AudioDxe 启动停止的问题
+- 解决了 AudioDxe 在某些固件上的 Windows 中禁用声音的问题
+- 在内置 AppleEvent 实现中添加了指针轮询周期调整
+- 在内置 AppleEvent 实现中添加了指针设备列表调整
+- 添加了音频 GPIO 和 VREF 处理以在更多 Apple 硬件上支持 UEFI 声音
+- 更新了音频输出通道检测以支持更多 Apple 硬件上的 UEFI 声音
 ### 0.7.6 ###
 - 新增`UIScale`设置项
 - 将辅助菜单默认更改为隐藏`Misc->boot->HideAuxiliary=true`false=不隐藏
