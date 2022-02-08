@@ -2,7 +2,18 @@
 ==========================
 ### 0.7.8 ###
 - 更新网卡驱动，解决在11.6.3beta中出现的断流情况
-
+- 更新了`ocvalidate`以警告不安全`DmgLoading`的安全`SecureBootModel`(在运行时已经不允许）
+- 修复了`AudioDxe`在最近更新后不会禁用未使用的频道
+- 允许增益跟踪旧 macOS 上的操作系统音量，而无需`SystemAudioVolumeDB`
+- 修复了验证密码时不支持鼠标的崩溃
+- 固定 AppleInternal CSR 位被设置为ProvideCustomSlide启用
+- 添加了对引导入口协议条目的支持`.contentFlavour`和文件，包括 OpenLinuxBoot.contentDetails
+- 向 OpenLinuxBoot添加LINUX_BOOT_ADD_RW了标志以支持例如 EndeavourOS
+- 如果需要，向 OpenLinuxBoot添加`flags+=`和`flags-=`参数以简化设置驱动程序标志
+- LINUX_BOOT_USE_LATEST修复了清除标志时的`OpenLinuxBoot`条目名称歧义
+- 更新了 SMBIOS 和其余部分的内置固件版本
+- 修复了部分（重新）安装`Linux`发行版的 OpenLinuxBoot 崩溃
+- 改进了格式错误的`PE`图像文件解析的鲁棒性
 ### 0.7.7 ###
 - 修复了入口点寄存器损坏导致的罕见崩溃
 - 移除不在需要的EC插头补丁，只保留USB端口重置补丁
