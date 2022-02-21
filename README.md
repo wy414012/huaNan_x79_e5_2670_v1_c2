@@ -68,7 +68,7 @@
 # 在Mac下制作虚拟机用的iso镜像
 
 - 首先下载我们需要的系统镜像我们用macOS Big Sur举例说明
-- 修补缺失的头部命令：`hdiutil create -o /tmp/BigSur -size 16000m -layout SPUD -fs HFS+J` 创建一个16g大小的dmg文件
+- 修补缺失的头部命令：`hdiutil create -o /tmp/BigSur -size 16G -layout SPUD -fs HFS+J` 创建一个16g大小的dmg文件
 - 1、创建一个用于镜像制作的空dmg文件镜像并且挂载 ```hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur```
 - 2、写入镜像道dmg盘```sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/BigSur --nointeraction```
 - 3、卸载写好后的磁盘```hdiutil detach /volumes/"Install macOS Big sur"```
