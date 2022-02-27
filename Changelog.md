@@ -3,6 +3,7 @@
 ### 0.7.9 ###
 - 更新核心
 - 为了macOS12支持我们现在放弃了对`cputsync`使用，改`VoodooTSCSync`保障正确安装使用，目前暂时不保证能完美使用，只保证安装
+- 添加功能解锁`FeatureUnlock.kext`,最低启用内核为`21.0.0=macOS12.0`
 ### 0.7.8 ###
 - 更新网卡驱动，解决在11.6.3beta中出现的断流情况
 - 更新了`ocvalidate`以警告不安全`DmgLoading`的安全`SecureBootModel`(在运行时已经不允许）
