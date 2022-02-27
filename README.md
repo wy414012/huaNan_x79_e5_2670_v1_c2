@@ -1,6 +1,6 @@
 # OpenCore-华南x79_e5 2670 v1 c2 v2 rx588
 
-![![CI](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml/badge.svg)](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml)
+![！！[CI](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml/badge.svg)](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml)
 ### 介绍
 - **项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配**
 - **当前仓库代码支持OS版本：10.9.1-10.12.x,10.14.x-11.6.x正式版全系列安装运行，经过多款华南x79主板验证完全运行正常及其个别声卡驱动id不适配需要自行处理。**
@@ -29,7 +29,7 @@
 - **仓库内最新代码均为测试中代码，不建议使用，请于发布页面下载稳定版本**
 - **x79版型众多请谨慎选择**
 - **安装前尽量通读文档**
-### 安装教程 ###
+### 安装教程 
 - 开始安装之前
 - 注意bios设置
 - 禁用 CSM
@@ -37,7 +37,9 @@
 - 安装时间选择抹掉磁盘请直接抹掉为apfs格式
 - 原厂BIOS在0.6.7版本中已经支持 无需做任何设置均可直接安装
 ![image](./OpenCore/docs/apfs.png)
-# 文件夹结构说明
+- macOS12中bios中开启将`local APIC Mode`选项 切换到`x2APIC`将会有更良好的体验
+![image](./bios_01_1.jpg)
+### 文件夹结构说明
 类别 | 描述
 :--- | :---
 **clover-x79** | 最后维护的存档
@@ -47,17 +49,17 @@
 **docs** | 未来的说明文档存放路径
 ---
 
-# 工具下载地址
+### 工具下载地址
 名称 | 支持系统 | 最大支持版本
 :--- | :--- | :--- 
-**[英特尔变频监测工具macOS ](https://www.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** | **macOS** | **macOS Big Sur 11.6.2** 
+**[英特尔变频监测工具macOS](https://www.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** | **macOS** | **macOS Monterey 12.2.x** 
 **[英特尔变频监测工具win10OS](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/PowerGadget_3.6.msi)** | **win** | **win10+** 
-**[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | ** macOS，win** | **OpenCore0.7.6**
+**[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | ** macOS，win** | **OpenCore0.7.9**
 **[OpenCore升级包](https://gitee.com/yaming-network/OpenCorePkg/releases/)** | **macOS** | **10.9+ **
 **[GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)** | **macOS，win10** | ** **
 
 ---
-# mac下制作制作安装U盘
+### mac下制作制作安装U盘
 系统版本 | 使用的命令 | 备注 | 官方商店获取地址
 :--- | :--- | :--- | :---
 **macOS Monterey** | sudo /Applications/Install\ macOS\ Monterey.app /Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 其中usbmac为你自己的U盘名称 | [macOS Monterey](https://apps.apple.com/cn/app/macos-monterey/id1576738294?mt=12) 
@@ -67,7 +69,7 @@
 **macOS El Capitan** | **sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app** | **[macOS El Capitan](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg)** 
 ---
 
-# 在Mac下制作虚拟机用的iso镜像
+### 在Mac下制作虚拟机用的iso镜像
 
 - 首先下载我们需要的系统镜像我们用macOS Big Sur举例说明
 - 修补缺失的头部命令：`hdiutil create -o /tmp/BigSur -size 16G -layout SPUD -fs HFS+J` 创建一个16g大小的dmg文件
@@ -79,23 +81,50 @@
 - 6、删除不在需要的临时文件```rm -rf /tmp/BigSur.dmg``` 
 - 这样我们就制作完成了，可以往虚拟机里面安装了。
 
-# win下创建安装u盘
-### 首先，您需要以下内容：
+### win下创建安装u盘
+#### 首先，您需要以下内容：
 - 4GB U盘
 - [macrecovery](/OpenCore/docs/macrecovery)这里必须安装[python](https://www.python.org/downloads/)
 - 下载macOS
 - 这里开始我们要进入下载的目录内
 - ![image](/OpenCore/docs/macos_usb.png)
-- ```cd /d clover-x79-e5-2670-rx588/OpenCore/docs/macrecovery```
+```bash
+cd /d clover-x79-e5-2670-rx588/OpenCore/docs/macrecovery
+```
 - 现在根据您想要的 macOS 版本运行以下之一（请注意，这些脚本依赖于 [Python](https://www.python.org/downloads/)（打开新窗口）支持，如果您尚未安装，请安装：
-- Mavericks(10.9):```python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000FNN100 download```
-- Yosemite(10.10):```python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000GDVW00 download```
-- El Capitan(10.11):```python macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000GQRX00 download```
-- Sierra(10.12):```python macrecovery.py -b Mac-77F17D7DA9285301 -m 00000000000J0DX00 download```
-- Mojave(10.14):```python macrecovery.py -b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 download```
-- Catalina(10.15):```python macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download```
-- Big Sur(11.6):```python macrecovery.py -b Mac-42FD25EABCABB274 -m 00000000000000000 download```
-- Monterey(12):```python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000000000 -os latest download```
+- Mavericks(10.9):
+
+```bash
+$ python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000FNN100 download
+```
+- Yosemite(10.10):
+```bash
+$ python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000GDVW00 download
+```
+- El Capitan(10.11):
+```bash
+$ python macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000GQRX00 download
+```
+- Sierra(10.12):
+```bash
+$ python macrecovery.py -b Mac-77F17D7DA9285301 -m 00000000000J0DX00 download
+```
+- Mojave(10.14):
+```bash
+$ python macrecovery.py -b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 download
+```
+- Catalina(10.15):
+```bash
+$ python macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download
+```
+- Big Sur(11.6):
+```bash
+$ python macrecovery.py -b Mac-42FD25EABCABB274 -m 00000000000000000 download
+```
+- Monterey(12):
+```bash
+$ python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000000000 -os latest download
+```
 - 现在我们等待一些时间即可下载好需要的系统镜像
 - ![image](./OpenCore/docs/macrecovery-done.1b0960bc.png)
 - 开始建立USB引导驱动
@@ -141,7 +170,7 @@
 - 尽量自行生成相同的ssdt
 - 生成工具使用SSDTTime
 - 使用方法安装py运行环境在win下生成自己主板专用的 ``` git clone https://gitee.com/yaming-network/SSDTTime.git ``` 替换到efi里面即可 
-# Wi-Fi网卡原拆支持系统说明列表
+### Wi-Fi网卡原拆支持系统说明列表
 系统版本 | 支持芯片| 最高支持
 :--- | :--- | :---
 **Big Sur(11)+** | **BCM943602,BCM94360,BCM94352,DW1560,BCM94350,DW1820A** | **当前最新正式版**
@@ -171,7 +200,7 @@
 - 测试好后我们的声卡后我们可以按照如下方式进行固定：
 - ![image](./OpenCore/docs/Device.png)
 - 对于alc声卡id我们Mac终端自带16进制转换命令```printf '%x\n' 11```这样的意思是将11转换为16进制返回显示b 这样填写就是```0b000000```
-# 关于USB驱动定制说明
+### 关于USB驱动定制说明
 - ** **
 - **使用仓库内可以找到的USB定制工具 
 - **参考[bilibili视频教程](https://www.bilibili.com/video/BV1w44y127Ks?share_source=copy_web)**
@@ -183,7 +212,7 @@
 - [华南x79_e5_2670_c2_v1](https://gitee.com/yaming-network/clover-x79-e5-2670-rx588)
 - [github同步地址华南x79_e5_2670c2](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2)
 
-# [常见问题说明](./常见问题说明.md)
+### [常见问题说明](./常见问题说明.md)
 
 
 # 鸣谢支持：
