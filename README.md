@@ -1,6 +1,6 @@
 # OpenCore-华南x79_e5 2670 v1 c2 v2 rx588
 
-![！！[CI](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml/badge.svg)](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml)
+![![CI](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml/badge.svg)](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml)
 ### 介绍
 - **项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配**
 - **当前仓库代码支持OS版本：10.9.1-10.12.x,10.14.x-11.6.x正式版全系列安装运行，经过多款华南x79主板验证完全运行正常及其个别声卡驱动id不适配需要自行处理。**
@@ -38,7 +38,7 @@
 - 原厂BIOS在0.6.7版本中已经支持 无需做任何设置均可直接安装
 ![image](./OpenCore/docs/apfs.png)
 - macOS12中bios中开启将`local APIC Mode`选项 切换到`x2APIC`将会有更良好的体验
-![image](./bios_01_1.jpg)
+![](./OpenCore/docs/bios_01_1.jpg)
 ### 文件夹结构说明
 类别 | 描述
 :--- | :---
