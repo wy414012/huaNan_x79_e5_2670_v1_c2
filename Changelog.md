@@ -7,6 +7,7 @@
 - 更新`RestrictEvents.kext`,修复对10.9-11.x中的支持bug
 - 将TSc同步驱动更换为`VoodooTSync重构版本`定义名称：`CpuTSCSync.kext`版本号`1.5.1`
 - 修复机型固件中的一个错误
+- 处理器温度监控`SMCProcessor.kext`与超级IO芯片支持`SMCSuperIO.kext`回归
 ### 0.7.8 ###
 - 更新网卡驱动，解决在11.6.3beta中出现的断流情况
 - 更新了`ocvalidate`以警告不安全`DmgLoading`的安全`SecureBootModel`(在运行时已经不允许）
