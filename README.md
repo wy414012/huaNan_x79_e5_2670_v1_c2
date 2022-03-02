@@ -1,6 +1,5 @@
 # OpenCore-华南x79_e5 2670 v1 c2 v2 rx588
 
-![![CI](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml/badge.svg)](https://github.com/wy414012/huaNan_x79_e5_2670_v1_c2/actions/workflows/yaming.yml)
 ### 介绍
 - **项目由峨眉山市雅铭网络工作室维护，主要适配华南x79 主板对apple的Mac OS安装适配**
 - **当前仓库代码支持OS版本：10.9.1-10.12.x,10.14.x-11.6.x正式版全系列安装运行，经过多款华南x79主板验证完全运行正常及其个别声卡驱动id不适配需要自行处理。**
@@ -9,9 +8,8 @@
 ### 关于macOS Monterey支持说明
 - 现在支持升级，但是不保证能正常使用想尝试的请克隆仓库最新提交，使用一块独立磁盘尝试
 - **数据很重要，升级请三思.**
-![](./OpenCore/docs/12_2_1.JPG)
-- 免驱N卡注入驱动的方式经过测试在12.2.1下依然有效
-![](./OpenCore/docs/12_2_1_2.jpg)
+- 免驱N卡注入驱动的方式经过测试在12.3beta5下依然有效
+![](./OpenCore/docs/12.3_beta_5.png)
 ### 硬件 ###
 
 |             |                                                       |
@@ -72,13 +70,34 @@
 ### 在Mac下制作虚拟机用的iso镜像
 
 - 首先下载我们需要的系统镜像我们用macOS Big Sur举例说明
-- 修补缺失的头部命令：`hdiutil create -o /tmp/BigSur -size 16G -layout SPUD -fs HFS+J` 创建一个16g大小的dmg文件
-- 1、创建一个用于镜像制作的空dmg文件镜像并且挂载 ```hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur```
-- 2、写入镜像道dmg盘```sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/BigSur --nointeraction```
-- 3、卸载写好后的磁盘```hdiutil detach /volumes/"Install macOS Big sur"```
-- 4、转换dmg镜像为cdr格式,并且拷贝到桌面```hdiutil convert /tmp/BigSur.dmg -format UDTO -o ~/Desktop/BigSur.cdr```
-- 5、重命名为iso格式```mv ~/Desktop/BigSur.cdr ~/Desktop/BigSur.iso```
-- 6、删除不在需要的临时文件```rm -rf /tmp/BigSur.dmg``` 
+- 创建一个16g大小的dmg文件：
+```bash
+$ hdiutil create -o /tmp/BigSur -size 16G -layout SPUD -fs HFS+J
+``` 
+- 1、创建一个用于镜像制作的空dmg文件镜像并且挂载 
+```bash
+$ hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur
+```
+- 2、写入镜像道dmg盘
+```bash
+$ sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/BigSur --nointeraction
+```
+- 3、卸载写好后的磁盘
+```bash
+$ hdiutil detach /volumes/"Install macOS Big sur"
+```
+- 4、转换dmg镜像为cdr格式,并且拷贝到桌面
+```bash
+$ hdiutil convert /tmp/BigSur.dmg -format UDTO -o ~/Desktop/BigSur.cdr
+```
+- 5、重命名为iso格式
+```bash
+$ mv ~/Desktop/BigSur.cdr ~/Desktop/BigSur.iso
+```
+- 6、删除不在需要的临时文件
+```bash 
+$ rm -rf /tmp/BigSur.dmg
+``` 
 - 这样我们就制作完成了，可以往虚拟机里面安装了。
 
 ### win下创建安装u盘
@@ -89,7 +108,7 @@
 - 这里开始我们要进入下载的目录内
 - ![image](/OpenCore/docs/macos_usb.png)
 ```bash
-cd /d clover-x79-e5-2670-rx588/OpenCore/docs/macrecovery
+$ cd /d clover-x79-e5-2670-rx588/OpenCore/docs/macrecovery
 ```
 - 现在根据您想要的 macOS 版本运行以下之一（请注意，这些脚本依赖于 [Python](https://www.python.org/downloads/)（打开新窗口）支持，如果您尚未安装，请安装：
 - Mavericks(10.9):
@@ -169,7 +188,10 @@ $ python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000000000 -os latest 
 - ACPI 文件夹内的ssdt除非板型完全一致才可以直接使用以免引起不必要的异常问题
 - 尽量自行生成相同的ssdt
 - 生成工具使用SSDTTime
-- 使用方法安装py运行环境在win下生成自己主板专用的 ``` git clone https://gitee.com/yaming-network/SSDTTime.git ``` 替换到efi里面即可 
+- 使用方法安装py运行环境在win下生成自己主板专用的替换到efi里面即可  
+```bash
+$ git clone https://gitee.com/yaming-network/SSDTTime.git 
+``` 
 ### Wi-Fi网卡原拆支持系统说明列表
 系统版本 | 支持芯片| 最高支持
 :--- | :--- | :---
@@ -178,7 +200,10 @@ $ python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000000000 -os latest 
 ### CPU变频修复 ###
 #### 开始修复:
 - Mac下使用ssdtPRGen.sh生成专属的cpu变频文件 
-- 使用之前请打开终端先安装```xcode-select --install``` 命令行开发者工具
+- 使用之前请打开终端先安装命令行开发者工具
+```bash
+$ xcode-select --install
+``` 
 - 执行如下命令:
 - ```curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/master/ssdtPRGen.sh```
 - ```wc -c ssdtPRGen.sh```
