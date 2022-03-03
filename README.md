@@ -163,7 +163,18 @@ $ python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000000000 -os latest 
 - ![image](./OpenCore/docs/com-efi-done.a6fb730e.png)
 - 这样就完整的创建好了。
 - 完全正确的U盘内的目录结构应该是这样：
-![image](./OpenCore/docs/EFI.png)
+|---EFI
+|----|--boot
+|----|--OC
+|----|---|--ACPI
+|----|---|--Drivers
+|----|---|--Kexts
+|----|---|--OpenCore.efi
+|----|---|--config.plist
+|---com.apple.recovery.boot
+|----|--BaseSystem.chunklist
+|----|--BaseSystem.dmg
+
 ### 维护计划
 - 四叶草由于驱动不再进行兼容测试不再维护。
 - open core每次稳定版发布一周内推送新版
