@@ -230,10 +230,12 @@ $ git clone https://gitee.com/yaming-network/SSDTTime.git
 $ xcode-select --install
 ``` 
 - 执行如下命令:
-- ```curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/master/ssdtPRGen.sh```
-- ```wc -c ssdtPRGen.sh```
-- ```chmod +x ~/ssdtPRGen.sh```
-- 运行 ```sudo ./ssdtPRGen.sh```
+```bash
+$ curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/master/ssdtPRGen.sh
+$ wc -c ssdtPRGen.sh
+$ chmod +x ~/ssdtPRGen.sh
+$ sudo ./ssdtPRGen.sh
+```
 - 生成的SSDT-CPUM.aml在 ~/Desktop/CPUssdt目录中
 - 放入oc对应目录中替换默认的
 - 在0.7.0发布版本之后CPU变频ssdt名称已经统一名称 SSDT-CPUM.aml
