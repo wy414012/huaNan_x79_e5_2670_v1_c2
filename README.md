@@ -52,9 +52,9 @@
 :--- | :--- | :--- 
 **[英特尔变频监测工具macOS](https://www.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** | **macOS** | **macOS Monterey 12.2.x** 
 **[英特尔变频监测工具win10OS](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/PowerGadget_3.6.msi)** | **win** | **win10+** 
-**[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | ** macOS，win** | **OpenCore0.7.9**
+**[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | **macOS win10 1703+** | **OpenCore0.7.9**
 **[OpenCore升级包](https://gitee.com/yaming-network/OpenCorePkg/releases/)** | **macOS** | **10.9+**
-**[GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)** | **macOS^win10** | **^^**
+**[GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)** | **macOS win10 1703+** | **^^**
 
 ---
 ### mac下制作制作安装U盘
