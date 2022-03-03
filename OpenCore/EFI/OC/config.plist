@@ -589,9 +589,9 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>21.1.0</string>
 				<key>MinKernel</key>
-				<string></string>
+				<string>20.4.0</string>
 				<key>Replace</key>
 				<data>PpCQ</data>
 				<key>ReplaceMask</key>
@@ -619,9 +619,9 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>21.1.0</string>
 				<key>MinKernel</key>
-				<string></string>
+				<string>20.4.0</string>
 				<key>Replace</key>
 				<data>6xG5</data>
 				<key>ReplaceMask</key>
