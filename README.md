@@ -53,19 +53,32 @@
 **[英特尔变频监测工具macOS](https://www.intel.com/content/dam/develop/external/us/en/documents/downloads/intel-power-gadget.dmg)** | **macOS** | **macOS Monterey 12.2.x** 
 **[英特尔变频监测工具win10OS](https://software.intel.com/content/dam/develop/external/us/en/documents/downloads/PowerGadget_3.6.msi)** | **win** | **win10+** 
 **[ProperTree通用配置编辑器](https://gitee.com/yaming-network/ProperTree)** | ** macOS，win** | **OpenCore0.7.9**
-**[OpenCore升级包](https://gitee.com/yaming-network/OpenCorePkg/releases/)** | **macOS** | **10.9+ **
-**[GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)** | **macOS，win10** | ** **
+**[OpenCore升级包](https://gitee.com/yaming-network/OpenCorePkg/releases/)** | **macOS** | **10.9+**
+**[GenSMBIOS生成三码必备工具](https://gitee.com/yaming-network/GenSMBIOS)** | **macOS^win10** | **^^**
 
 ---
 ### mac下制作制作安装U盘
-系统版本 | 使用的命令 | 备注 | 官方商店获取地址
-:--- | :--- | :--- | :---
-**macOS Monterey** | sudo /Applications/Install\ macOS\ Monterey.app /Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 其中usbmac为你自己的U盘名称 | [macOS Monterey](https://apps.apple.com/cn/app/macos-monterey/id1576738294?mt=12) 
-**macOS BigSur** | sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | 其中usbmac为你自己的U盘名称 | [macOS BigSur](https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12)
-**macOS Catalina** | sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS Catalina](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12) 
-**macOS Mojave** | sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac | [macOS Mojave](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12) 
-**macOS El Capitan** | **sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/usbmac --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app** | **[macOS El Capitan](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg)** 
----
+
+[macOS Monterey:](https://apps.apple.com/cn/app/macos-monterey/id1576738294?mt=12)
+```bash
+$ sudo /Applications/"Install macOS Monterey.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac
+```
+[macOS BigSur:](https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12)
+```bash
+$ sudo /Applications/"Install macOS Big Sur.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac
+```
+[macOS Catalina:](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12)
+```bash
+$ sudo /Applications/"Install macOS Catalina.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac
+```
+[macOS Mojave:](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12)
+```bash
+$ sudo /Applications/"Install macOS Mojave.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac
+```
+[macOS El Capitan:](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg)
+```bash
+$ sudo /Applications/"Install OS X El Capitan.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac --applicationpath /Applications/"Install OS X El Capitan.app"
+```
 
 ### 在Mac下制作虚拟机用的iso镜像
 
