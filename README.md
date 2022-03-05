@@ -253,8 +253,16 @@ $ sudo ./ssdtPRGen.sh
 - ![image](./OpenCore/docs/Device.png)
 - 对于alc声卡id我们Mac终端自带16进制转换命令```printf '%x\n' 11```这样的意思是将11转换为16进制返回显示b 这样填写就是```0b000000```
 ### 关于USB驱动定制说明
-- ** **
-- **使用仓库内可以找到的USB定制工具 
+- **使用仓库内可以找到的USB定制工具[USBMap](https://gitee.com/yaming-network/USBMap)** 
+- 内建标识如下：
+```bash
+0   对应usb2                  USB 2.0 A 型连接器  
+3   对应usb3                  USB 3.0 A 型连接器 3.0、3.1 和 3.2 端口共享相同的类型
+8   没有对应的                 C 型连接器 - 仅限 USB 2.0  常见于手机
+9   对应typec+sw              C 型连接器 - USB 2.0 和 USB 3.0 带开关 翻转设备 不会改变ACPI端口
+10  对应typec                  C 型连接器 - USB 2.0 和 USB 3.0 不带开关 翻转设备更改ACPI端口。 通常出现在 3.1/2.0混合接口主板
+255 对应internal内建       专有连接器  适用于蓝牙等内部 USB 端口
+```
 - **参考[bilibili视频教程](https://www.bilibili.com/video/BV1w44y127Ks?share_source=copy_web)**
 - **[快速更换三码b站视频地址](https://www.bilibili.com/video/BV1S44y187vE?share_source=copy_web)**
 - ** **
