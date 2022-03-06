@@ -43,6 +43,7 @@
 - 添加了音频 GPIO 和 VREF 处理以在更多 Apple 硬件上支持 UEFI 声音
 - 更新了音频输出通道检测以支持更多 Apple 硬件上的 UEFI 声音
 - 更新核心到稳定版
+- 移除Misc-->BlessPverride 中的示范条目`#\EFI\win\Microsoft\Boot\bootmgfw.efi`
 ### 0.7.6 ###
 - 新增`UIScale`设置项
 - 将辅助菜单默认更改为隐藏`Misc->boot->HideAuxiliary=true`false=不隐藏
