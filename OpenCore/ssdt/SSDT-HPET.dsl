@@ -6,7 +6,7 @@ DefinitionBlock ("", "SSDT", 2, "CORP", "HPET", 0x00000000)
 {
     External (\_SB.PCI0, DeviceObj)    // (from opcode)
     External (\_SB.PCI0.HPET, DeviceObj)    // (from opcode)
-    Name (\_SB.PCI0.HPET._CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
+    Name (\_SB.PCI0.HPET.CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
     {
         IRQNoFlags ()
             {0,8,11}
