@@ -4,7 +4,7 @@ name="OpenCore-"
 srcFile="/"
 srcPath="./OpenCore"
 targetPath="./build"
-version=0.7.9
+version=0.8.0
 date=$(date +%Y%m%d)
 cpu=-REL-
 
