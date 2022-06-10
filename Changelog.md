@@ -10,6 +10,8 @@
 - 添加`macOS 13 Ventura(文图拉)`测试
 - 更新`Lilu`支持macOS13，移除了32位支持的二进制
 - 验证开普勒核心(gtx6xx 7xx)免驱n卡（注入补丁）在12.4仍然可以使用
+- `AppleCpuPmCfgLock`已在 macOS 13 上修复
+- `DummyPowerManagement`已在 macOS 13 上修复
 
 ### 0.7.9 ###
 - 更新核心
