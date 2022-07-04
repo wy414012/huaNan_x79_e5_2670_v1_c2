@@ -14,6 +14,7 @@
 - `DummyPowerManagement`已在 macOS 13 上修复
 - 添加macOS 13 `AvoidRuntimeDefrag` 支持
 - 添加USB驱动多机型支持
+- 恢复`ResetNvram`按钮到开机界面
 
 ### 0.7.9 ###
 - 更新核心
