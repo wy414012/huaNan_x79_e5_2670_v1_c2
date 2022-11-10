@@ -138,42 +138,47 @@ $ rm -rf /tmp/BigSur.dmg
 - 这里开始我们要进入下载的目录内
 - ![image](/OpenCore/docs/macos_usb.png)
 ```bash
-$ cd /d clover-x79-e5-2670-rx588/OpenCore/docs/macrecovery
+cd /d clover-x79-e5-2670-rx588/OpenCore/docs/macrecovery
 ```
 - 现在根据您想要的 macOS 版本运行以下之一（请注意，这些脚本依赖于 [Python](https://www.python.org/downloads/)（打开新窗口）支持，如果您尚未安装，请安装：
 - Mavericks(10.9):
 
 ```bash
-$ python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000FNN100 download
+python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000FNN100 download
 ```
 - Yosemite(10.10):
 ```bash
-$ python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000GDVW00 download
+python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000GDVW00 download
 ```
 - El Capitan(10.11):
 ```bash
-$ python macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000GQRX00 download
+python macrecovery.py -b Mac-FFE5EF870D7BA81A -m 00000000000GQRX00 download
 ```
 - Sierra(10.12):
 ```bash
-$ python macrecovery.py -b Mac-77F17D7DA9285301 -m 00000000000J0DX00 download
+python macrecovery.py -b Mac-77F17D7DA9285301 -m 00000000000J0DX00 download
 ```
 - Mojave(10.14):
 ```bash
-$ python macrecovery.py -b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 download
+python macrecovery.py -b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 download
 ```
 - Catalina(10.15):
 ```bash
-$ python macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download
+python macrecovery.py -b Mac-00BE6ED71E35EB86 -m 00000000000000000 download
 ```
-- Big Sur(11.6):
+- Big Sur(11.x):
 ```bash
-$ python macrecovery.py -b Mac-42FD25EABCABB274 -m 00000000000000000 download
+python macrecovery.py -b Mac-2BD1B31983FE1663 -m 00000000000000000 download
 ```
-- Monterey(12):
+- Monterey(12.x):
 ```bash
-$ python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000000000 -os latest download
+python macrecovery.py -b Mac-E43C1C25D4880AD6 -m 00000000000000000 download
 ```
+- Ventura(13.x):
+```bash
+python macrecovery.py -b Mac-F60DEB81FF30ACF6 -m 00000000000000000 -os latest download
+```
+
 - 现在我们等待一些时间即可下载好需要的系统镜像
 - ![image](./OpenCore/docs/macrecovery-done.1b0960bc.png)
 - 开始建立USB引导驱动
