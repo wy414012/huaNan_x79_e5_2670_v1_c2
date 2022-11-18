@@ -249,14 +249,14 @@ $ git clone https://gitee.com/yaming-network/SSDTTime.git
 - Mac下使用ssdtPRGen.sh生成专属的cpu变频文件 
 - 使用之前请打开终端先安装命令行开发者工具
 ```bash
-$ xcode-select --install
+xcode-select --install
 ``` 
 - 执行如下命令:
 ```bash
-$ curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/master/ssdtPRGen.sh
-$ wc -c ssdtPRGen.sh
-$ chmod +x ~/ssdtPRGen.sh
-$ sudo ./ssdtPRGen.sh
+curl -o ~/ssdtPRGen.sh https://gitee.com/yaming-network/ssdtPRGen.sh/raw/master/ssdtPRGen.sh
+wc -c ssdtPRGen.sh
+chmod +x ~/ssdtPRGen.sh
+sudo ./ssdtPRGen.sh
 ```
 - 生成的SSDT-CPUM.aml在 ~/Desktop/CPUssdt目录中
 - 放入oc对应目录中替换默认的
