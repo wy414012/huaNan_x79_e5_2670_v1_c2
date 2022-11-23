@@ -72,29 +72,29 @@
 ---
 ### mac下制作制作安装U盘
 
-[macOS Ventura beta 暂无下载地址安装描述文件后下载:]()
+[macOS Ventura :](https://apps.apple.com/cn/app/macos-ventura/id1638787999?mt=12)
 ```bash
-sudo /Applications/"Install macOS 13 beta.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac
+sudo /Applications/Install\ macOS\ Ventura.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
 [macOS Monterey:](https://apps.apple.com/cn/app/macos-monterey/id1576738294?mt=12)
 ```bash
-sudo /Applications/"Install macOS Monterey.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac
+sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
 [macOS BigSur:](https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12)
 ```bash
-sudo /Applications/"Install macOS Big Sur.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac
+sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
 [macOS Catalina:](https://itunes.apple.com/cn/app/macos-catalina/id1466841314?ls=1&mt=12)
 ```bash
-sudo /Applications/"Install macOS Catalina.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac
+sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
 [macOS Mojave:](https://itunes.apple.com/cn/app/macos-mojave/id1398502828?ls=1&mt=12)
 ```bash
-sudo /Applications/"Install macOS Mojave.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac
+sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 ```
 [macOS El Capitan:](http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg)
 ```bash
-sudo /Applications/"Install OS X El Capitan.app"/Contents/Resources/createinstallmedia --volume /Volumes/usbmac --applicationpath /Applications/"Install OS X El Capitan.app"
+sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app
 ```
 
 ### 在Mac下制作虚拟机用的iso镜像
