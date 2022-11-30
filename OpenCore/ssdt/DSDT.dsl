@@ -1,39 +1,39 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20210930 (64-bit version)
- * Copyright (c) 2000 - 2021 Intel Corporation
+ * AML/ASL+ Disassembler version 20220331 (64-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of /Users/wumingquan/Desktop/work/MSBIOS/E7738v28dsdt/DSDT.aml, Tue Dec 14 18:32:18 2021
+ * Disassembly of /Users/yaming/Desktop/patch/zd3update/DSDT1.aml, Wed Nov 30 15:55:00 2022
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0000798C (31116)
+ *     Length           0x000079B8 (31160)
  *     Revision         0x02
- *     Checksum         0x57
+ *     Checksum         0xF4
  *     OEM ID           "ALASKA"
  *     OEM Table ID     "A M I"
- *     OEM Revision     0x00000019 (25)
+ *     OEM Revision     0x00000017 (23)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20210930 (539035952)
+ *     Compiler Version 0x20220331 (539099953)
  */
-DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
+DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000017)
 {
-    Name (SP1O, 0x4E)
-    Name (IOCE, 0x87)
-    Name (IOCL, 0xAA)
-    Name (IO1B, 0x0290)
+    Name (SP1O, 0x2E)
+    Name (IO1B, 0x0A00)
     Name (IO1L, 0x10)
-    Name (IO2B, 0x0A00)
+    Name (IO2B, 0x0A10)
     Name (IO2L, 0x10)
-    Name (TCBR, Zero)
+    Name (IO3B, 0x0A20)
+    Name (IO3L, 0x10)
+    Name (TCBR, 0xFED08000)
     Name (TCLT, 0x1000)
     Name (SRCB, 0xFED1C000)
     Name (SRCL, 0x4000)
     Name (SUSW, 0xFF)
-    Name (PMBS, 0x0400)
     Name (PMLN, 0x80)
+    Name (SMIP, 0xB2)
     Name (APCB, 0xFEC00000)
     Name (APCL, 0x00100000)
     Name (PM30, 0x0430)
@@ -43,9 +43,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
     Name (HPTC, 0xFED1F404)
     Name (GPBS, 0x0500)
     Name (GPLN, 0x80)
-    Name (PEBS, 0xD0000000)
+    Name (PEBS, 0x80000000)
     Name (LAPB, 0xFEE00000)
-    Name (LAPL, 0x00100000)
     Name (VTD0, 0xFFFFFFFF)
     Name (ACPH, 0xDE)
     Name (ASSB, Zero)
@@ -55,10 +54,15 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
     Name (HIDM, 0x030FD041)
     Name (CIDK, 0x0B03D041)
     Name (CIDM, 0x130FD041)
+    Name (PEHP, One)
     Name (SHPC, Zero)
+    Name (PEPM, One)
     Name (PECS, One)
     Name (ITKE, Zero)
     Name (MBEC, 0xFFFF)
+    Name (SRSI, 0xB2)
+    Name (CSMI, 0x61)
+    Name (PMBS, 0x0400)
     Name (SMIA, 0xB2)
     Name (SMIB, 0xB3)
     Name (OFST, 0x35)
@@ -68,16 +72,10 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
     Name (TMF1, Zero)
     Name (TMF2, Zero)
     Name (TMF3, Zero)
-    Name (SRSI, 0xB2)
-    Name (CSMI, 0x61)
     Name (WHEA, One)
-    Name (FESI, 0xDB)
-    Name (FDSI, 0xDC)
-    Name (FSSI, 0xD9)
-    Name (SMIP, 0xB2)
-    Name (PEER, Zero)
-    Name (PEPM, Zero)
-    Name (PEHP, Zero)
+    Name (DSSP, Zero)
+    Name (FHPP, Zero)
+    Name (PEER, One)
     Name (PICM, Zero)
     Method (_PIC, 1, NotSerialized)  // _PIC: Interrupt Model
     {
@@ -322,19 +320,6 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
     Field (DEB1, WordAcc, NoLock, Preserve)
     {
         DBG9,   16
-    }
-
-    OperationRegion (ACMS, SystemIO, 0x72, 0x02)
-    Field (ACMS, ByteAcc, NoLock, Preserve)
-    {
-        ICMS,   8, 
-        DCMS,   8
-    }
-
-    IndexField (ICMS, DCMS, ByteAcc, NoLock, Preserve)
-    {
-        Offset (0xC9), 
-        OSTP,   8
     }
 
     Name (SS1, One)
@@ -900,7 +885,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 0x0003FFFF, 
                 Zero, 
                 Zero, 
-                0x28
+                0x2F
             }, 
 
             Package (0x04)
@@ -957,6 +942,74 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 0x03, 
                 Zero, 
                 0x27
+            }
+        })
+        Name (PR09, Package (0x04)
+        {
+            Package (0x04)
+            {
+                0xFFFF, 
+                Zero, 
+                LNKA, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                One, 
+                LNKB, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x02, 
+                LNKC, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x03, 
+                LNKD, 
+                Zero
+            }
+        })
+        Name (AR09, Package (0x04)
+        {
+            Package (0x04)
+            {
+                0xFFFF, 
+                Zero, 
+                Zero, 
+                0x10
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                One, 
+                Zero, 
+                0x11
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x02, 
+                Zero, 
+                0x12
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x03, 
+                Zero, 
+                0x13
             }
         })
         Name (PR01, Package (0x04)
@@ -1299,6 +1352,74 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 0x13
             }
         })
+        Name (PR06, Package (0x04)
+        {
+            Package (0x04)
+            {
+                0xFFFF, 
+                Zero, 
+                LNKB, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                One, 
+                LNKC, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x02, 
+                LNKD, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x03, 
+                LNKA, 
+                Zero
+            }
+        })
+        Name (AR06, Package (0x04)
+        {
+            Package (0x04)
+            {
+                0xFFFF, 
+                Zero, 
+                Zero, 
+                0x11
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                One, 
+                Zero, 
+                0x12
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x02, 
+                Zero, 
+                0x13
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x03, 
+                Zero, 
+                0x10
+            }
+        })
         Name (PR07, Package (0x04)
         {
             Package (0x04)
@@ -1435,7 +1556,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 0x12
             }
         })
-        Name (PR22, Package (0x04)
+        Name (PR17, Package (0x04)
         {
             Package (0x04)
             {
@@ -1469,143 +1590,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 Zero
             }
         })
-        Name (AR22, Package (0x04)
-        {
-            Package (0x04)
-            {
-                0xFFFF, 
-                Zero, 
-                Zero, 
-                0x1B
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                One, 
-                Zero, 
-                0x1E
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                0x02, 
-                Zero, 
-                0x1C
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                0x03, 
-                Zero, 
-                0x1D
-            }
-        })
-        Name (PR23, Package (0x04)
-        {
-            Package (0x04)
-            {
-                0xFFFF, 
-                Zero, 
-                LNKA, 
-                Zero
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                One, 
-                LNKB, 
-                Zero
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                0x02, 
-                LNKC, 
-                Zero
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                0x03, 
-                LNKD, 
-                Zero
-            }
-        })
-        Name (AR23, Package (0x04)
-        {
-            Package (0x04)
-            {
-                0xFFFF, 
-                Zero, 
-                Zero, 
-                0x20
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                One, 
-                Zero, 
-                0x24
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                0x02, 
-                Zero, 
-                0x25
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                0x03, 
-                Zero, 
-                0x26
-            }
-        })
-        Name (PR27, Package (0x04)
-        {
-            Package (0x04)
-            {
-                0xFFFF, 
-                Zero, 
-                LNKA, 
-                Zero
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                One, 
-                LNKB, 
-                Zero
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                0x02, 
-                LNKC, 
-                Zero
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
-                0x03, 
-                LNKD, 
-                Zero
-            }
-        })
-        Name (AR27, Package (0x04)
+        Name (AR17, Package (0x04)
         {
             Package (0x04)
             {
@@ -1639,12 +1624,20 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 0x2E
             }
         })
-        Name (PR16, Package (0x04)
+        Name (PR13, Package (0x04)
         {
             Package (0x04)
             {
                 0xFFFF, 
                 Zero, 
+                LNKA, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                One, 
                 LNKB, 
                 Zero
             }, 
@@ -1652,7 +1645,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
             Package (0x04)
             {
                 0xFFFF, 
-                One, 
+                0x02, 
                 LNKC, 
                 Zero
             }, 
@@ -1660,27 +1653,19 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
             Package (0x04)
             {
                 0xFFFF, 
-                0x02, 
-                LNKD, 
-                Zero
-            }, 
-
-            Package (0x04)
-            {
-                0xFFFF, 
                 0x03, 
-                LNKA, 
+                LNKD, 
                 Zero
             }
         })
-        Name (AR16, Package (0x04)
+        Name (AR13, Package (0x04)
         {
             Package (0x04)
             {
                 0xFFFF, 
                 Zero, 
                 Zero, 
-                0x11
+                0x20
             }, 
 
             Package (0x04)
@@ -1688,7 +1673,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 0xFFFF, 
                 One, 
                 Zero, 
-                0x12
+                0x24
             }, 
 
             Package (0x04)
@@ -1696,7 +1681,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 0xFFFF, 
                 0x02, 
                 Zero, 
-                0x13
+                0x25
             }, 
 
             Package (0x04)
@@ -1704,7 +1689,143 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 0xFFFF, 
                 0x03, 
                 Zero, 
-                0x10
+                0x26
+            }
+        })
+        Name (PR12, Package (0x04)
+        {
+            Package (0x04)
+            {
+                0xFFFF, 
+                Zero, 
+                LNKA, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                One, 
+                LNKB, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x02, 
+                LNKC, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x03, 
+                LNKD, 
+                Zero
+            }
+        })
+        Name (AR12, Package (0x04)
+        {
+            Package (0x04)
+            {
+                0xFFFF, 
+                Zero, 
+                Zero, 
+                0x1B
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                One, 
+                Zero, 
+                0x1E
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x02, 
+                Zero, 
+                0x1C
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x03, 
+                Zero, 
+                0x1D
+            }
+        })
+        Name (PR97, Package (0x04)
+        {
+            Package (0x04)
+            {
+                0xFFFF, 
+                Zero, 
+                LNKA, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                One, 
+                LNKB, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x02, 
+                LNKC, 
+                Zero
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x03, 
+                LNKD, 
+                Zero
+            }
+        })
+        Name (AR97, Package (0x04)
+        {
+            Package (0x04)
+            {
+                0xFFFF, 
+                Zero, 
+                Zero, 
+                0x40
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                One, 
+                Zero, 
+                0x44
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x02, 
+                Zero, 
+                0x45
+            }, 
+
+            Package (0x04)
+            {
+                0xFFFF, 
+                0x03, 
+                Zero, 
+                0x46
             }
         })
         Name (PRSA, ResourceTemplate ()
@@ -2087,24 +2208,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 }
             }
 
+            Name (_PXM, Zero)  // _PXM: Device Proximity
             Device (IOH)
             {
                 Name (_HID, EisaId ("PNP0C01") /* System Board */)  // _HID: Hardware ID
                 Name (_UID, 0x0A)  // _UID: Unique ID
-                Name (IOHM, ResourceTemplate ()
+                Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                 {
-                    Memory32Fixed (ReadWrite,
-                        0xF4FFF000,         // Address Base
-                        0x00001000,         // Address Length
-                        )
-                    Memory32Fixed (ReadWrite,
-                        0xFBFFF000,         // Address Base
-                        0x00001000,         // Address Length
-                        )
-                    Memory32Fixed (ReadWrite,
-                        0xFEE00000,         // Address Base
-                        0x00001000,         // Address Length
-                        )
                     Memory32Fixed (ReadWrite,
                         0xFC000000,         // Address Base
                         0x01000000,         // Address Length
@@ -2129,23 +2239,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         0xFED45000,         // Address Base
                         0x000BB000,         // Address Length
                         )
-                    Memory32Fixed (ReadWrite,
-                        0x00000000,         // Address Base
-                        0x00000000,         // Address Length
-                        _Y0C)
                 })
-                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-                {
-                    If (LAPB)
-                    {
-                        CreateDWordField (IOHM, \_SB.PCI0.IOH._Y0C._BAS, APB)  // _BAS: Base Address
-                        CreateDWordField (IOHM, \_SB.PCI0.IOH._Y0C._LEN, APL)  // _LEN: Length
-                        APB = LAPB /* \LAPB */
-                        APL = LAPL /* \LAPL */
-                    }
-
-                    Return (IOHM) /* \_SB_.PCI0.IOH_.IOHM */
-                }
             }
 
             Method (NPTS, 1, NotSerialized)
@@ -2159,15 +2253,16 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
             Device (^UNC0)
             {
                 Name (_HID, EisaId ("PNP0A03") /* PCI Bus */)  // _HID: Hardware ID
-                Name (UBN0, 0x3F)
                 Method (_UID, 0, NotSerialized)  // _UID: Unique ID
                 {
-                    Return (UBN0) /* \_SB_.UNC0.UBN0 */
+                    Local0 = (^^PCI0.BRB + ^^PCI0.BRL) /* \_SB_.PCI0.BRL_ */
+                    Return (Local0)
                 }
 
                 Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
                 {
-                    Return (UBN0) /* \_SB_.UNC0.UBN0 */
+                    Local0 = (^^PCI0.BRB + ^^PCI0.BRL) /* \_SB_.PCI0.BRL_ */
+                    Return (Local0)
                 }
 
                 Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
@@ -2175,6 +2270,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                     Return (Arg3)
                 }
 
+                Name (_PXM, Zero)  // _PXM: Device Proximity
                 Name (CRS1, ResourceTemplate ()
                 {
                     WordBusNumber (ResourceProducer, MinFixed, MaxFixed, PosDecode,
@@ -2183,14 +2279,15 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         0x00FF,             // Range Maximum
                         0x0000,             // Translation Offset
                         0x0001,             // Length
-                        ,, _Y0D)
+                        ,, _Y0C)
                 })
                 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
-                    CreateWordField (CRS1, \_SB.UNC0._Y0D._MIN, UMIN)  // _MIN: Minimum Base Address
-                    UMIN = UBN0 /* \_SB_.UNC0.UBN0 */
-                    CreateWordField (CRS1, \_SB.UNC0._Y0D._MAX, UMAX)  // _MAX: Maximum Base Address
-                    UMAX = UBN0 /* \_SB_.UNC0.UBN0 */
+                    Local0 = (^^PCI0.BRB + ^^PCI0.BRL) /* \_SB_.PCI0.BRL_ */
+                    CreateWordField (CRS1, \_SB.UNC0._Y0C._MIN, UMIN)  // _MIN: Minimum Base Address
+                    UMIN = Local0
+                    CreateWordField (CRS1, \_SB.UNC0._Y0C._MAX, UMAX)  // _MAX: Maximum Base Address
+                    UMAX = Local0
                     Return (CRS1) /* \_SB_.UNC0.CRS1 */
                 }
 
@@ -2216,7 +2313,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                     Memory32Fixed (ReadOnly,
                         0x00000000,         // Address Base
                         0x00002000,         // Address Length
-                        _Y0E)
+                        _Y0D)
                 })
                 Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
@@ -2230,8 +2327,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0.VTDR._Y0E._BAS, VBR0)  // _BAS: Base Address
-                    CreateDWordField (BUF0, \_SB.PCI0.VTDR._Y0E._LEN, VLT0)  // _LEN: Length
+                    CreateDWordField (BUF0, \_SB.PCI0.VTDR._Y0D._BAS, VBR0)  // _BAS: Base Address
+                    CreateDWordField (BUF0, \_SB.PCI0.VTDR._Y0D._LEN, VLT0)  // _LEN: Length
                     VBR0 = VTD0 /* \VTD0 */
                     If ((VTD0 == 0xFFFFFFFF))
                     {
@@ -2342,6 +2439,12 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     0x0000,             // Range Maximum
                                     0x00,               // Alignment
                                     0x00,               // Length
+                                    _Y0E)
+                                IO (Decode16,
+                                    0x0000,             // Range Minimum
+                                    0x0000,             // Range Maximum
+                                    0x00,               // Alignment
+                                    0x00,               // Length
                                     _Y0F)
                                 IO (Decode16,
                                     0x0000,             // Range Minimum
@@ -2355,16 +2458,6 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     0x00,               // Alignment
                                     0x00,               // Length
                                     _Y11)
-                                IO (Decode16,
-                                    0x0000,             // Range Minimum
-                                    0x0000,             // Range Maximum
-                                    0x00,               // Alignment
-                                    0x00,               // Length
-                                    _Y12)
-                                Memory32Fixed (ReadWrite,
-                                    0x00000000,         // Address Base
-                                    0x00000000,         // Address Length
-                                    _Y14)
                                 Memory32Fixed (ReadWrite,
                                     0x00000000,         // Address Base
                                     0x00000000,         // Address Length
@@ -2372,7 +2465,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                 Memory32Fixed (ReadWrite,
                                     0x00000000,         // Address Base
                                     0x00000000,         // Address Length
-                                    _Y15)
+                                    _Y12)
+                                Memory32Fixed (ReadWrite,
+                                    0x00000000,         // Address Base
+                                    0x00000000,         // Address Length
+                                    _Y14)
                                 Memory32Fixed (ReadWrite,
                                     0xFF000000,         // Address Base
                                     0x01000000,         // Address Length
@@ -2380,23 +2477,23 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                             })
                             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                             {
-                                CreateWordField (ICHR, \_SB.PCI0.PCH._Y0F._MIN, PBB)  // _MIN: Minimum Base Address
-                                CreateWordField (ICHR, \_SB.PCI0.PCH._Y0F._MAX, PBH)  // _MAX: Maximum Base Address
-                                CreateByteField (ICHR, \_SB.PCI0.PCH._Y0F._LEN, PML)  // _LEN: Length
+                                CreateWordField (ICHR, \_SB.PCI0.PCH._Y0E._MIN, PBB)  // _MIN: Minimum Base Address
+                                CreateWordField (ICHR, \_SB.PCI0.PCH._Y0E._MAX, PBH)  // _MAX: Maximum Base Address
+                                CreateByteField (ICHR, \_SB.PCI0.PCH._Y0E._LEN, PML)  // _LEN: Length
                                 PBB = PMBS /* \PMBS */
                                 PBH = PMBS /* \PMBS */
                                 PML = 0x54
-                                CreateWordField (ICHR, \_SB.PCI0.PCH._Y10._MIN, P2B)  // _MIN: Minimum Base Address
-                                CreateWordField (ICHR, \_SB.PCI0.PCH._Y10._MAX, P2H)  // _MAX: Maximum Base Address
-                                CreateByteField (ICHR, \_SB.PCI0.PCH._Y10._LEN, P2L)  // _LEN: Length
+                                CreateWordField (ICHR, \_SB.PCI0.PCH._Y0F._MIN, P2B)  // _MIN: Minimum Base Address
+                                CreateWordField (ICHR, \_SB.PCI0.PCH._Y0F._MAX, P2H)  // _MAX: Maximum Base Address
+                                CreateByteField (ICHR, \_SB.PCI0.PCH._Y0F._LEN, P2L)  // _LEN: Length
                                 P2B = (PMBS + 0x58)
                                 P2H = (PMBS + 0x58)
                                 P2L = 0x28
                                 If (SMBS)
                                 {
-                                    CreateWordField (ICHR, \_SB.PCI0.PCH._Y11._MIN, SMB)  // _MIN: Minimum Base Address
-                                    CreateWordField (ICHR, \_SB.PCI0.PCH._Y11._MAX, SMH)  // _MAX: Maximum Base Address
-                                    CreateByteField (ICHR, \_SB.PCI0.PCH._Y11._LEN, SML)  // _LEN: Length
+                                    CreateWordField (ICHR, \_SB.PCI0.PCH._Y10._MIN, SMB)  // _MIN: Minimum Base Address
+                                    CreateWordField (ICHR, \_SB.PCI0.PCH._Y10._MAX, SMH)  // _MAX: Maximum Base Address
+                                    CreateByteField (ICHR, \_SB.PCI0.PCH._Y10._LEN, SML)  // _LEN: Length
                                     SMB = SMBS /* \SMBS */
                                     SMH = SMBS /* \SMBS */
                                     SML = SMBL /* \SMBL */
@@ -2404,9 +2501,9 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                                 If (GPBS)
                                 {
-                                    CreateWordField (ICHR, \_SB.PCI0.PCH._Y12._MIN, IGB)  // _MIN: Minimum Base Address
-                                    CreateWordField (ICHR, \_SB.PCI0.PCH._Y12._MAX, IGH)  // _MAX: Maximum Base Address
-                                    CreateByteField (ICHR, \_SB.PCI0.PCH._Y12._LEN, IGL)  // _LEN: Length
+                                    CreateWordField (ICHR, \_SB.PCI0.PCH._Y11._MIN, IGB)  // _MIN: Minimum Base Address
+                                    CreateWordField (ICHR, \_SB.PCI0.PCH._Y11._MAX, IGH)  // _MAX: Maximum Base Address
+                                    CreateByteField (ICHR, \_SB.PCI0.PCH._Y11._LEN, IGL)  // _LEN: Length
                                     IGB = GPBS /* \GPBS */
                                     IGH = GPBS /* \GPBS */
                                     IGL = GPLN /* \GPLN */
@@ -2414,20 +2511,20 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                                 If (APCB)
                                 {
-                                    CreateDWordField (ICHR, \_SB.PCI0.PCH._Y13._BAS, APB)  // _BAS: Base Address
-                                    CreateDWordField (ICHR, \_SB.PCI0.PCH._Y13._LEN, APL)  // _LEN: Length
+                                    CreateDWordField (ICHR, \_SB.PCI0.PCH._Y12._BAS, APB)  // _BAS: Base Address
+                                    CreateDWordField (ICHR, \_SB.PCI0.PCH._Y12._LEN, APL)  // _LEN: Length
                                     APB = APCB /* \APCB */
                                     APL = APCL /* \APCL */
                                 }
 
-                                CreateDWordField (ICHR, \_SB.PCI0.PCH._Y14._BAS, RCB)  // _BAS: Base Address
-                                CreateDWordField (ICHR, \_SB.PCI0.PCH._Y14._LEN, RCL)  // _LEN: Length
+                                CreateDWordField (ICHR, \_SB.PCI0.PCH._Y13._BAS, RCB)  // _BAS: Base Address
+                                CreateDWordField (ICHR, \_SB.PCI0.PCH._Y13._LEN, RCL)  // _LEN: Length
                                 RCB = SRCB /* \SRCB */
                                 RCL = SRCL /* \SRCL */
                                 If (TCBR)
                                 {
-                                    CreateDWordField (ICHR, \_SB.PCI0.PCH._Y15._BAS, TCB)  // _BAS: Base Address
-                                    CreateDWordField (ICHR, \_SB.PCI0.PCH._Y15._LEN, TCL)  // _LEN: Length
+                                    CreateDWordField (ICHR, \_SB.PCI0.PCH._Y14._BAS, TCB)  // _BAS: Base Address
+                                    CreateDWordField (ICHR, \_SB.PCI0.PCH._Y14._LEN, TCL)  // _LEN: Length
                                     TCB = TCBR /* \TCBR */
                                     TCL = TCLT /* \TCLT */
                                 }
@@ -2447,7 +2544,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     0x0454,             // Range Maximum
                                     0x04,               // Alignment
                                     0x04,               // Length
-                                    _Y16)
+                                    _Y15)
                             })
                             Method (_STA, 0, Serialized)  // _STA: Status
                             {
@@ -2456,8 +2553,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                             {
-                                CreateWordField (BUF0, \_SB.PCI0.CWDT._Y16._MIN, WDB)  // _MIN: Minimum Base Address
-                                CreateWordField (BUF0, \_SB.PCI0.CWDT._Y16._MAX, WDH)  // _MAX: Maximum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.CWDT._Y15._MIN, WDB)  // _MIN: Minimum Base Address
+                                CreateWordField (BUF0, \_SB.PCI0.CWDT._Y15._MAX, WDH)  // _MAX: Maximum Base Address
                                 WDB = (PMBS + 0x54)
                                 WDH = (PMBS + 0x54)
                                 Return (BUF0) /* \_SB_.PCI0.CWDT.BUF0 */
@@ -2469,13 +2566,15 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 Device (SIO1)
                 {
                     Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
-                    Method (_UID, 0, NotSerialized)  // _UID: Unique ID
-                    {
-                        Return (SP1O) /* \SP1O */
-                    }
-
+                    Name (_UID, 0x0111)  // _UID: Unique ID
                     Name (CRS, ResourceTemplate ()
                     {
+                        IO (Decode16,
+                            0x0000,             // Range Minimum
+                            0x0000,             // Range Maximum
+                            0x00,               // Alignment
+                            0x00,               // Length
+                            _Y16)
                         IO (Decode16,
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
@@ -2494,20 +2593,14 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                             0x00,               // Alignment
                             0x00,               // Length
                             _Y19)
-                        IO (Decode16,
-                            0x0000,             // Range Minimum
-                            0x0000,             // Range Maximum
-                            0x00,               // Alignment
-                            0x00,               // Length
-                            _Y1A)
                     })
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                     {
                         If (((SP1O < 0x03F0) && (SP1O > 0xF0)))
                         {
-                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y17._MIN, GPI0)  // _MIN: Minimum Base Address
-                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y17._MAX, GPI1)  // _MAX: Maximum Base Address
-                            CreateByteField (CRS, \_SB.PCI0.LPCB.SIO1._Y17._LEN, GPIL)  // _LEN: Length
+                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y16._MIN, GPI0)  // _MIN: Minimum Base Address
+                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y16._MAX, GPI1)  // _MAX: Maximum Base Address
+                            CreateByteField (CRS, \_SB.PCI0.LPCB.SIO1._Y16._LEN, GPIL)  // _LEN: Length
                             GPI0 = SP1O /* \SP1O */
                             GPI1 = SP1O /* \SP1O */
                             GPIL = 0x02
@@ -2515,9 +2608,9 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                         If (IO1B)
                         {
-                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y18._MIN, GP10)  // _MIN: Minimum Base Address
-                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y18._MAX, GP11)  // _MAX: Maximum Base Address
-                            CreateByteField (CRS, \_SB.PCI0.LPCB.SIO1._Y18._LEN, GPL1)  // _LEN: Length
+                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y17._MIN, GP10)  // _MIN: Minimum Base Address
+                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y17._MAX, GP11)  // _MAX: Maximum Base Address
+                            CreateByteField (CRS, \_SB.PCI0.LPCB.SIO1._Y17._LEN, GPL1)  // _LEN: Length
                             GP10 = IO1B /* \IO1B */
                             GP11 = IO1B /* \IO1B */
                             GPL1 = IO1L /* \IO1L */
@@ -2525,43 +2618,33 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                         If (IO2B)
                         {
-                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y19._MIN, GP20)  // _MIN: Minimum Base Address
-                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y19._MAX, GP21)  // _MAX: Maximum Base Address
-                            CreateByteField (CRS, \_SB.PCI0.LPCB.SIO1._Y19._LEN, GPL2)  // _LEN: Length
+                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y18._MIN, GP20)  // _MIN: Minimum Base Address
+                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y18._MAX, GP21)  // _MAX: Maximum Base Address
+                            CreateByteField (CRS, \_SB.PCI0.LPCB.SIO1._Y18._LEN, GPL2)  // _LEN: Length
                             GP20 = IO2B /* \IO2B */
                             GP21 = IO2B /* \IO2B */
                             GPL2 = IO2L /* \IO2L */
                         }
 
-                        ENFG (0x03)
-                        If (ACTR)
+                        If (IO3B)
                         {
-                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y1A._MIN, GP40)  // _MIN: Minimum Base Address
-                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y1A._MAX, GP41)  // _MAX: Maximum Base Address
-                            CreateByteField (CRS, \_SB.PCI0.LPCB.SIO1._Y1A._LEN, GPL4)  // _LEN: Length
-                            Local0 = (IOAH << 0x08)
-                            Local0 |= IOAL /* \_SB_.PCI0.LPCB.SIO1.IOAL */
-                            Local1 = (FindSetRightBit (Local0) - One)
-                            Local1 = (One << Local1)
-                            If ((OPT0 & 0x02)){}
-                            Else
-                            {
-                                GP40 = (Local0 | 0x0400)
-                                GP41 = (Local0 | 0x0400)
-                                GPL4 = Local1
-                            }
+                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y19._MIN, GP30)  // _MIN: Minimum Base Address
+                            CreateWordField (CRS, \_SB.PCI0.LPCB.SIO1._Y19._MAX, GP31)  // _MAX: Maximum Base Address
+                            CreateByteField (CRS, \_SB.PCI0.LPCB.SIO1._Y19._LEN, GPL3)  // _LEN: Length
+                            GP30 = IO3B /* \IO3B */
+                            GP31 = IO3B /* \IO3B */
+                            GPL3 = IO3L /* \IO3L */
                         }
 
-                        EXFG ()
                         Return (CRS) /* \_SB_.PCI0.LPCB.SIO1.CRS_ */
                     }
 
                     Name (DCAT, Package (0x15)
                     {
-                        One, 
                         0x02, 
                         0x03, 
-                        Zero, 
+                        0xFF, 
+                        0xFF, 
                         0xFF, 
                         0xFF, 
                         0xFF, 
@@ -2572,51 +2655,23 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         0xFF, 
                         0xFF, 
                         0xFF, 
+                        0x05, 
                         0xFF, 
-                        0xFF, 
-                        0xFF, 
-                        0xFF, 
-                        0xFF, 
-                        0xFF, 
-                        0xFF
+                        0x06
                     })
                     Mutex (MUT0, 0x00)
                     Method (ENFG, 1, NotSerialized)
                     {
                         Acquire (MUT0, 0xFFFF)
-                        INDX = IOCE /* \IOCE */
-                        INDX = IOCE /* \IOCE */
+                        INDX = 0x87
+                        INDX = 0x87
                         LDN = Arg0
                     }
 
                     Method (EXFG, 0, NotSerialized)
                     {
-                        INDX = IOCL /* \IOCL */
+                        INDX = 0xAA
                         Release (MUT0)
-                    }
-
-                    Method (LPTM, 1, NotSerialized)
-                    {
-                        ENFG (CGLD (Arg0))
-                        Local0 = (OPT0 & 0x02)
-                        EXFG ()
-                        Return (Local0)
-                    }
-
-                    Method (UHID, 1, NotSerialized)
-                    {
-                        If ((Arg0 == One))
-                        {
-                            ENFG (CGLD (Arg0))
-                            Local0 = (OPT1 & 0x10)
-                            EXFG ()
-                            If (Local0)
-                            {
-                                Return (0x1005D041)
-                            }
-                        }
-
-                        Return (0x0105D041)
                     }
 
                     OperationRegion (IOID, SystemIO, SP1O, 0x02)
@@ -2637,8 +2692,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         SCF4,   8, 
                         SCF5,   8, 
                         SCF6,   8, 
-                        Offset (0x28), 
-                        EN80,   8, 
+                        Offset (0x29), 
                         CKCF,   8, 
                         Offset (0x30), 
                         ACTR,   8, 
@@ -2648,9 +2702,21 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         IOH2,   8, 
                         IOL2,   8, 
                         Offset (0x70), 
-                        INTR,   8, 
+                        INTR,   4, 
+                        INTT,   4, 
                         Offset (0x74), 
                         DMCH,   8, 
+                        Offset (0xE0), 
+                        RGE0,   8, 
+                        RGE1,   8, 
+                        RGE2,   8, 
+                        RGE3,   8, 
+                        RGE4,   8, 
+                        RGE5,   8, 
+                        RGE6,   8, 
+                        RGE7,   8, 
+                        RGE8,   8, 
+                        RGE9,   8, 
                         Offset (0xF0), 
                         OPT0,   8, 
                         OPT1,   8, 
@@ -2658,7 +2724,10 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         OPT3,   8, 
                         OPT4,   8, 
                         OPT5,   8, 
-                        OPT6,   8
+                        OPT6,   8, 
+                        OPT7,   8, 
+                        OPT8,   8, 
+                        OPT9,   8
                     }
 
                     Method (CGLD, 1, NotSerialized)
@@ -2670,26 +2739,44 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                     {
                         ENFG (CGLD (Arg0))
                         Local0 = ACTR /* \_SB_.PCI0.LPCB.SIO1.ACTR */
-                        EXFG ()
                         If ((Local0 == 0xFF))
                         {
                             Return (Zero)
                         }
 
                         Local0 &= One
-                        IOST |= (Local0 << Arg0)
+                        If ((Arg0 < 0x10))
+                        {
+                            IOST |= (Local0 << Arg0)
+                        }
+
                         If (Local0)
                         {
                             Return (0x0F)
                         }
-                        ElseIf (((One << Arg0) & IOST))
+                        ElseIf ((Arg0 < 0x10))
                         {
-                            Return (0x0D)
+                            If (((One << Arg0) & IOST))
+                            {
+                                Return (0x0D)
+                            }
+                            Else
+                            {
+                                Return (Zero)
+                            }
                         }
                         Else
                         {
+                            Local0 = ((IOAH << 0x08) | IOAL) /* \_SB_.PCI0.LPCB.SIO1.IOAL */
+                            If (Local0)
+                            {
+                                Return (0x0D)
+                            }
+
                             Return (Zero)
                         }
+
+                        EXFG ()
                     }
 
                     Method (DCNT, 2, NotSerialized)
@@ -2714,52 +2801,24 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                             0x0000,             // Range Maximum
                             0x01,               // Alignment
                             0x00,               // Length
-                            _Y1D)
-                        IRQNoFlags (_Y1B)
+                            _Y1C)
+                        IRQNoFlags (_Y1A)
                             {}
-                        DMA (Compatibility, NotBusMaster, Transfer8, _Y1C)
+                        DMA (Compatibility, NotBusMaster, Transfer8, _Y1B)
                             {}
                     })
-                    CreateWordField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1B._INT, IRQM)  // _INT: Interrupts
-                    CreateByteField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1C._DMA, DMAM)  // _DMA: Direct Memory Access
-                    CreateWordField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1D._MIN, IO11)  // _MIN: Minimum Base Address
-                    CreateWordField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1D._MAX, IO12)  // _MAX: Maximum Base Address
-                    CreateByteField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1D._LEN, LEN1)  // _LEN: Length
-                    Name (CRS2, ResourceTemplate ()
-                    {
-                        IO (Decode16,
-                            0x0000,             // Range Minimum
-                            0x0000,             // Range Maximum
-                            0x01,               // Alignment
-                            0x00,               // Length
-                            _Y20)
-                        IO (Decode16,
-                            0x0000,             // Range Minimum
-                            0x0000,             // Range Maximum
-                            0x01,               // Alignment
-                            0x00,               // Length
-                            _Y21)
-                        IRQNoFlags (_Y1E)
-                            {6}
-                        DMA (Compatibility, NotBusMaster, Transfer8, _Y1F)
-                            {2}
-                    })
-                    CreateWordField (CRS2, \_SB.PCI0.LPCB.SIO1._Y1E._INT, IRQE)  // _INT: Interrupts
-                    CreateByteField (CRS2, \_SB.PCI0.LPCB.SIO1._Y1F._DMA, DMAE)  // _DMA: Direct Memory Access
-                    CreateWordField (CRS2, \_SB.PCI0.LPCB.SIO1._Y20._MIN, IO21)  // _MIN: Minimum Base Address
-                    CreateWordField (CRS2, \_SB.PCI0.LPCB.SIO1._Y20._MAX, IO22)  // _MAX: Maximum Base Address
-                    CreateByteField (CRS2, \_SB.PCI0.LPCB.SIO1._Y20._LEN, LEN2)  // _LEN: Length
-                    CreateWordField (CRS2, \_SB.PCI0.LPCB.SIO1._Y21._MIN, IO31)  // _MIN: Minimum Base Address
-                    CreateWordField (CRS2, \_SB.PCI0.LPCB.SIO1._Y21._MAX, IO32)  // _MAX: Maximum Base Address
-                    CreateByteField (CRS2, \_SB.PCI0.LPCB.SIO1._Y21._LEN, LEN3)  // _LEN: Length
+                    CreateWordField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1A._INT, IRQM)  // _INT: Interrupts
+                    CreateByteField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1B._DMA, DMAM)  // _DMA: Direct Memory Access
+                    CreateWordField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1C._MIN, IO11)  // _MIN: Minimum Base Address
+                    CreateWordField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1C._MAX, IO12)  // _MAX: Maximum Base Address
+                    CreateByteField (CRS1, \_SB.PCI0.LPCB.SIO1._Y1C._LEN, LEN1)  // _LEN: Length
                     Method (DCRS, 2, NotSerialized)
                     {
                         ENFG (CGLD (Arg0))
                         IO11 = (IOAH << 0x08)
                         IO11 |= IOAL /* \_SB_.PCI0.LPCB.SIO1.IOAL */
                         IO12 = IO11 /* \_SB_.PCI0.LPCB.SIO1.IO11 */
-                        Local0 = (FindSetRightBit (IO11) - One)
-                        LEN1 = (One << Local0)
+                        LEN1 = 0x08
                         If (INTR)
                         {
                             IRQM = (One << INTR) /* \_SB_.PCI0.LPCB.SIO1.INTR */
@@ -2785,77 +2844,38 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                     Method (DSRS, 2, NotSerialized)
                     {
-                        If (((Arg1 == 0x02) && LPTM (0x02)))
+                        CreateWordField (Arg0, 0x09, IRQM)
+                        CreateByteField (Arg0, 0x0C, DMAM)
+                        CreateWordField (Arg0, 0x02, IO11)
+                        ENFG (CGLD (Arg1))
+                        IOAL = (IO11 & 0xFF)
+                        IOAH = (IO11 >> 0x08)
+                        If (IRQM)
                         {
-                            CreateWordField (Arg0, 0x11, IRQE)
-                            CreateByteField (Arg0, 0x14, DMAE)
-                            CreateWordField (Arg0, 0x02, IO21)
-                            ENFG (CGLD (Arg1))
-                            IOAL = (IO21 & 0xFF)
-                            IOAH = (IO21 >> 0x08)
-                            If (IRQE)
-                            {
-                                FindSetRightBit (IRQE, Local0)
-                                INTR = (Local0 - One)
-                            }
-                            Else
-                            {
-                                INTR = Zero
-                            }
-
-                            If (DMAE)
-                            {
-                                FindSetRightBit (DMAE, Local0)
-                                DMCH = (Local0 - One)
-                            }
-                            Else
-                            {
-                                DMCH = 0x04
-                            }
-
-                            EXFG ()
-                            DCNT (Arg1, One)
-                            Local2 = Arg1
-                            If ((Local2 > Zero))
-                            {
-                                Local2 -= One
-                            }
+                            FindSetRightBit (IRQM, Local0)
+                            INTR = (Local0 - One)
                         }
                         Else
                         {
-                            CreateWordField (Arg0, 0x09, IRQM)
-                            CreateByteField (Arg0, 0x0C, DMAM)
-                            CreateWordField (Arg0, 0x02, IO11)
-                            ENFG (CGLD (Arg1))
-                            IOAL = (IO11 & 0xFF)
-                            IOAH = (IO11 >> 0x08)
-                            If (IRQM)
-                            {
-                                FindSetRightBit (IRQM, Local0)
-                                INTR = (Local0 - One)
-                            }
-                            Else
-                            {
-                                INTR = Zero
-                            }
+                            INTR = Zero
+                        }
 
-                            If (DMAM)
-                            {
-                                FindSetRightBit (DMAM, Local0)
-                                DMCH = (Local0 - One)
-                            }
-                            Else
-                            {
-                                DMCH = 0x04
-                            }
+                        If (DMAM)
+                        {
+                            FindSetRightBit (DMAM, Local0)
+                            DMCH = (Local0 - One)
+                        }
+                        Else
+                        {
+                            DMCH = 0x04
+                        }
 
-                            EXFG ()
-                            DCNT (Arg1, One)
-                            Local2 = Arg1
-                            If ((Local2 > Zero))
-                            {
-                                Local2 -= One
-                            }
+                        EXFG ()
+                        DCNT (Arg1, One)
+                        Local2 = Arg1
+                        If ((Local2 > Zero))
+                        {
+                            Local2 -= One
                         }
                     }
                 }
@@ -2864,62 +2884,41 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 Method (SIOS, 1, NotSerialized)
                 {
                     Debug = "SIOS"
-                    ^SIO1.ENFG (0x0A)
-                    If (KBFG)
+                    If ((0x05 != Arg0))
                     {
-                        ^SIO1.OPT0 |= 0x20
+                        ^SIO1.ENFG (0x0A)
+                        PMFG = ^SIO1.OPT3 /* \_SB_.PCI0.LPCB.SIO1.OPT3 */
+                        ^SIO1.OPT3 = 0xFF
+                        ^SIO1.OPT4 = 0xFF
+                        ^SIO1.OPT6 &= 0xCF
+                        ^SIO1.OPT6 |= 0x10
+                        ^SIO1.OPT6 |= 0x20
+                        ^SIO1.OPT3 = 0xFF
+                        ^SIO1.OPT4 = 0xFF
+                        ^SIO1.OPT2 |= One
+                        ^SIO1.EXFG ()
                     }
-                    Else
-                    {
-                        ^SIO1.OPT0 &= 0xDF
-                    }
-
-                    If (MSFG)
-                    {
-                        ^SIO1.OPT0 |= 0x40
-                    }
-                    Else
-                    {
-                        ^SIO1.OPT0 &= 0xBF
-                    }
-
-                    ^SIO1.OPT1 &= 0xFF
-                    ^SIO1.EXFG ()
                 }
 
                 Method (SIOW, 1, NotSerialized)
                 {
-                    Debug = "SIOW"
                     ^SIO1.ENFG (0x0A)
-                    PMFG = ^SIO1.OPT1 /* \_SB_.PCI0.LPCB.SIO1.OPT1 */
-                    If ((PMFG && 0x02))
-                    {
-                        Notify (PWRB, 0x02) // Device Wake
-                    }
-                    ElseIf ((PMFG && 0x04))
-                    {
-                        Notify (PWRB, 0x02) // Device Wake
-                    }
-                    Else
-                    {
-                    }
-
-                    ^SIO1.OPT1 &= 0xFF
-                    ^SIO1.OPT0 &= 0x9F
-                    ^SIO1.EXFG ()
-                    ^SIO1.ENFG (0x0A)
-                    ^SIO1.EN80 |= 0x10
+                    PMFG = ^SIO1.OPT3 /* \_SB_.PCI0.LPCB.SIO1.OPT3 */
+                    ^SIO1.OPT3 = 0xFF
+                    ^SIO1.OPT4 = 0xFF
+                    ^SIO1.OPT6 &= 0xCF
+                    ^SIO1.OPT2 &= 0xFE
                     ^SIO1.EXFG ()
                 }
 
                 Method (SIOH, 0, NotSerialized)
                 {
-                    If ((PMFG & 0x20))
+                    If ((PMFG & 0x08))
                     {
                         Notify (PS2K, 0x02) // Device Wake
                     }
 
-                    If ((PMFG & 0x40))
+                    If ((PMFG & 0x10))
                     {
                         Notify (PS2M, 0x02) // Device Wake
                     }
@@ -2927,16 +2926,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Device (PS2K)
                 {
-                    Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
-                    {
-                        Return (HIDK) /* \HIDK */
-                    }
-
-                    Method (_CID, 0, NotSerialized)  // _CID: Compatible ID
-                    {
-                        Return (CIDK) /* \CIDK */
-                    }
-
+                    Name (_HID, EisaId ("PNP0303") /* IBM Enhanced Keyboard (101/102-key, PS/2 Mouse) */)  // _HID: Hardware ID
+                    Name (_CID, EisaId ("PNP030B"))  // _CID: Compatible ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If ((IOST & 0x0400))
@@ -2966,6 +2957,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         IRQNoFlags ()
                             {1}
                     })
+                    Method (_SRS, 1, NotSerialized)  // _SRS: Set Resource Settings
+                    {
+                        Return (Zero)
+                    }
+
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
                     {
                         StartDependentFn (0x00, 0x00)
@@ -2973,13 +2969,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                             IO (Decode16,
                                 0x0060,             // Range Minimum
                                 0x0060,             // Range Maximum
-                                0x00,               // Alignment
+                                0x01,               // Alignment
                                 0x01,               // Length
                                 )
                             IO (Decode16,
                                 0x0064,             // Range Minimum
                                 0x0064,             // Range Maximum
-                                0x00,               // Alignment
+                                0x01,               // Alignment
                                 0x01,               // Length
                                 )
                             IRQNoFlags ()
@@ -3005,16 +3001,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Device (PS2M)
                 {
-                    Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
-                    {
-                        Return (HIDM) /* \HIDM */
-                    }
-
-                    Method (_CID, 0, NotSerialized)  // _CID: Compatible ID
-                    {
-                        Return (CIDM) /* \CIDM */
-                    }
-
+                    Name (_HID, EisaId ("PNP0F03") /* Microsoft PS/2-style Mouse */)  // _HID: Hardware ID
+                    Name (_CID, EisaId ("PNP0F13") /* PS/2 Mouse */)  // _CID: Compatible ID
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         If ((IOST & 0x4000))
@@ -3061,6 +3049,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         }
                     }
 
+                    Method (_SRS, 1, NotSerialized)  // _SRS: Set Resource Settings
+                    {
+                        Return (Zero)
+                    }
+
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
                     {
                         StartDependentFn (0x00, 0x00)
@@ -3088,22 +3081,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Device (UAR1)
                 {
+                    Name (_HID, EisaId ("PNP0501") /* 16550A-compatible COM Serial Port */)  // _HID: Hardware ID
                     Name (_UID, One)  // _UID: Unique ID
-                    Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
-                        Return (^^SIO1.UHID (Zero))
-                    }
-
-                    Method (_STA, 0, Serialized)  // _STA: Status
-                    {
-                        If ((IOST & One))
-                        {
-                            Return (0x0F)
-                        }
-                        Else
-                        {
-                            Return (Zero)
-                        }
+                        Return (^^SIO1.DSTA (Zero))
                     }
 
                     Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
@@ -3496,130 +3478,28 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                             {13}
                     })
                 }
-
-                Scope (^^PCI0)
-                {
-                    Name (SLIC, Buffer (0x9E)
-                    {
-                        "187215431789Genuine NVIDIA Certified SLI Ready Motherboard for MSI X79A-GD65       716b-Copyright 2011 NVIDIA Corporation All Rights Reserved-320198982567(R)"
-                    })
-                    Device (WMI1)
-                    {
-                        Name (_HID, "PNP0C14" /* Windows Management Instrumentation Device */)  // _HID: Hardware ID
-                        Name (_UID, "MXM2")  // _UID: Unique ID
-                        Name (_WDG, Buffer (0x14)
-                        {
-                            /* 0000 */  0x3C, 0x5C, 0xCB, 0xF6, 0xAE, 0x9C, 0xBD, 0x4E,  // <\.....N
-                            /* 0008 */  0xB5, 0x77, 0x93, 0x1E, 0xA3, 0x2A, 0x2C, 0xC0,  // .w...*,.
-                            /* 0010 */  0x4D, 0x58, 0x01, 0x02                           // MX..
-                        })
-                        Method (WMMX, 3, NotSerialized)
-                        {
-                            CreateDWordField (Arg2, Zero, FUNC)
-                            If ((FUNC == 0x41494C53))
-                            {
-                                Return (SLIC) /* \_SB_.PCI0.SLIC */
-                            }
-
-                            Return (Zero)
-                        }
-                    }
-                }
             }
 
-            Device (BR20)
+            Device (P0P9)
             {
                 Name (_ADR, 0x001E0000)  // _ADR: Address
-                Name (UPS1, Package (0x02)
-                {
-                    0x0B, 
-                    0x04
-                })
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (UPS1) /* \_SB_.PCI0.BR20.UPS1 */
+                    Return (GPRW (0x0B, 0x03))
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
-                    If ((PICM == Zero))
+                    If (PICM)
                     {
-                        Return (Package (0x04)
-                        {
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                Zero, 
-                                LNKA, 
-                                Zero
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                One, 
-                                LNKB, 
-                                Zero
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                0x02, 
-                                LNKC, 
-                                Zero
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                0x03, 
-                                LNKD, 
-                                Zero
-                            }
-                        })
+                        Return (AR09) /* \_SB_.AR09 */
                     }
-                    Else
-                    {
-                        Return (Package (0x04)
-                        {
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                Zero, 
-                                Zero, 
-                                0x10
-                            }, 
 
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                One, 
-                                Zero, 
-                                0x11
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                0x02, 
-                                Zero, 
-                                0x12
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                0x03, 
-                                Zero, 
-                                0x13
-                            }
-                        })
-                    }
+                    Return (PR09) /* \_SB_.PR09 */
                 }
             }
 
-            Device (SAT1)
+            Device (SAT0)
             {
                 Name (_ADR, 0x001F0002)  // _ADR: Address
                 Device (SSD1)
@@ -3631,7 +3511,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         {
                              0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0xF5         // .......
                         })
-                        Return (PIB0) /* \_SB_.PCI0.SAT1.SSD1._GTF.PIB0 */
+                        Return (PIB0) /* \_SB_.PCI0.SAT0.SSD1._GTF.PIB0 */
                     }
                 }
 
@@ -3644,11 +3524,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         {
                              0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0xF5         // .......
                         })
-                        Return (PIB1) /* \_SB_.PCI0.SAT1.SSD2._GTF.PIB1 */
+                        Return (PIB1) /* \_SB_.PCI0.SAT0.SSD2._GTF.PIB1 */
                     }
                 }
 
-                Device (BSD1)
+                Device (HDD1)
                 {
                     Name (_ADR, 0x02)  // _ADR: Address
                     Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
@@ -3657,11 +3537,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         {
                              0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0xF5         // .......
                         })
-                        Return (PIB2) /* \_SB_.PCI0.SAT1.BSD1._GTF.PIB2 */
+                        Return (PIB2) /* \_SB_.PCI0.SAT0.HDD1._GTF.PIB2 */
                     }
                 }
 
-                Device (BSD2)
+                Device (HDD2)
                 {
                     Name (_ADR, 0x03)  // _ADR: Address
                     Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
@@ -3670,11 +3550,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         {
                              0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0xF5         // .......
                         })
-                        Return (PIB3) /* \_SB_.PCI0.SAT1.BSD2._GTF.PIB3 */
+                        Return (PIB3) /* \_SB_.PCI0.SAT0.HDD2._GTF.PIB3 */
                     }
                 }
 
-                Device (BSD3)
+                Device (HDD3)
                 {
                     Name (_ADR, 0x04)  // _ADR: Address
                     Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
@@ -3683,11 +3563,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         {
                              0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0xF5         // .......
                         })
-                        Return (PIB4) /* \_SB_.PCI0.SAT1.BSD3._GTF.PIB4 */
+                        Return (PIB4) /* \_SB_.PCI0.SAT0.HDD3._GTF.PIB4 */
                     }
                 }
 
-                Device (BSD4)
+                Device (HDD4)
                 {
                     Name (_ADR, 0x05)  // _ADR: Address
                     Method (_GTF, 0, NotSerialized)  // _GTF: Get Task File
@@ -3696,12 +3576,12 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         {
                              0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0xF5         // .......
                         })
-                        Return (PIB5) /* \_SB_.PCI0.SAT1.BSD4._GTF.PIB5 */
+                        Return (PIB5) /* \_SB_.PCI0.SAT0.HDD4._GTF.PIB5 */
                     }
                 }
             }
 
-            Device (SAT2)
+            Device (SAT1)
             {
                 Name (_ADR, 0x001F0005)  // _ADR: Address
                 Device (FSD1)
@@ -3713,7 +3593,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         {
                              0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0xF5         // .......
                         })
-                        Return (PIB0) /* \_SB_.PCI0.SAT2.FSD1._GTF.PIB0 */
+                        Return (PIB0) /* \_SB_.PCI0.SAT1.FSD1._GTF.PIB0 */
                     }
                 }
 
@@ -3726,7 +3606,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                         {
                              0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0xF5         // .......
                         })
-                        Return (PIB1) /* \_SB_.PCI0.SAT2.FSD2._GTF.PIB1 */
+                        Return (PIB1) /* \_SB_.PCI0.SAT1.FSD2._GTF.PIB1 */
                     }
                 }
             }
@@ -3810,10 +3690,15 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 Name (_S3D, 0x02)  // _S3D: S3 Device State
                 Name (_S2D, 0x02)  // _S2D: S2 Device State
                 Name (_S1D, 0x02)  // _S1D: S1 Device State
+                Method (MBSD, 0, NotSerialized)
+                {
+                    Return (One)
+                }
+
                 Device (HUBN)
                 {
                     Name (_ADR, Zero)  // _ADR: Address
-                    Device (PRB0)
+                    Device (PRT0)
                     {
                         Name (_ADR, One)  // _ADR: Address
                         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -3825,7 +3710,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                 Zero, 
                                 Zero
                             })
-                            Return (UPCA) /* \_SB_.PCI0.EUSB.HUBN.PRB0._UPC.UPCA */
+                            Return (UPCA) /* \_SB_.PCI0.EUSB.HUBN.PRT0._UPC.UPCA */
                         }
 
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -3838,10 +3723,10 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // 0.......
                                 }
                             })
-                            Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRB0._PLD.PLDP */
+                            Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRT0._PLD.PLDP */
                         }
 
-                        Device (PRB1)
+                        Device (USB1)
                         {
                             Name (_ADR, One)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -3853,7 +3738,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB1._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB1._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -3866,11 +3751,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB1._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB1._PLD.PLDP */
                             }
                         }
 
-                        Device (PRB2)
+                        Device (USB2)
                         {
                             Name (_ADR, 0x02)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -3882,7 +3767,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB2._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB2._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -3895,11 +3780,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB2._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB2._PLD.PLDP */
                             }
                         }
 
-                        Device (PRB3)
+                        Device (USB3)
                         {
                             Name (_ADR, 0x03)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -3911,7 +3796,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB3._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB3._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -3924,11 +3809,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB3._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB3._PLD.PLDP */
                             }
                         }
 
-                        Device (PRB4)
+                        Device (USB4)
                         {
                             Name (_ADR, 0x04)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -3940,7 +3825,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB4._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB4._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -3953,11 +3838,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB4._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB4._PLD.PLDP */
                             }
                         }
 
-                        Device (PRB5)
+                        Device (USB5)
                         {
                             Name (_ADR, 0x05)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -3969,7 +3854,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB5._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB5._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -3982,11 +3867,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB5._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB5._PLD.PLDP */
                             }
                         }
 
-                        Device (PRB6)
+                        Device (USB6)
                         {
                             Name (_ADR, 0x06)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -3998,7 +3883,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB6._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB6._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -4011,11 +3896,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB6._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB6._PLD.PLDP */
                             }
                         }
 
-                        Device (PRB7)
+                        Device (USB7)
                         {
                             Name (_ADR, 0x07)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -4027,7 +3912,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB7._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB7._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -4040,11 +3925,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB7._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB7._PLD.PLDP */
                             }
                         }
 
-                        Device (PRB8)
+                        Device (USB8)
                         {
                             Name (_ADR, 0x08)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -4056,7 +3941,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB8._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB8._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -4069,7 +3954,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRB0.PRB8._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.EUSB.HUBN.PRT0.USB8._PLD.PLDP */
                             }
                         }
                     }
@@ -4078,6 +3963,21 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (GPRW (0x0D, 0x04))
+                }
+
+                Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                {
+                    Local0 = Package (0x03)
+                        {
+                            "AAPL,device-internal", 
+                            0x02, 
+                            Buffer (One)
+                            {
+                                 0x00                                             // .
+                            }
+                        }
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
                 }
             }
 
@@ -4088,10 +3988,15 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 Name (_S3D, 0x02)  // _S3D: S3 Device State
                 Name (_S2D, 0x02)  // _S2D: S2 Device State
                 Name (_S1D, 0x02)  // _S1D: S1 Device State
+                Method (MBSD, 0, NotSerialized)
+                {
+                    Return (One)
+                }
+
                 Device (HUBN)
                 {
                     Name (_ADR, Zero)  // _ADR: Address
-                    Device (PRC0)
+                    Device (PRT1)
                     {
                         Name (_ADR, One)  // _ADR: Address
                         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -4103,7 +4008,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                 Zero, 
                                 Zero
                             })
-                            Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRC0._UPC.UPCP */
+                            Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRT1._UPC.UPCP */
                         }
 
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -4116,10 +4021,10 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // 0.......
                                 }
                             })
-                            Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRC0._PLD.PLDP */
+                            Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRT1._PLD.PLDP */
                         }
 
-                        Device (PRC1)
+                        Device (USB1)
                         {
                             Name (_ADR, One)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -4131,7 +4036,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC1._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRT1.USB1._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -4144,11 +4049,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC1._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRT1.USB1._PLD.PLDP */
                             }
                         }
 
-                        Device (PRC2)
+                        Device (USB2)
                         {
                             Name (_ADR, 0x02)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -4160,7 +4065,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC2._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRT1.USB2._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -4173,11 +4078,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC2._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRT1.USB2._PLD.PLDP */
                             }
                         }
 
-                        Device (PRC3)
+                        Device (USB3)
                         {
                             Name (_ADR, 0x03)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -4189,7 +4094,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC3._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRT1.USB3._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -4202,11 +4107,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC3._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRT1.USB3._PLD.PLDP */
                             }
                         }
 
-                        Device (PRC4)
+                        Device (USB4)
                         {
                             Name (_ADR, 0x04)  // _ADR: Address
                             Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
@@ -4218,7 +4123,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                     Zero, 
                                     Zero
                                 })
-                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC4._UPC.UPCP */
+                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRT1.USB4._UPC.UPCP */
                             }
 
                             Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
@@ -4231,68 +4136,25 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                                         /* 0008 */  0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
                                     }
                                 })
-                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC4._PLD.PLDP */
-                            }
-                        }
-
-                        Device (PRC5)
-                        {
-                            Name (_ADR, 0x05)  // _ADR: Address
-                            Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                            {
-                                Name (UPCP, Package (0x04)
-                                {
-                                    0xFF, 
-                                    Zero, 
-                                    Zero, 
-                                    Zero
-                                })
-                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC5._UPC.UPCP */
-                            }
-
-                            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                            {
-                                Name (PLDP, Package (0x01)
-                                {
-                                    Buffer (0x10)
-                                    {
-                                        /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
-                                        /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
-                                    }
-                                })
-                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC5._PLD.PLDP */
-                            }
-                        }
-
-                        Device (PRC6)
-                        {
-                            Name (_ADR, 0x06)  // _ADR: Address
-                            Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                            {
-                                Name (UPCP, Package (0x04)
-                                {
-                                    0xFF, 
-                                    0xFF, 
-                                    Zero, 
-                                    Zero
-                                })
-                                Return (UPCP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC6._UPC.UPCP */
-                            }
-
-                            Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                            {
-                                Name (PLDP, Package (0x01)
-                                {
-                                    Buffer (0x10)
-                                    {
-                                        /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
-                                        /* 0008 */  0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
-                                    }
-                                })
-                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRC0.PRC6._PLD.PLDP */
+                                Return (PLDP) /* \_SB_.PCI0.USBE.HUBN.PRT1.USB4._PLD.PLDP */
                             }
                         }
                     }
+                }
+
+                Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                {
+                    Local0 = Package (0x03)
+                        {
+                            "AAPL,device-internal", 
+                            0x02, 
+                            Buffer (One)
+                            {
+                                 0x00                                             // .
+                            }
+                        }
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
                 }
 
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
@@ -4342,11 +4204,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x04))
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
@@ -4401,11 +4259,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
@@ -4416,6 +4270,48 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                     }
 
                     Return (PR02) /* \_SB_.PR02 */
+                }
+
+                Device (ARPT)
+                {
+                    Name (_ADR, Zero)  // _ADR: Address
+                    Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
+                    {
+                        0x09, 
+                        0x04
+                    })
+                    Name (_SUN, 0x03)  // _SUN: Slot User Number
+                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                    {
+                        Local0 = Package (0x0C)
+                            {
+                                "AAPL,slot-name", 
+                                "AirPort", 
+                                "name", 
+                                "AirPort Extreme", 
+                                "model", 
+                                Buffer (0x33)
+                                {
+                                    "Broadcom BCM4360 802.11ac Wireless Network Adapter"
+                                }, 
+
+                                "device_type", 
+                                Buffer (0x08)
+                                {
+                                    "AirPort"
+                                }, 
+
+                                "compatible", 
+                                "pci14e4,43a0", 
+                                "built-in", 
+                                Buffer (One)
+                                {
+                                     0x01                                             // .
+                                }
+                            }
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
+                    }
                 }
             }
 
@@ -4460,11 +4356,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
@@ -4475,6 +4367,42 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                     }
 
                     Return (PR03) /* \_SB_.PR03 */
+                }
+
+                Device (LAN0)
+                {
+                    Name (_ADR, Zero)  // _ADR: Address
+                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                    {
+                        Local0 = Package (0x0C)
+                            {
+                                "AAPL,slot-name", 
+                                "Built In", 
+                                "name", 
+                                "Realtek Ethernet Controller", 
+                                "model", 
+                                "Realtek RTL8111/8168/8411 Gigabit Network Controller", 
+                                "device_type", 
+                                Buffer (0x14)
+                                {
+                                    "Ethernet Controller"
+                                }, 
+
+                                "built-in", 
+                                Buffer (One)
+                                {
+                                     0x01                                             // .
+                                }, 
+
+                                "location", 
+                                Buffer (0x02)
+                                {
+                                    "1"
+                                }
+                            }
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
+                    }
                 }
             }
 
@@ -4519,11 +4447,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
@@ -4578,11 +4502,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
@@ -4637,11 +4557,17 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
+                    Return (GPRW (0x09, 0x03))
+                }
+
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+                {
+                    If (PICM)
                     {
-                        0x09, 
-                        0x04
-                    })
+                        Return (AR06) /* \_SB_.AR06 */
+                    }
+
+                    Return (PR06) /* \_SB_.PR06 */
                 }
             }
 
@@ -4686,11 +4612,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
@@ -4745,11 +4667,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
@@ -4763,216 +4681,202 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 }
             }
 
-            Device (BR33)
+            Device (P0PA)
             {
                 Name (_ADR, 0x00110000)  // _ADR: Address
-                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
-                {
-                    If ((PICM == Zero))
-                    {
-                        Return (Package (0x02)
-                        {
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                Zero, 
-                                LNKA, 
-                                Zero
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                0x02, 
-                                LNKC, 
-                                Zero
-                            }
-                        })
-                    }
-                    Else
-                    {
-                        Return (Package (0x02)
-                        {
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                Zero, 
-                                Zero, 
-                                0x10
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0xFFFF, 
-                                0x02, 
-                                Zero, 
-                                0x12
-                            }
-                        })
-                    }
-                }
-
-                Device (SCU0)
-                {
-                    Name (_ADR, Zero)  // _ADR: Address
-                }
-
-                Device (ESM0)
-                {
-                    Name (_ADR, 0x03)  // _ADR: Address
-                }
             }
 
-            Device (GLAN)
+            Device (GBE)
             {
                 Name (_ADR, 0x00190000)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x0D, 
-                        0x04
-                    })
+                    Return (GPRW (0x0D, 0x04))
                 }
             }
 
             Device (NPE1)
             {
+                Name (_ADR, 0x00010000)  // _ADR: Address
+                Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                {
+                    Return (GPRW (0x09, 0x03))
+                }
+            }
+
+            Device (NPE2)
+            {
                 Name (_ADR, 0x00010001)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
                     If (PICM)
                     {
-                        Return (AR22) /* \_SB_.AR22 */
+                        Return (AR12) /* \_SB_.AR12 */
                     }
 
-                    Return (PR22) /* \_SB_.PR22 */
-                }
-            }
-
-            Device (NPE2)
-            {
-                Name (_ADR, 0x00020001)  // _ADR: Address
-                Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-                {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (PR12) /* \_SB_.PR12 */
                 }
             }
 
             Device (NPE3)
             {
-                Name (_ADR, 0x00020002)  // _ADR: Address
+                Name (_ADR, 0x00020000)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
+                    Return (GPRW (0x09, 0x03))
+                }
+
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+                {
+                    If (PICM)
                     {
-                        0x09, 
-                        0x04
-                    })
+                        Return (AR13) /* \_SB_.AR13 */
+                    }
+
+                    Return (PR13) /* \_SB_.PR13 */
                 }
             }
 
             Device (NPE4)
             {
-                Name (_ADR, 0x00020003)  // _ADR: Address
+                Name (_ADR, 0x00020001)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
             }
 
             Device (NPE5)
             {
-                Name (_ADR, 0x00030001)  // _ADR: Address
+                Name (_ADR, 0x00020002)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
             }
 
             Device (NPE6)
             {
-                Name (_ADR, 0x00030002)  // _ADR: Address
+                Name (_ADR, 0x00020003)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
             }
 
             Device (NPE7)
             {
-                Name (_ADR, 0x00030003)  // _ADR: Address
+                Name (_ADR, 0x00030000)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
+                    Return (GPRW (0x09, 0x03))
+                }
+
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+                {
+                    If (PICM)
                     {
-                        0x09, 
-                        0x04
-                    })
+                        Return (AR17) /* \_SB_.AR17 */
+                    }
+
+                    Return (PR17) /* \_SB_.PR17 */
+                }
+
+                Device (GFX0)
+                {
+                    Name (_ADR, Zero)  // _ADR: Address
+                    Name (_SUN, 0x02)  // _SUN: Slot User Number
+                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                    {
+                        Local0 = Package (0x0E)
+                            {
+                                "AAPL,slot-name", 
+                                "Slot-1", 
+                                "name", 
+                                "Display Controller", 
+                                "@0,connector-type", 
+                                Buffer (0x04)
+                                {
+                                     0x00, 0x08, 0x00, 0x00                           // ....
+                                }, 
+
+                                "@1,connector-type", 
+                                Buffer (0x04)
+                                {
+                                     0x00, 0x08, 0x00, 0x00                           // ....
+                                }, 
+
+                                "@2,connector-type", 
+                                Buffer (0x04)
+                                {
+                                     0x00, 0x08, 0x00, 0x00                           // ....
+                                }, 
+
+                                "@3,connector-type", 
+                                Buffer (0x04)
+                                {
+                                     0x00, 0x08, 0x00, 0x00                           // ....
+                                }, 
+
+                                "hda-gfx", 
+                                Buffer (0x0A)
+                                {
+                                    "onboard-2"
+                                }
+                            }
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
+                    }
+                }
+
+                Device (HDAU)
+                {
+                    Name (_ADR, One)  // _ADR: Address
+                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                    {
+                        Local0 = Package (0x02)
+                            {
+                                "hda-gfx", 
+                                Buffer (0x0A)
+                                {
+                                    "onboard-2"
+                                }
+                            }
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
+                    }
                 }
             }
 
             Device (NPE8)
             {
-                Name (_ADR, 0x00050000)  // _ADR: Address
+                Name (_ADR, 0x00030001)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
             }
 
             Device (NPE9)
             {
-                Name (_ADR, 0x00050002)  // _ADR: Address
+                Name (_ADR, 0x00030002)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
             }
 
             Device (NPEA)
             {
-                Name (_ADR, 0x00050004)  // _ADR: Address
+                Name (_ADR, 0x00030003)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
+                    Return (GPRW (0x09, 0x03))
                 }
             }
 
@@ -5014,23 +4918,9 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                     })
                 }
             }
-
-            Device (PEG0)
+Device (IOC0)
             {
-                Name (_ADR, 0x00010000)  // _ADR: Address
-                Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-                {
-                    Return (Package (0x02)
-                    {
-                        0x09, 
-                        0x04
-                    })
-                }
-            }
-
-            Device (GFXA)
-            {
-                Name (_ADR, 0x00020000)  // _ADR: Address
+                Name (_ADR, 0x00050000)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -5042,18 +4932,18 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
-                    If (PICM)
+                    If ((PICM == Zero))
                     {
-                        Return (AR23) /* \_SB_.AR23 */
+                        Return (PR03) /* \_SB_.PR03 */
                     }
 
-                    Return (PR23) /* \_SB_.PR23 */
+                    Return (AR03) /* \_SB_.AR03 */
                 }
             }
 
-            Device (GFXB)
+            Device (IOC1)
             {
-                Name (_ADR, 0x00030000)  // _ADR: Address
+                Name (_ADR, 0x00050001)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (Package (0x02)
@@ -5065,12 +4955,58 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
-                    If (PICM)
+                    If ((PICM == Zero))
                     {
-                        Return (AR27) /* \_SB_.AR27 */
+                        Return (PR03) /* \_SB_.PR03 */
                     }
 
-                    Return (PR27) /* \_SB_.PR27 */
+                    Return (AR03) /* \_SB_.AR03 */
+                }
+            }
+
+            Device (IOC2)
+            {
+                Name (_ADR, 0x00050002)  // _ADR: Address
+                Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                {
+                    Return (Package (0x02)
+                    {
+                        0x09, 
+                        0x04
+                    })
+                }
+
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+                {
+                    If ((PICM == Zero))
+                    {
+                        Return (PR03) /* \_SB_.PR03 */
+                    }
+
+                    Return (AR03) /* \_SB_.AR03 */
+                }
+            }
+
+            Device (IOC4)
+            {
+                Name (_ADR, 0x00050004)  // _ADR: Address
+                Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                {
+                    Return (Package (0x02)
+                    {
+                        0x09, 
+                        0x04
+                    })
+                }
+
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+                {
+                    If ((PICM == Zero))
+                    {
+                        Return (PR03) /* \_SB_.PR03 */
+                    }
+
+                    Return (AR03) /* \_SB_.AR03 */
                 }
             }
         }
@@ -5085,7 +5021,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
             Method (_L0B, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
             {
-                Notify (\_SB.PCI0.BR20, 0x02) // Device Wake
+                Notify (\_SB.PCI0.P0P9, 0x02) // Device Wake
                 Notify (\_SB.PWRB, 0x02) // Device Wake
             }
 
@@ -5093,7 +5029,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
             {
                 Notify (\_SB.PCI0.EUSB, 0x02) // Device Wake
                 Notify (\_SB.PCI0.USBE, 0x02) // Device Wake
-                Notify (\_SB.PCI0.GLAN, 0x02) // Device Wake
+                Notify (\_SB.PCI0.GBE, 0x02) // Device Wake
                 Notify (\_SB.PWRB, 0x02) // Device Wake
             }
 
@@ -5103,7 +5039,6 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 Notify (\_SB.PCI0.PEX1, 0x02) // Device Wake
                 Notify (\_SB.PCI0.PEX2, 0x02) // Device Wake
                 Notify (\_SB.PCI0.PEX3, 0x02) // Device Wake
-                Notify (\_SB.PCI0.PEX3.XHCI, 0x02) // Device Wake
                 Notify (\_SB.PCI0.PEX4, 0x02) // Device Wake
                 Notify (\_SB.PCI0.PEX5, 0x02) // Device Wake
                 Notify (\_SB.PCI0.PEX6, 0x02) // Device Wake
@@ -5120,9 +5055,6 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 Notify (\_SB.PCI0.NPEA, 0x02) // Device Wake
                 Notify (\_SB.PCI0.MCHC, 0x02) // Device Wake
                 Notify (\_SB.PCI0.HDEF, 0x02) // Device Wake
-                Notify (\_SB.PCI0.PEG0, 0x02) // Device Wake
-                Notify (\_SB.PCI0.GFXA, 0x02) // Device Wake
-                Notify (\_SB.PCI0.GFXB, 0x02) // Device Wake
             }
         }
 
@@ -5798,7 +5730,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                     Memory32Fixed (ReadWrite,
                         0xFED00000,         // Address Base
                         0x00000400,         // Address Length
-                        _Y22)
+                        _Y1D)
                 })
                 OperationRegion (HCNT, SystemMemory, HPTC, 0x04)
                 Field (HCNT, DWordAcc, NoLock, Preserve)
@@ -5822,7 +5754,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
                 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
-                    CreateDWordField (CRS, \_SB.PCI0.HPET._Y22._BAS, HTBS)  // _BAS: Base Address
+                    CreateDWordField (CRS, \_SB.PCI0.HPET._Y1D._BAS, HTBS)  // _BAS: Base Address
                     Local0 = (HPTS * 0x1000)
                     HTBS = (Local0 + 0xFED00000)
                     Return (CRS) /* \_SB_.PCI0.HPET.CRS_ */
@@ -5837,8 +5769,6 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
         DBG8 = Arg0
-        ICMS = 0xC9
-        DCMS = OSFL ()
         If (((Arg0 == 0x04) && (OSFL () == 0x02)))
         {
             Sleep (0x0BB8)
@@ -5891,29 +5821,149 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
         Name (_UID, One)  // _UID: Unique ID
     }
 
-    Device (_SB.PCI0.LPCB.TPM)
+    OperationRegion (GSTS, SystemIO, 0x0422, One)
+    Field (GSTS, ByteAcc, NoLock, Preserve)
     {
-        Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
+        GP0,    1, 
+        Offset (0x01)
+    }
+
+    OperationRegion (PMIO, SystemIO, PMBS, 0x80)
+    Field (PMIO, ByteAcc, NoLock, Preserve)
+    {
+        Offset (0x20), 
+        Offset (0x22), 
+        GP00,   1
+    }
+
+    OperationRegion (DBG0, SystemIO, 0x80, 0x02)
+    Field (DBG0, ByteAcc, NoLock, Preserve)
+    {
+        IO80,   8, 
+        IO81,   8
+    }
+
+    OperationRegion (GINV, SystemIO, 0x052C, One)
+    Field (GINV, ByteAcc, NoLock, Preserve)
+    {
+        GPIN,   1, 
+        Offset (0x01)
+    }
+
+    Scope (_SB)
+    {
+        Name (\PCAP, 0x00010000)
+        Method (\_GPE._L10, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            If (TCMF){}
-            Else
+            GP0 = One
+            GPIN ^= One
+            IO80 = 0xBB
+            Notify (\_SB.WERR, 0x80) // Status Change
+        }
+
+        Device (WERR)
+        {
+            Name (_HID, EisaId ("PNP0C33") /* Error Device */)  // _HID: Hardware ID
+            Name (_UID, Zero)  // _UID: Unique ID
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                Return (0x0201D824)
+                If ((OSFL () == 0x0A))
+                {
+                    If ((PCAP & 0x00010000))
+                    {
+                        Return (0x0F)
+                    }
+                }
+
+                Return (Zero)
             }
         }
 
+        OperationRegion (SWPT, SystemIO, 0xB2, 0x02)
+        Field (SWPT, ByteAcc, Lock, Preserve)
+        {
+            SWIC,   8, 
+            SWIS,   8
+        }
+
+        OperationRegion (GNVS, SystemMemory, 0xFFFF0000, 0x06)
+        Field (GNVS, AnyAcc, Lock, Preserve)
+        {
+            WSIS,   16, 
+            WSIB,   8, 
+            WSID,   8, 
+            WSIF,   8, 
+            WSTS,   8
+        }
+
+        Method (SWWE, 1, NotSerialized)
+        {
+            SWIC = Zero
+            SWIC = Arg0
+        }
+
+        Device (SRIO)
+        {
+            Name (_HID, "PNP0C14" /* Windows Management Instrumentation Device */)  // _HID: Hardware ID
+            Name (_UID, Zero)  // _UID: Unique ID
+            Name (_WDG, Buffer (0x14)
+            {
+                /* 0000 */  0xF2, 0xF9, 0x7A, 0x0E, 0xA1, 0x44, 0x6F, 0x4C,  // ..z..DoL
+                /* 0008 */  0xA4, 0xB0, 0xA7, 0x67, 0x84, 0x80, 0xDA, 0x61,  // ...g...a
+                /* 0010 */  0x41, 0x41, 0x01, 0x02                           // AA..
+            })
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                Return (0x0F)
+            }
+
+            Method (WMAA, 3, NotSerialized)
+            {
+                Local0 = Arg2
+                CreateWordField (Local0, Zero, CPW0)
+                CreateByteField (Local0, 0x02, CPB2)
+                CreateByteField (Local0, 0x03, CPB3)
+                CreateByteField (Local0, 0x04, CPB4)
+                CreateByteField (Local0, 0x05, CPB5)
+                WSIS = CPW0 /* \_SB_.SRIO.WMAA.CPW0 */
+                WSIB = CPB2 /* \_SB_.SRIO.WMAA.CPB2 */
+                WSID = CPB3 /* \_SB_.SRIO.WMAA.CPB3 */
+                WSIF = CPB4 /* \_SB_.SRIO.WMAA.CPB4 */
+                If ((Arg1 == One))
+                {
+                    SWIS = One
+                    SWWE (0x73)
+                }
+
+                If ((Arg1 == 0x02))
+                {
+                    SWIS = 0x02
+                    SWWE (0x73)
+                }
+
+                If ((Arg1 == 0x03))
+                {
+                    SWIS = 0x03
+                    SWWE (0x73)
+                }
+
+                Return (Zero)
+            }
+        }
+    }
+
+    Device (_SB.PCI0.LPCB.TPM)
+    {
+        Name (_ADR, Zero)  // _ADR: Address
         Name (_CID, EisaId ("PNP0C31"))  // _CID: Compatible ID
-        Name (_STR, Unicode ("TPM 1.2 Device"))  // _STR: Description String
+        Name (_STR, Unicode ("TPM 2.0 Device"))  // _STR: Description String
         Name (_UID, One)  // _UID: Unique ID
         Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
         {
-            DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, NonCacheable, ReadWrite,
-                0x00000000,         // Granularity
-                0xFED40000,         // Range Minimum
-                0xFED44FFF,         // Range Maximum
-                0x00000000,         // Translation Offset
-                0x00005000,         // Length
-                ,, , AddressRangeMemory, TypeStatic)
+            Memory32Fixed (ReadOnly,
+                0xFED40000,         // Address Base
+                0x00005000,         // Address Length
+                )
         })
         OperationRegion (TMMB, SystemMemory, 0xFED40000, 0x5000)
         Field (TMMB, ByteAcc, Lock, Preserve)
@@ -5967,7 +6017,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
                 }
                 ElseIf ((_T_0 == One))
                 {
-                    Return ("1.2")
+                    Return ("2.0")
                 }
                 ElseIf ((_T_0 == 0x02))
                 {
@@ -6154,24 +6204,427 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
     Method (WOSC, 4, NotSerialized)
     {
         CreateDWordField (Arg3, Zero, CDW1)
-        If ((Arg0 == ToUUID ("ed855e0c-6c90-47bf-a62a-26de0fc5ad5c") /* Unknown UUID */))
+        If ((Arg2 > One))
         {
             CreateDWordField (Arg3, 0x04, CDW2)
+        }
+
+        If ((Arg0 == ToUUID ("ed855e0c-6c90-47bf-a62a-26de0fc5ad5c") /* Unknown UUID */))
+        {
             CreateDWordField (Arg3, 0x08, CDW3)
             If (WHEA)
             {
-                If ((CDW2 & One))
+                If ((CDW2 & One)){}
+            }
+
+            Return (Zero)
+        }
+
+        If ((Arg0 == ToUUID ("0811b06e-4a27-44f9-8d60-3cbbc22e7b48") /* Platform-wide Capabilities */))
+        {
+            If ((CDW2 & 0x10)){}
+            Return (Zero)
+        }
+
+        CDW1 |= 0x04
+        Return (Zero)
+    }
+
+    Scope (_SB.PCI0.LPCB)
+    {
+        Device (PMCR)
+        {
+            Name (_HID, EisaId ("APP9876"))  // _HID: Hardware ID
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If (_OSI ("Darwin"))
                 {
-                    Return (One)
+                    Return (0x0B)
+                }
+                Else
+                {
+                    Return (Zero)
+                }
+            }
+
+            Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
+            {
+                Memory32Fixed (ReadWrite,
+                    0xFE000000,         // Address Base
+                    0x00010000,         // Address Length
+                    )
+            })
+        }
+
+        Device (EC)
+        {
+            Name (_HID, EisaId ("PNP0C09") /* Embedded Controller Device */)  // _HID: Hardware ID
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If (_OSI ("Darwin"))
+                {
+                    Return (0x0F)
+                }
+                Else
+                {
+                    Return (Zero)
                 }
             }
         }
-        Else
-        {
-            CDW1 |= 0x04
-        }
+    }
 
-        Return (Zero)
+    Scope (_SB.PCI0.NPE1)
+    {
+        Device (NVME)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+            Name (_SUN, One)  // _SUN: Slot User Number
+            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            {
+                If ((Arg2 == Zero))
+                {
+                    Return (Buffer (One)
+                    {
+                         0x03                                             // .
+                    })
+                }
+
+                Return (Package (0x02)
+                {
+                    "built-in", 
+                    Buffer (0x0A)
+                    {
+                        "NVMe SSD"
+                    }
+                })
+            }
+        }
+    }
+
+    Scope (_SB.PCI0.NPE2)
+    {
+        Device (PEX8)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+            Name (_SUN, One)  // _SUN: Slot User Number
+        }
+    }
+
+    Scope (_SB.PCI0.PEX3)
+    {
+        Device (XHCI)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+            Name (_S4D, 0x02)  // _S4D: S4 Device State
+            Name (_S3D, 0x02)  // _S3D: S3 Device State
+            Name (_S2D, 0x02)  // _S2D: S2 Device State
+            Name (_S1D, 0x02)  // _S1D: S1 Device State
+            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            {
+                Return (Package (0x02)
+                {
+                    0x09, 
+                    0x04
+                })
+            }
+
+            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            {
+                Local0 = Package (0x0F)
+                    {
+                        "AAPL,current-available", 
+                        0x0834, 
+                        "AAPL,current-extra", 
+                        0x0A8C, 
+                        "AAPL,current-extra-in-sleep", 
+                        0x0A8C, 
+                        "AAPL,max-port-current-in-sleep", 
+                        0x0834, 
+                        "AAPL,device-internal", 
+                        Zero, 
+                        "AAPL,root-hub-depth", 
+                        0x0A, 
+                        "AAPL,xhci-clock-id", 
+                        One, 
+                        Buffer (One)
+                        {
+                             0x00                                             // .
+                        }
+                    }
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
+            }
+
+            Device (HUBN)
+            {
+                Name (_ADR, Zero)  // _ADR: Address
+                Device (HSP0)
+                {
+                    Name (_ADR, One)  // _ADR: Address
+                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    {
+                        Name (UPCA, Package (0x04)
+                        {
+                            0xFF, 
+                            0xFF, 
+                            Zero, 
+                            Zero
+                        })
+                        Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0._UPC.UPCA */
+                    }
+
+                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                    {
+                        Name (PLDP, Package (0x01)
+                        {
+                            Buffer (0x10)
+                            {
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
+                            }
+                        })
+                        Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0._PLD.PLDP */
+                    }
+
+                    Device (HSP1)
+                    {
+                        Name (_ADR, One)  // _ADR: Address
+                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                        {
+                            Name (UPCA, Package (0x04)
+                            {
+                                0xFF, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            })
+                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP1._UPC.UPCA */
+                        }
+
+                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                        {
+                            Name (PLDP, Package (0x01)
+                            {
+                                Buffer (0x10)
+                                {
+                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
+                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
+                                }
+                            })
+                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP1._PLD.PLDP */
+                        }
+                    }
+
+                    Device (HSP2)
+                    {
+                        Name (_ADR, 0x02)  // _ADR: Address
+                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                        {
+                            Name (UPCA, Package (0x04)
+                            {
+                                0xFF, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            })
+                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP2._UPC.UPCA */
+                        }
+
+                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                        {
+                            Name (PLDP, Package (0x01)
+                            {
+                                Buffer (0x10)
+                                {
+                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
+                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
+                                }
+                            })
+                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP2._PLD.PLDP */
+                        }
+                    }
+
+                    Device (HSP3)
+                    {
+                        Name (_ADR, 0x03)  // _ADR: Address
+                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                        {
+                            Name (UPCA, Package (0x04)
+                            {
+                                0xFF, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            })
+                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP3._UPC.UPCA */
+                        }
+
+                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                        {
+                            Name (PLDP, Package (0x01)
+                            {
+                                Buffer (0x10)
+                                {
+                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
+                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
+                                }
+                            })
+                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP3._PLD.PLDP */
+                        }
+                    }
+
+                    Device (HSP4)
+                    {
+                        Name (_ADR, 0x04)  // _ADR: Address
+                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                        {
+                            Name (UPCA, Package (0x04)
+                            {
+                                0xFF, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            })
+                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP4._UPC.UPCA */
+                        }
+
+                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                        {
+                            Name (PLDP, Package (0x01)
+                            {
+                                Buffer (0x10)
+                                {
+                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
+                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
+                                }
+                            })
+                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP4._PLD.PLDP */
+                        }
+                    }
+                }
+
+                Device (SS01)
+                {
+                    Name (_ADR, 0x02)  // _ADR: Address
+                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    {
+                        Name (UPCA, Package (0x04)
+                        {
+                            0xFF, 
+                            0x03, 
+                            Zero, 
+                            Zero
+                        })
+                        Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.SS01._UPC.UPCA */
+                    }
+
+                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                    {
+                        Name (PLDP, Package (0x01)
+                        {
+                            Buffer (0x10)
+                            {
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
+                            }
+                        })
+                        Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.SS01._PLD.PLDP */
+                    }
+                }
+
+                Device (SS02)
+                {
+                    Name (_ADR, 0x03)  // _ADR: Address
+                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    {
+                        Name (UPCA, Package (0x04)
+                        {
+                            0xFF, 
+                            0x03, 
+                            Zero, 
+                            Zero
+                        })
+                        Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.SS02._UPC.UPCA */
+                    }
+
+                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                    {
+                        Name (PLDP, Package (0x01)
+                        {
+                            Buffer (0x10)
+                            {
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
+                            }
+                        })
+                        Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.SS02._PLD.PLDP */
+                    }
+                }
+
+                Device (SS03)
+                {
+                    Name (_ADR, 0x04)  // _ADR: Address
+                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    {
+                        Name (UPCA, Package (0x04)
+                        {
+                            0xFF, 
+                            0x03, 
+                            Zero, 
+                            Zero
+                        })
+                        Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.SS03._UPC.UPCA */
+                    }
+
+                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                    {
+                        Name (PLDP, Package (0x01)
+                        {
+                            Buffer (0x10)
+                            {
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
+                            }
+                        })
+                        Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.SS03._PLD.PLDP */
+                    }
+                }
+
+                Device (SS04)
+                {
+                    Name (_ADR, 0x05)  // _ADR: Address
+                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    {
+                        Name (UPCA, Package (0x04)
+                        {
+                            0xFF, 
+                            0x03, 
+                            Zero, 
+                            Zero
+                        })
+                        Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.SS04._UPC.UPCA */
+                    }
+
+                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                    {
+                        Name (PLDP, Package (0x01)
+                        {
+                            Buffer (0x10)
+                            {
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
+                            }
+                        })
+                        Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.SS04._PLD.PLDP */
+                    }
+                }
+            }
+
+            Method (MBSD, 0, NotSerialized)
+            {
+                Return (One)
+            }
+        }
     }
 
     Scope (_SB)
@@ -6282,2745 +6735,2227 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
             }
         }
 
-        Processor (C000, 0x00, 0x00000410, 0x06)
+        Device (SCK0)
         {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, Zero)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
+            Name (_HID, "ACPI0004" /* Module Device */)  // _HID: Hardware ID
+            Name (_UID, "CPUSCK0")  // _UID: Unique ID
+            Name (SCKN, Zero)
+            Name (LSTA, 0xFF)
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If ((CSTA (Zero, Zero) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C001, 0x01, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, One)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, One) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C002, 0x02, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x02)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x02) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C003, 0x03, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x03)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x03) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C004, 0x04, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x04)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x04) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C005, 0x05, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x05)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x05) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C006, 0x06, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x06)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x06) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C007, 0x07, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x07)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x07) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C008, 0x08, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x08)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x08) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C009, 0x09, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x09)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x09) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C00A, 0x0A, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x0A)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x0A) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C00B, 0x0B, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x0B)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x0B) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C00C, 0x0C, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x0C)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x0C) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C00D, 0x0D, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x0D)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x0D) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C00E, 0x0E, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x0E)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x0E) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C00F, 0x0F, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x0F)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x0F) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C010, 0x10, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x10)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x10) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C011, 0x11, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x11)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x11) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C012, 0x12, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x12)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x12) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C013, 0x13, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x13)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x13) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C014, 0x14, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x14)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x14) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C015, 0x15, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x15)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x15) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C016, 0x16, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x16)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x16) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C017, 0x17, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x17)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x17) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C018, 0x18, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x18)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x18) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C019, 0x19, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x19)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x19) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C01A, 0x1A, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x1A)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x1A) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C01B, 0x1B, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x1B)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x1B) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C01C, 0x1C, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x1C)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x1C) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C01D, 0x1D, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x1D)  // _UID: Unique ID
-            Name (_PXM, Zero)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (Zero, 0x1D) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C100, 0x1E, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x1E)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x1E) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C101, 0x1F, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x1F)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x1F) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C102, 0x20, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x20)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x20) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C103, 0x21, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x21)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x21) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C104, 0x22, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x22)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x22) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C105, 0x23, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x23)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x23) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C106, 0x24, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x24)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x24) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C107, 0x25, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x25)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x25) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C108, 0x26, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x26)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x26) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C109, 0x27, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x27)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x27) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C10A, 0x28, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x28)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x28) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C10B, 0x29, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x29)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x29) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C10C, 0x2A, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x2A)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x2A) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C10D, 0x2B, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x2B)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x2B) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C10E, 0x2C, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x2C)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x2C) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C10F, 0x2D, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x2D)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x2D) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C110, 0x2E, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x2E)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x2E) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C111, 0x2F, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x2F)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x2F) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C112, 0x30, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x30)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x30) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C113, 0x31, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x31)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x31) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C114, 0x32, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x32)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x32) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C115, 0x33, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x33)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x33) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C116, 0x34, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x34)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x34) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C117, 0x35, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x35)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x35) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C118, 0x36, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x36)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x36) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C119, 0x37, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x37)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x37) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C11A, 0x38, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x38)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x38) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C11B, 0x39, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x39)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x39) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C11C, 0x3A, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x3A)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x3A) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C11D, 0x3B, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x3B)  // _UID: Unique ID
-            Name (_PXM, One)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (One, 0x3B) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C200, 0x3C, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x3C)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x3C) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C201, 0x3D, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x3D)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x3D) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C202, 0x3E, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x3E)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x3E) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C203, 0x3F, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x3F)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x3F) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C204, 0x40, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x40)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x40) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C205, 0x41, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x41)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x41) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C206, 0x42, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x42)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x42) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C207, 0x43, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x43)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x43) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C208, 0x44, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x44)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x44) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C209, 0x45, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x45)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x45) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C20A, 0x46, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x46)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x46) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C20B, 0x47, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x47)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x47) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C20C, 0x48, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x48)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x48) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C20D, 0x49, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x49)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x49) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C20E, 0x4A, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x4A)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x4A) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C20F, 0x4B, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x4B)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x4B) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C210, 0x4C, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x4C)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x4C) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C211, 0x4D, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x4D)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x4D) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C212, 0x4E, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x4E)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x4E) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C213, 0x4F, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x4F)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x4F) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C214, 0x50, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x50)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x50) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C215, 0x51, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x51)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x51) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C216, 0x52, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x52)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x52) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C217, 0x53, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x53)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x53) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C218, 0x54, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x54)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x54) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C219, 0x55, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x55)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x55) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C21A, 0x56, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x56)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x56) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C21B, 0x57, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x57)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x57) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C21C, 0x58, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x58)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x58) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C21D, 0x59, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x59)  // _UID: Unique ID
-            Name (_PXM, 0x02)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x02, 0x59) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C300, 0x5A, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x5A)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x5A) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C301, 0x5B, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x5B)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x5B) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C302, 0x5C, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x5C)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x5C) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C303, 0x5D, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x5D)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x5D) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C304, 0x5E, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x5E)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x5E) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C305, 0x5F, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x5F)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x5F) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C306, 0x60, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x60)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x60) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C307, 0x61, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x61)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x61) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C308, 0x62, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x62)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x62) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C309, 0x63, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x63)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x63) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C30A, 0x64, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x64)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x64) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C30B, 0x65, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x65)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x65) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C30C, 0x66, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x66)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x66) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C30D, 0x67, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x67)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x67) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C30E, 0x68, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x68)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x68) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C30F, 0x69, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x69)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x69) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C310, 0x6A, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x6A)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x6A) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C311, 0x6B, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x6B)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x6B) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C312, 0x6C, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x6C)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x6C) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C313, 0x6D, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x6D)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x6D) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C314, 0x6E, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x6E)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x6E) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C315, 0x6F, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x6F)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x6F) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C316, 0x70, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x70)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x70) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C317, 0x71, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x71)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x71) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C318, 0x72, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x72)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x72) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C319, 0x73, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x73)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x73) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C31A, 0x74, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x74)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x74) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C31B, 0x75, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x75)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x75) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C31C, 0x76, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x76)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x76) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-
-        Processor (C31D, 0x77, 0x00000410, 0x06)
-        {
-            Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-            Name (_UID, 0x77)  // _UID: Unique ID
-            Name (_PXM, 0x03)  // _PXM: Device Proximity
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((CSTA (0x03, 0x77) == Zero))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-        }
-    }
-
-    Scope (_SB.PCI0.PEX3)
-    {
-        Device (XHCI)
-        {
-            Name (_ADR, Zero)  // _ADR: Address
-            Name (_S4D, 0x02)  // _S4D: S4 Device State
-            Name (_S3D, 0x02)  // _S3D: S3 Device State
-            Name (_S2D, 0x02)  // _S2D: S2 Device State
-            Name (_S1D, 0x02)  // _S1D: S1 Device State
-            Device (HUBN)
-            {
-                Name (_ADR, Zero)  // _ADR: Address
-                Device (HSP0)
-                {
-                    Name (_ADR, One)  // _ADR: Address
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                    {
-                        Name (UPCA, Package (0x04)
-                        {
-                            0xFF, 
-                            0x03, 
-                            Zero, 
-                            Zero
-                        })
-                        Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0._UPC.UPCA */
-                    }
-
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                    {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
-                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
-                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
-                            }
-                        })
-                        Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0._PLD.PLDP */
-                    }
-
-                    Device (HSP1)
-                    {
-                        Name (_ADR, One)  // _ADR: Address
-                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                        {
-                            Name (UPCA, Package (0x04)
-                            {
-                                0xFF, 
-                                0x03, 
-                                Zero, 
-                                Zero
-                            })
-                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP1._UPC.UPCA */
-                        }
-
-                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                        {
-                            Name (PLDP, Package (0x01)
-                            {
-                                Buffer (0x10)
-                                {
-                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
-                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
-                                }
-                            })
-                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP1._PLD.PLDP */
-                        }
-                    }
-
-                    Device (HSP2)
-                    {
-                        Name (_ADR, 0x02)  // _ADR: Address
-                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                        {
-                            Name (UPCA, Package (0x04)
-                            {
-                                0xFF, 
-                                0x03, 
-                                Zero, 
-                                Zero
-                            })
-                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP2._UPC.UPCA */
-                        }
-
-                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                        {
-                            Name (PLDP, Package (0x01)
-                            {
-                                Buffer (0x10)
-                                {
-                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
-                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
-                                }
-                            })
-                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP2._PLD.PLDP */
-                        }
-                    }
-
-                    Device (HSP3)
-                    {
-                        Name (_ADR, 0x03)  // _ADR: Address
-                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                        {
-                            Name (UPCA, Package (0x04)
-                            {
-                                0xFF, 
-                                0x03, 
-                                Zero, 
-                                Zero
-                            })
-                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP3._UPC.UPCA */
-                        }
-
-                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                        {
-                            Name (PLDP, Package (0x01)
-                            {
-                                Buffer (0x10)
-                                {
-                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
-                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
-                                }
-                            })
-                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP3._PLD.PLDP */
-                        }
-                    }
-
-                    Device (HSP4)
-                    {
-                        Name (_ADR, 0x04)  // _ADR: Address
-                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                        {
-                            Name (UPCA, Package (0x04)
-                            {
-                                0xFF, 
-                                0x03, 
-                                Zero, 
-                                Zero
-                            })
-                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP4._UPC.UPCA */
-                        }
-
-                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                        {
-                            Name (PLDP, Package (0x01)
-                            {
-                                Buffer (0x10)
-                                {
-                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
-                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
-                                }
-                            })
-                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.HSP4._PLD.PLDP */
-                        }
-                    }
-
-                    Device (SS01)
-                    {
-                        Name (_ADR, 0x05)  // _ADR: Address
-                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                        {
-                            Name (UPCA, Package (0x04)
-                            {
-                                0xFF, 
-                                0x03, 
-                                Zero, 
-                                Zero
-                            })
-                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.SS01._UPC.UPCA */
-                        }
-
-                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                        {
-                            Name (PLDP, Package (0x01)
-                            {
-                                Buffer (0x10)
-                                {
-                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
-                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
-                                }
-                            })
-                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.SS01._PLD.PLDP */
-                        }
-                    }
-
-                    Device (SS02)
-                    {
-                        Name (_ADR, 0x06)  // _ADR: Address
-                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                        {
-                            Name (UPCA, Package (0x04)
-                            {
-                                0xFF, 
-                                0x03, 
-                                Zero, 
-                                Zero
-                            })
-                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.SS02._UPC.UPCA */
-                        }
-
-                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                        {
-                            Name (PLDP, Package (0x01)
-                            {
-                                Buffer (0x10)
-                                {
-                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
-                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
-                                }
-                            })
-                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.SS02._PLD.PLDP */
-                        }
-                    }
-
-                    Device (SS03)
-                    {
-                        Name (_ADR, 0x07)  // _ADR: Address
-                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                        {
-                            Name (UPCA, Package (0x04)
-                            {
-                                0xFF, 
-                                0x03, 
-                                Zero, 
-                                Zero
-                            })
-                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.SS03._UPC.UPCA */
-                        }
-
-                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                        {
-                            Name (PLDP, Package (0x01)
-                            {
-                                Buffer (0x10)
-                                {
-                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
-                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
-                                }
-                            })
-                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.SS03._PLD.PLDP */
-                        }
-                    }
-
-                    Device (SS04)
-                    {
-                        Name (_ADR, 0x08)  // _ADR: Address
-                        Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                        {
-                            Name (UPCA, Package (0x04)
-                            {
-                                0xFF, 
-                                0x03, 
-                                Zero, 
-                                Zero
-                            })
-                            Return (UPCA) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.SS04._UPC.UPCA */
-                        }
-
-                        Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                        {
-                            Name (PLDP, Package (0x01)
-                            {
-                                Buffer (0x10)
-                                {
-                                    /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,  // ..r.....
-                                    /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00   // i.......
-                                }
-                            })
-                            Return (PLDP) /* \_SB_.PCI0.PEX3.XHCI.HUBN.HSP0.SS04._PLD.PLDP */
-                        }
-                    }
-                }
-
-                Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-                {
-                    Return (GPRW (0x0D, 0x04))
-                }
-            }
-        }
-    }
-
-    Scope (_SB.PCI0.GFXA)
-    {
-        Device (GFX1)
-        {
-            Name (_ADR, Zero)  // _ADR: Address
-            Name (_SUN, One)  // _SUN: Slot User Number
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                Local0 = Package (0x0E)
-                    {
-                        "AAPL,slot-name", 
-                        "Slot-1", 
-                        "name", 
-                        "Display Controller", 
-                        "@0,connector-type", 
-                        Buffer (0x04)
-                        {
-                             0x00, 0x08, 0x00, 0x00                           // ....
-                        }, 
-
-                        "@1,connector-type", 
-                        Buffer (0x04)
-                        {
-                             0x00, 0x08, 0x00, 0x00                           // ....
-                        }, 
-
-                        "@2,connector-type", 
-                        Buffer (0x04)
-                        {
-                             0x00, 0x08, 0x00, 0x00                           // ....
-                        }, 
-
-                        "@3,connector-type", 
-                        Buffer (0x04)
-                        {
-                             0x00, 0x08, 0x00, 0x00                           // ....
-                        }, 
-
-                        "hda-gfx", 
-                        Buffer (0x0A)
-                        {
-                            "onboard-1"
-                        }
-                    }
-                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                CUU0 = "CPUSCK0"
+                Local0 = PSTA (Zero)
+                Local1 = (Local0 & 0x03)
+                LSTA = Local1
                 Return (Local0)
             }
-        }
 
-        Device (HDAD)
-        {
-            Name (_ADR, One)  // _ADR: Address
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Processor (C000, 0x00, 0x00000410, 0x06)
             {
-                Local0 = Package (0x02)
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, Zero)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, Zero) == Zero))
                     {
-                        "hda-gfx", 
-                        Buffer (0x0A)
-                        {
-                            "onboard-1"
-                        }
+                        Return (Zero)
                     }
-                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
-                Return (Local0)
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C001, 0x01, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, One)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, One) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C002, 0x02, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x02)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x02) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C003, 0x03, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x03)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x03) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C004, 0x04, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x04)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x04) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C005, 0x05, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x05)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x05) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C006, 0x06, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x06)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x06) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C007, 0x07, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x07)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x07) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C008, 0x08, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x08)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x08) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C009, 0x09, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x09)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x09) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C00A, 0x0A, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x0A)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x0A) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C00B, 0x0B, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x0B)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x0B) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C00C, 0x0C, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x0C)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x0C) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C00D, 0x0D, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x0D)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x0D) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C00E, 0x0E, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x0E)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x0E) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C00F, 0x0F, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x0F)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x0F) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C010, 0x10, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x10)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x10) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C011, 0x11, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x11)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x11) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C012, 0x12, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x12)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x12) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C013, 0x13, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x13)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x13) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C014, 0x14, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x14)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x14) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C015, 0x15, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x15)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x15) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C016, 0x16, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x16)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x16) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Processor (C017, 0x17, 0x00000410, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, 0x17)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x17) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C018)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI0-CP018")  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x18) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C019)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI0-CP019")  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x19) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C01A)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI0-CP01A")  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x1A) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C01B)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI0-CP01B")  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x1B) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C01C)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI0-CP01C")  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x1C) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C01D)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI0-CP01D")  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x1D) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
             }
         }
-    }
 
-    Scope (_SB.PCI0.GFXB)
-    {
-        Device (GFX2)
+        Device (SCK1)
         {
-            Name (_ADR, Zero)  // _ADR: Address
-            Name (_SUN, One)  // _SUN: Slot User Number
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                Local0 = Package (0x0E)
-                    {
-                        "AAPL,slot-name", 
-                        "Slot-2", 
-                        "name", 
-                        "Display Controller", 
-                        "@0,connector-type", 
-                        Buffer (0x04)
-                        {
-                             0x00, 0x08, 0x00, 0x00                           // ....
-                        }, 
-
-                        "@1,connector-type", 
-                        Buffer (0x04)
-                        {
-                             0x00, 0x08, 0x00, 0x00                           // ....
-                        }, 
-
-                        "@2,connector-type", 
-                        Buffer (0x04)
-                        {
-                             0x00, 0x08, 0x00, 0x00                           // ....
-                        }, 
-
-                        "@3,connector-type", 
-                        Buffer (0x04)
-                        {
-                             0x00, 0x08, 0x00, 0x00                           // ....
-                        }, 
-
-                        "hda-gfx", 
-                        Buffer (0x0A)
-                        {
-                            "onboard-2"
-                        }
-                    }
-                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
-                Return (Local0)
-            }
-        }
-
-        Device (HDAU)
-        {
-            Name (_ADR, One)  // _ADR: Address
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                Local0 = Package (0x02)
-                    {
-                        "hda-gfx", 
-                        Buffer (0x0A)
-                        {
-                            "onboard-2"
-                        }
-                    }
-                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
-                Return (Local0)
-            }
-        }
-    }
-
-    Scope (_SB.PCI0.PEX1)
-    {
-        Device (WIFI)
-        {
-            Name (_ADR, Zero)  // _ADR: Address
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                Local0 = Package (0x04)
-                    {
-                        "built-in", 
-                        Buffer (0x02)
-                        {
-                            "1"
-                        }, 
-
-                        "location", 
-                        Buffer (0x02)
-                        {
-                            "1"
-                        }
-                    }
-                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
-                Return (Local0)
-            }
-        }
-    }
-
-    Scope (_SB.PCI0.PEX2)
-    {
-        Device (LAN0)
-        {
-            Name (_ADR, Zero)  // _ADR: Address
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                Local0 = Package (0x04)
-                    {
-                        "built-in", 
-                        Buffer (0x02)
-                        {
-                            "1"
-                        }, 
-
-                        "location", 
-                        Buffer (0x02)
-                        {
-                            "1"
-                        }
-                    }
-                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
-                Return (Local0)
-            }
-        }
-    }
-
-    Scope (_SB.PCI0.LPCB)
-    {
-        Device (PMCR)
-        {
-            Name (_HID, EisaId ("APP9876"))  // _HID: Hardware ID
+            Name (_HID, "ACPI0004" /* Module Device */)  // _HID: Hardware ID
+            Name (_UID, "CPUSCK1")  // _UID: Unique ID
+            Name (SCKN, One)
+            Name (LSTA, 0xFF)
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If (_OSI ("Darwin"))
+                CUU1 = "CPUSCK1"
+                Local0 = PSTA (One)
+                Local1 = (Local0 & 0x03)
+                LSTA = Local1
+                Return (Local0)
+            }
+
+            Device (C100)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP100")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
-                    Return (0x0B)
-                }
-                Else
-                {
-                    Return (Zero)
+                    If ((CSTA (One, Zero) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
                 }
             }
 
-            Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
+            Device (C101)
             {
-                Memory32Fixed (ReadWrite,
-                    0xFE000000,         // Address Base
-                    0x00010000,         // Address Length
-                    )
-            })
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP101")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, One) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C102)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP102")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x02) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C103)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP103")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x03) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C104)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP104")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x04) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C105)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP105")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x05) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C106)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP106")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x06) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C107)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP107")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x07) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C108)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP108")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x08) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C109)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP109")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x09) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C10A)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP10A")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x0A) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C10B)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP10B")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x0B) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C10C)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP10C")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x0C) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C10D)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP10D")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x0D) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C10E)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP10E")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x0E) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C10F)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP10F")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x0F) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C110)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP110")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x10) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C111)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP111")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x11) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C112)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP112")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x12) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C113)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP113")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x13) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C114)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP114")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x14) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C115)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP115")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x15) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C116)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP116")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x16) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C117)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP117")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x17) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C118)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP118")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x18) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C119)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP119")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x19) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C11A)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP11A")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x1A) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C11B)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP11B")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x1B) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C11C)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP11C")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x1C) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C11D)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI1-CP11D")  // _UID: Unique ID
+                Name (_PXM, One)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (One, 0x1D) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
         }
-    }
 
-    Scope (_SB)
-    {
-        Device (WMIO)
+        Device (SCK2)
         {
-            Mutex (WMIX, 0x01)
-            Name (_HID, "PNP0C14" /* Windows Management Instrumentation Device */)  // _HID: Hardware ID
-            Name (_UID, Zero)  // _UID: Unique ID
-            Name (BUF4, Buffer (0x04)
+            Name (_HID, "ACPI0004" /* Module Device */)  // _HID: Hardware ID
+            Name (_UID, "CPUSCK2")  // _UID: Unique ID
+            Name (SCKN, 0x02)
+            Name (LSTA, 0xFF)
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                 0x00, 0x00, 0x00, 0x00                           // ....
-            })
-            CreateByteField (BUF4, Zero, BF00)
-            CreateByteField (BUF4, One, BF01)
-            CreateByteField (BUF4, 0x02, BF02)
-            CreateByteField (BUF4, 0x03, BF03)
-            Name (_WDG, Buffer (0x14)
-            {
-                /* 0000 */  0xCE, 0x93, 0x05, 0xA8, 0x77, 0x23, 0xDA, 0x11,  // ....w#..
-                /* 0008 */  0xB0, 0x12, 0xB6, 0x22, 0x20, 0x12, 0x07, 0x27,  // ..." ..'
-                /* 0010 */  0x4D, 0x49, 0x01, 0x02                           // MI..
-            })
-            OperationRegion (CMOS, SystemIO, 0x72, 0x02)
-            Field (CMOS, ByteAcc, NoLock, Preserve)
-            {
-                CMIN,   8, 
-                CMDA,   8
+                CUU2 = "CPUSCK2"
+                Local0 = PSTA (0x02)
+                Local1 = (Local0 & 0x03)
+                LSTA = Local1
+                Return (Local0)
             }
 
-            IndexField (CMIN, CMDA, ByteAcc, NoLock, Preserve)
+            Device (C200)
             {
-                Offset (0xD9), 
-                WDFH,   8
-            }
-
-            Method (WMMI, 3, NotSerialized)
-            {
-                If ((Arg1 == 0xFB))
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP200")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
-                    BUF4 = Arg2
-                    If ((BF00 == Zero))
+                    If ((CSTA (0x02, Zero) == Zero))
                     {
-                        BUF4 = Zero
-                        BF02 = One
-                        Return (BUF4) /* \_SB_.WMIO.BUF4 */
+                        Return (Zero)
                     }
-
-                    If ((BF00 == One))
+                    Else
                     {
-                        BUF4 = Zero
-                        BF00 = SMIP /* \SMIP */
-                        Return (BUF4) /* \_SB_.WMIO.BUF4 */
-                    }
-
-                    If ((BF00 == 0x02))
-                    {
-                        BUF4 = Zero
-                        BF00 = FESI /* \FESI */
-                        BF01 = FDSI /* \FDSI */
-                        BF02 = FSSI /* \FSSI */
-                        Return (BUF4) /* \_SB_.WMIO.BUF4 */
-                    }
-
-                    If ((BF00 == 0x03))
-                    {
-                        CMIN = 0xD9
-                        BF00 = CMDA /* \_SB_.WMIO.CMDA */
-                        If ((BF00 & One))
-                        {
-                            BF00 = One
-                            Return (BUF4) /* \_SB_.WMIO.BUF4 */
-                        }
-                        Else
-                        {
-                            BF00 = Zero
-                            Return (BUF4) /* \_SB_.WMIO.BUF4 */
-                        }
+                        Return (0x0F)
                     }
                 }
+            }
 
-                Return (0xFFFFFFFF)
+            Device (C201)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP201")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, One) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C202)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP202")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x02) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C203)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP203")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x03) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C204)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP204")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x04) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C205)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP205")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x05) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C206)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP206")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x06) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C207)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP207")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x07) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C208)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP208")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x08) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C209)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP209")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x09) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C20A)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP20A")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x0A) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C20B)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP20B")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x0B) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C20C)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP20C")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x0C) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C20D)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP20D")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x0D) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C20E)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP20E")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x0E) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C20F)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP20F")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x0F) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C210)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP210")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x10) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C211)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP211")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x11) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C212)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP212")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x12) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C213)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP213")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x13) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C214)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP214")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x14) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C215)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP215")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x15) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C216)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP216")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x16) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C217)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP217")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x17) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C218)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP218")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x18) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C219)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP219")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x19) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C21A)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP21A")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x1A) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C21B)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP21B")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x1B) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C21C)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP21C")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x1C) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C21D)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI2-CP21D")  // _UID: Unique ID
+                Name (_PXM, 0x02)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x02, 0x1D) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+        }
+
+        Device (SCK3)
+        {
+            Name (_HID, "ACPI0004" /* Module Device */)  // _HID: Hardware ID
+            Name (_UID, "CPUSCK3")  // _UID: Unique ID
+            Name (SCKN, 0x03)
+            Name (LSTA, 0xFF)
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                CUU3 = "CPUSCK3"
+                Local0 = PSTA (0x03)
+                Local1 = (Local0 & 0x03)
+                LSTA = Local1
+                Return (Local0)
+            }
+
+            Device (C300)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP300")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, Zero) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C301)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP301")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, One) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C302)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP302")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x02) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C303)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP303")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x03) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C304)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP304")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x04) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C305)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP305")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x05) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C306)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP306")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x06) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C307)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP307")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x07) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C308)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP308")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x08) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C309)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP309")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x09) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C30A)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP30A")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x0A) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C30B)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP30B")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x0B) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C30C)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP30C")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x0C) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C30D)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP30D")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x0D) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C30E)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP30E")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x0E) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C30F)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP30F")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x0F) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C310)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP310")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x10) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C311)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP311")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x11) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C312)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP312")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x12) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C313)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP313")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x13) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C314)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP314")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x14) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C315)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP315")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x15) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C316)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP316")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x16) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C317)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP317")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x17) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C318)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP318")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x18) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C319)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP319")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x19) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C31A)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP31A")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x1A) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C31B)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP31B")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x1B) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C31C)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP31C")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x1C) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+
+            Device (C31D)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                Name (_UID, "PCI3-CP31D")  // _UID: Unique ID
+                Name (_PXM, 0x03)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (0x03, 0x1D) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
             }
         }
     }
@@ -9177,11 +9112,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000019)
 
     Method (_SB._OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
     {
-        If (WOSC (Arg0, Arg1, Arg3, Arg3))
-        {
-            Return (Arg3)
-        }
-
+        WOSC (Arg0, Arg1, Arg2, Arg3)
         Return (Arg3)
     }
 
