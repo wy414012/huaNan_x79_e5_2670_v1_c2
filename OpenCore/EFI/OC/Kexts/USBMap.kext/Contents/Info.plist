@@ -22,14 +22,14 @@
 	<string>1.0</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>iMacPro1,1-EHC1</key>
+		<key>iMacPro1,1-EUSB</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>EHC1</string>
+			<string>EUSB</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x1d268086</string>
 			<key>IOProbeScore</key>
@@ -57,7 +57,7 @@
 						<key>Comment</key>
 						<string>USB 2.0 bus</string>
 						<key>name</key>
-						<string>EHC1</string>
+						<string>EUSB</string>
 						<key>port</key>
 						<data>AQAAAA==</data>
 					</dict>
@@ -66,7 +66,7 @@
 			<key>model</key>
 			<string>iMacPro1,1</string>
 		</dict>
-		<key>iMacPro1,1-EHC1-internal-hub</key>
+		<key>iMacPro1,1-EUSB-internal-hub</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
@@ -133,14 +133,14 @@
 			<key>model</key>
 			<string>iMacPro1,1</string>
 		</dict>
-		<key>iMacPro1,1-EHC2</key>
+		<key>iMacPro1,1-USBE</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>EHC2</string>
+			<string>USBE</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x1d2d8086</string>
 			<key>IOProbeScore</key>
@@ -177,7 +177,7 @@
 			<key>model</key>
 			<string>iMacPro1,1</string>
 		</dict>
-		<key>iMacPro1,1-EHC2-internal-hub</key>
+		<key>iMacPro1,1-USBE-internal-hub</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
@@ -376,14 +376,14 @@
 			<key>model</key>
 			<string>iMacPro1,1</string>
 		</dict>
-		<key>MacPro6,1-EHC1</key>
+		<key>MacPro6,1-EUSB</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>EHC1</string>
+			<string>EUSB</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x1d268086</string>
 			<key>IOProbeScore</key>
@@ -411,7 +411,7 @@
 						<key>Comment</key>
 						<string>USB 2.0 bus</string>
 						<key>name</key>
-						<string>EHC1</string>
+						<string>EUSB</string>
 						<key>port</key>
 						<data>AQAAAA==</data>
 					</dict>
@@ -420,7 +420,7 @@
 			<key>model</key>
 			<string>MacPro6,1</string>
 		</dict>
-		<key>MacPro6,1-EHC1-internal-hub</key>
+		<key>MacPro6,1-EUSB-internal-hub</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
@@ -487,14 +487,14 @@
 			<key>model</key>
 			<string>MacPro6,1</string>
 		</dict>
-		<key>MacPro6,1-EHC2</key>
+		<key>MacPro6,1-USBE</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>EHC2</string>
+			<string>USBE</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x1d2d8086</string>
 			<key>IOProbeScore</key>
@@ -531,7 +531,7 @@
 			<key>model</key>
 			<string>MacPro6,1</string>
 		</dict>
-		<key>MacPro6,1-EHC2-internal-hub</key>
+		<key>MacPro6,1-USBE-internal-hub</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
@@ -730,14 +730,14 @@
 			<key>model</key>
 			<string>MacPro6,1</string>
 		</dict>
-		<key>MacPro7,1-EHC1</key>
+		<key>MacPro7,1-EUSB</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>EHC1</string>
+			<string>EUSB</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x1d268086</string>
 			<key>IOProbeScore</key>
@@ -765,7 +765,7 @@
 						<key>Comment</key>
 						<string>USB 2.0 bus</string>
 						<key>name</key>
-						<string>EHC1</string>
+						<string>EUSB</string>
 						<key>port</key>
 						<data>AQAAAA==</data>
 					</dict>
@@ -774,7 +774,7 @@
 			<key>model</key>
 			<string>MacPro7,1</string>
 		</dict>
-		<key>MacPro7,1-EHC1-internal-hub</key>
+		<key>MacPro7,1-EUSB-internal-hub</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
@@ -841,14 +841,14 @@
 			<key>model</key>
 			<string>MacPro7,1</string>
 		</dict>
-		<key>MacPro7,1-EHC2</key>
+		<key>MacPro7,1-USBE</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>EHC2</string>
+			<string>USBE</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x1d2d8086</string>
 			<key>IOProbeScore</key>
@@ -885,7 +885,7 @@
 			<key>model</key>
 			<string>MacPro7,1</string>
 		</dict>
-		<key>MacPro7,1-EHC2-internal-hub</key>
+		<key>MacPro7,1-USBE-internal-hub</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
