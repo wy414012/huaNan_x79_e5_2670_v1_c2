@@ -12,10 +12,15 @@
 ![](./OpenCore/docs/12.6.2.png)
 - 关于`macOS Monterey`意外需要重启多次才能进入系统说明
 - 修补CPU描述改为不超过24核心即可 参考`[DSDT.dsl](./OpenCore/ssdt/DSDT.dsl)`仓库内可以找到
-### 关于macOS  Ventura支持说明
-- 已经添加初步支持，能正确安装macOS12的目前仓库最新驱动与代码已经基本上没有故障
-- 添加了绕过avx2.0支持需求驱动 显卡仍旧需要等待修补硬解问题，升级注意请先关闭sip后才能正确升级13.0
-- 生产环境请勿升级
+### 关于macOS  Ventura![](./OpenCore/docs/13.1.png)支持说明
+- 修改配置文件禁用SIP和关闭amfi验证
+```
+Misc-->Security-->SecureBootModel-->Default 改 Disabled  
+NVRAM-->Add-->csr-active-config-->EF0F0000(禁用SIP)
+            boot-args-->添加amfi=0x80
+```
+- 使用`[OpenCore-Patcher-GUI](https://github.com/dortania/OpenCore-Legacy-Patcher/)`打显卡补丁
+- 更多补丁使用请自行尝试，**请勿升级生产环境**
 - **尝鲜有风险，请酌情谨慎升级，部分老旧AMD显卡在13中已经丢失掉了免驱**
 ### 硬件 ###
 
