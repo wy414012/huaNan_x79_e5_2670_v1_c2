@@ -19,7 +19,7 @@ Misc-->Security-->SecureBootModel-->Default 改 Disabled
 NVRAM-->Add-->csr-active-config-->EF0F0000(禁用SIP)
             boot-args-->添加amfi=0x80
 ```
-- 使用`[OpenCore-Patcher-GUI](https://github.com/dortania/OpenCore-Legacy-Patcher/)`打显卡补丁
+- 使用**[OpenCore-Patcher-GUI](https://github.com/dortania/OpenCore-Legacy-Patcher/)**打显卡补丁
 - 更多补丁使用请自行尝试，**请勿升级生产环境**
 - **尝鲜有风险，请酌情谨慎升级，部分老旧AMD显卡在13中已经丢失掉了免驱**
 ### 硬件 ###
