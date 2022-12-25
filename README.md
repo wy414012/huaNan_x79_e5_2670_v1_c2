@@ -8,10 +8,10 @@
 - 现在支持升级，但是不保证能正常使用想尝试的请克隆仓库最新提交，使用一块独立磁盘尝试
 - **数据很重要，升级请三思.**
 - **v1 32纳米系列cpu止步12.2.1，过后将不在提供变频数据支持，请悉知!**
-- 免驱N卡注入驱动的方式经过测试在`12.6.2`下依然有效请使用`Geforce Kepler patcher-V5`补丁
+- 免驱N卡注入驱动的方式经过测试在`12.6.2`下依然有效请使用[Geforce Kepler patcher-V5](https://github.com/chris1111/Geforce-Kepler-patcher/releases/tag/V5)补丁
 ![](./OpenCore/docs/12.6.2.png)
 - 关于`macOS Monterey`意外需要重启多次才能进入系统说明
-- 修补CPU描述改为不超过24核心即可 参考`[DSDT.dsl](./OpenCore/ssdt/DSDT.dsl)`仓库内可以找到
+- 修补CPU描述改为不超过24核心即可 参考[DSDT.dsl](./OpenCore/ssdt/DSDT.dsl)仓库内可以找到
 ### 关于macOS  Ventura![](./OpenCore/docs/13.1.png)支持说明
 - 修改配置文件禁用SIP和关闭amfi验证
 ```
@@ -19,7 +19,8 @@ Misc-->Security-->SecureBootModel-->Default 改 Disabled
 NVRAM-->Add-->csr-active-config-->EF0F0000(禁用SIP)
             boot-args-->添加amfi=0x80
 ```
-- 使用**[OpenCore-Patcher-GUI](https://github.com/dortania/OpenCore-Legacy-Patcher/)**打显卡补丁
+- 部分rx588进入桌面会出现灰屏假死状态，只需要在`boot-args-->添加 -x`用安全模式进入桌面安装显卡补丁后删除 `-x`重启即可
+- 使用[OpenCore-Patcher-GUI](https://github.com/dortania/OpenCore-Legacy-Patcher/)打显卡补丁
 - 更多补丁使用请自行尝试，**请勿升级生产环境**
 - **尝鲜有风险，请酌情谨慎升级，部分老旧AMD显卡在13中已经丢失掉了免驱**
 ### 硬件 ###
