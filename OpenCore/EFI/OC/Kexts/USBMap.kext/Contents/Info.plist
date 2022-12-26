@@ -53,7 +53,7 @@
 					<key>PRT1</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>255</integer>
+						<integer>0</integer>
 						<key>Comment</key>
 						<string>USB 2.0 bus</string>
 						<key>name</key>
@@ -79,13 +79,13 @@
 			<key>IOProviderMergeProperties</key>
 			<dict>
 				<key>port-count</key>
-				<data>BAAAAA==</data>
+				<data>BgAAAA==</data>
 				<key>ports</key>
 				<dict>
-					<key>SP01</key>
+					<key>PRT1</key>
 					<dict>
 						<key>name</key>
-						<string>SP01</string>
+						<string>PRT1</string>
 						<key>port</key>
 						<data>AQAAAA==</data>
 						<key>portType</key>
@@ -93,10 +93,10 @@
 						<key>Comment</key>
 						<string>Rear USB2.0 interface</string>
 					</dict>
-					<key>SP02</key>
+					<key>PRT2</key>
 					<dict>
 						<key>name</key>
-						<string>SP02</string>
+						<string>PRT2</string>
 						<key>port</key>
 						<data>AgAAAA==</data>
 						<key>portType</key>
@@ -104,10 +104,10 @@
 						<key>Comment</key>
 						<string>Rear USB2.0 interface</string>
 					</dict>
-					<key>SP03</key>
+					<key>PRT3</key>
 					<dict>
 						<key>name</key>
-						<string>SP03</string>
+						<string>PRT3</string>
 						<key>port</key>
 						<data>AwAAAA==</data>
 						<key>portType</key>
@@ -115,12 +115,34 @@
 						<key>Comment</key>
 						<string>Onboard USB2.0 interface 9-pin</string>
 					</dict>
-					<key>SP04</key>
+					<key>PRT4</key>
 					<dict>
 						<key>name</key>
-						<string>SP04</string>
+						<string>PRT4</string>
 						<key>port</key>
 						<data>BAAAAA==</data>
+						<key>portType</key>
+						<integer>0</integer>
+						<key>Comment</key>
+						<string>Onboard USB2.0 interface 9-pin</string>
+					</dict>
+					<key>PRT5</key>
+					<dict>
+						<key>name</key>
+						<string>PRT5</string>
+						<key>port</key>
+						<data>BQAAAA==</data>
+						<key>portType</key>
+						<integer>0</integer>
+						<key>Comment</key>
+						<string>Onboard USB2.0 interface 9-pin</string>
+					</dict>
+					<key>PRT6</key>
+					<dict>
+						<key>name</key>
+						<string>PRT6</string>
+						<key>port</key>
+						<data>BgAAAA==</data>
 						<key>portType</key>
 						<integer>0</integer>
 						<key>Comment</key>
@@ -164,7 +186,7 @@
 					<key>PRT1</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>255</integer>
+						<integer>0</integer>
 						<key>Comment</key>
 						<string>USB 2.0 bus</string>
 						<key>name</key>
@@ -288,14 +310,14 @@
 			<key>model</key>
 			<string>iMacPro1,1</string>
 		</dict>
-		<key>iMacPro1,1-XHC1-1106_3483</key>
+		<key>iMacPro1,1-XHCI-1106_3483</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>XHC1</string>
+			<string>XHCI</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x34831106</string>
 			<key>IOProbeScore</key>
@@ -316,56 +338,56 @@
 				<data>BQAAAA==</data>
 				<key>ports</key>
 				<dict>
-					<key>HS01</key>
+					<key>SSP1</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>0</integer>
 						<key>name</key>
-						<string>HS01</string>
+						<string>SSP1</string>
 						<key>port</key>
 						<data>AQAAAA==</data>
 						<key>Comment</key>
 						<string>USB2.0/3.0 converged 2.0 bus</string>
 					</dict>
-					<key>HS02</key>
+					<key>SSP2</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>HS02</string>
+						<string>SSP2</string>
 						<key>port</key>
 						<data>AgAAAA==</data>
 						<key>Comment</key>
 						<string>Onboard rear USB3.0</string>
 					</dict>
-					<key>HS03</key>
+					<key>SSP3</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>HS03</string>
+						<string>SSP3</string>
 						<key>port</key>
 						<data>AwAAAA==</data>
 						<key>Comment</key>
 						<string>Onboard rear USB3.0</string>
 					</dict>
-					<key>HS04</key>
+					<key>SSP4</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>HS04</string>
+						<string>SSP4</string>
 						<key>port</key>
 						<data>BAAAAA==</data>
 						<key>Comment</key>
 						<string>Onboard USB3.0 interface 20-pin</string>
 					</dict>
-					<key>SSP1</key>
+					<key>SSP5</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>SSP1</string>
+						<string>SSP5</string>
 						<key>port</key>
 						<data>BQAAAA==</data>
 						<key>Comment</key>
@@ -407,7 +429,7 @@
 					<key>PRT1</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>255</integer>
+						<integer>0</integer>
 						<key>Comment</key>
 						<string>USB 2.0 bus</string>
 						<key>name</key>
@@ -433,13 +455,13 @@
 			<key>IOProviderMergeProperties</key>
 			<dict>
 				<key>port-count</key>
-				<data>BAAAAA==</data>
+				<data>BgAAAA==</data>
 				<key>ports</key>
 				<dict>
-					<key>SP01</key>
+					<key>PRT1</key>
 					<dict>
 						<key>name</key>
-						<string>SP01</string>
+						<string>PRT1</string>
 						<key>port</key>
 						<data>AQAAAA==</data>
 						<key>portType</key>
@@ -447,10 +469,10 @@
 						<key>Comment</key>
 						<string>Rear USB2.0 interface</string>
 					</dict>
-					<key>SP02</key>
+					<key>PRT2</key>
 					<dict>
 						<key>name</key>
-						<string>SP02</string>
+						<string>PRT2</string>
 						<key>port</key>
 						<data>AgAAAA==</data>
 						<key>portType</key>
@@ -458,10 +480,10 @@
 						<key>Comment</key>
 						<string>Rear USB2.0 interface</string>
 					</dict>
-					<key>SP03</key>
+					<key>PRT3</key>
 					<dict>
 						<key>name</key>
-						<string>SP03</string>
+						<string>PRT3</string>
 						<key>port</key>
 						<data>AwAAAA==</data>
 						<key>portType</key>
@@ -469,12 +491,34 @@
 						<key>Comment</key>
 						<string>Onboard USB2.0 interface 9-pin</string>
 					</dict>
-					<key>SP04</key>
+					<key>PRT4</key>
 					<dict>
 						<key>name</key>
-						<string>SP04</string>
+						<string>PRT4</string>
 						<key>port</key>
 						<data>BAAAAA==</data>
+						<key>portType</key>
+						<integer>0</integer>
+						<key>Comment</key>
+						<string>Onboard USB2.0 interface 9-pin</string>
+					</dict>
+					<key>PRT5</key>
+					<dict>
+						<key>name</key>
+						<string>PRT5</string>
+						<key>port</key>
+						<data>BQAAAA==</data>
+						<key>portType</key>
+						<integer>0</integer>
+						<key>Comment</key>
+						<string>Onboard USB2.0 interface 9-pin</string>
+					</dict>
+					<key>PRT6</key>
+					<dict>
+						<key>name</key>
+						<string>PRT6</string>
+						<key>port</key>
+						<data>BgAAAA==</data>
 						<key>portType</key>
 						<integer>0</integer>
 						<key>Comment</key>
@@ -518,7 +562,7 @@
 					<key>PRT1</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>255</integer>
+						<integer>0</integer>
 						<key>Comment</key>
 						<string>USB 2.0 bus</string>
 						<key>name</key>
@@ -642,14 +686,14 @@
 			<key>model</key>
 			<string>MacPro6,1</string>
 		</dict>
-		<key>MacPro6,1-XHC1-1106_3483</key>
+		<key>MacPro6,1-XHCI-1106_3483</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>XHC1</string>
+			<string>XHCI</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x34831106</string>
 			<key>IOProbeScore</key>
@@ -670,56 +714,56 @@
 				<data>BQAAAA==</data>
 				<key>ports</key>
 				<dict>
-					<key>HS01</key>
+					<key>SSP1</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>0</integer>
 						<key>name</key>
-						<string>HS01</string>
+						<string>SSP1</string>
 						<key>port</key>
 						<data>AQAAAA==</data>
 						<key>Comment</key>
 						<string>USB2.0/3.0 converged 2.0 bus</string>
 					</dict>
-					<key>HS02</key>
+					<key>SSP2</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>HS02</string>
+						<string>SSP2</string>
 						<key>port</key>
 						<data>AgAAAA==</data>
 						<key>Comment</key>
 						<string>Onboard rear USB3.0</string>
 					</dict>
-					<key>HS03</key>
+					<key>SSP3</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>HS03</string>
+						<string>SSP3</string>
 						<key>port</key>
 						<data>AwAAAA==</data>
 						<key>Comment</key>
 						<string>Onboard rear USB3.0</string>
 					</dict>
-					<key>HS04</key>
+					<key>SSP4</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>HS04</string>
+						<string>SSP4</string>
 						<key>port</key>
 						<data>BAAAAA==</data>
 						<key>Comment</key>
 						<string>Onboard USB3.0 interface 20-pin</string>
 					</dict>
-					<key>SSP1</key>
+					<key>SSP5</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>SSP1</string>
+						<string>SSP5</string>
 						<key>port</key>
 						<data>BQAAAA==</data>
 						<key>Comment</key>
@@ -730,7 +774,7 @@
 			<key>model</key>
 			<string>MacPro6,1</string>
 		</dict>
-		<key>MacPro7,1-EUSB</key>
+		<key>MacPro7,1-EUSB </key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
@@ -761,7 +805,7 @@
 					<key>PRT1</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>255</integer>
+						<integer>0</integer>
 						<key>Comment</key>
 						<string>USB 2.0 bus</string>
 						<key>name</key>
@@ -787,13 +831,13 @@
 			<key>IOProviderMergeProperties</key>
 			<dict>
 				<key>port-count</key>
-				<data>BAAAAA==</data>
+				<data>BgAAAA==</data>
 				<key>ports</key>
 				<dict>
-					<key>SP01</key>
+					<key>PRT1</key>
 					<dict>
 						<key>name</key>
-						<string>SP01</string>
+						<string>PRT1</string>
 						<key>port</key>
 						<data>AQAAAA==</data>
 						<key>portType</key>
@@ -801,10 +845,10 @@
 						<key>Comment</key>
 						<string>Rear USB2.0 interface</string>
 					</dict>
-					<key>SP02</key>
+					<key>PRT2</key>
 					<dict>
 						<key>name</key>
-						<string>SP02</string>
+						<string>PRT2</string>
 						<key>port</key>
 						<data>AgAAAA==</data>
 						<key>portType</key>
@@ -812,10 +856,10 @@
 						<key>Comment</key>
 						<string>Rear USB2.0 interface</string>
 					</dict>
-					<key>SP03</key>
+					<key>PRT3</key>
 					<dict>
 						<key>name</key>
-						<string>SP03</string>
+						<string>PRT3</string>
 						<key>port</key>
 						<data>AwAAAA==</data>
 						<key>portType</key>
@@ -823,12 +867,34 @@
 						<key>Comment</key>
 						<string>Onboard USB2.0 interface 9-pin</string>
 					</dict>
-					<key>SP04</key>
+					<key>PRT4</key>
 					<dict>
 						<key>name</key>
-						<string>SP04</string>
+						<string>PRT4</string>
 						<key>port</key>
 						<data>BAAAAA==</data>
+						<key>portType</key>
+						<integer>0</integer>
+						<key>Comment</key>
+						<string>Onboard USB2.0 interface 9-pin</string>
+					</dict>
+					<key>PRT5</key>
+					<dict>
+						<key>name</key>
+						<string>PRT5</string>
+						<key>port</key>
+						<data>BQAAAA==</data>
+						<key>portType</key>
+						<integer>0</integer>
+						<key>Comment</key>
+						<string>Onboard USB2.0 interface 9-pin</string>
+					</dict>
+					<key>PRT6</key>
+					<dict>
+						<key>name</key>
+						<string>PRT6</string>
+						<key>port</key>
+						<data>BgAAAA==</data>
 						<key>portType</key>
 						<integer>0</integer>
 						<key>Comment</key>
@@ -872,7 +938,7 @@
 					<key>PRT1</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>255</integer>
+						<integer>0</integer>
 						<key>Comment</key>
 						<string>USB 2.0 bus</string>
 						<key>name</key>
@@ -996,14 +1062,14 @@
 			<key>model</key>
 			<string>MacPro7,1</string>
 		</dict>
-		<key>MacPro7,1-XHC1-1106_3483</key>
+		<key>MacPro7,1-XHCI-1106_3483</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>XHC1</string>
+			<string>XHCI</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x34831106</string>
 			<key>IOProbeScore</key>
@@ -1024,56 +1090,56 @@
 				<data>BQAAAA==</data>
 				<key>ports</key>
 				<dict>
-					<key>HS01</key>
+					<key>SSP1</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>0</integer>
 						<key>name</key>
-						<string>HS01</string>
+						<string>SSP1</string>
 						<key>port</key>
 						<data>AQAAAA==</data>
 						<key>Comment</key>
 						<string>USB2.0/3.0 converged 2.0 bus</string>
 					</dict>
-					<key>HS02</key>
+					<key>SSP2</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>HS02</string>
+						<string>SSP2</string>
 						<key>port</key>
 						<data>AgAAAA==</data>
 						<key>Comment</key>
 						<string>Onboard rear USB3.0</string>
 					</dict>
-					<key>HS03</key>
+					<key>SSP3</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>HS03</string>
+						<string>SSP3</string>
 						<key>port</key>
 						<data>AwAAAA==</data>
 						<key>Comment</key>
 						<string>Onboard rear USB3.0</string>
 					</dict>
-					<key>HS04</key>
+					<key>SSP4</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>HS04</string>
+						<string>SSP4</string>
 						<key>port</key>
 						<data>BAAAAA==</data>
 						<key>Comment</key>
 						<string>Onboard USB3.0 interface 20-pin</string>
 					</dict>
-					<key>SSP1</key>
+					<key>SSP5</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
-						<string>SSP1</string>
+						<string>SSP5</string>
 						<key>port</key>
 						<data>BQAAAA==</data>
 						<key>Comment</key>
