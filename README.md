@@ -109,19 +109,19 @@ sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinst
 - 首先下载我们需要的系统镜像我们用macOS Big Sur举例说明
 - 创建一个16g大小的dmg文件：
 ```bash
-$ hdiutil create -o /tmp/BigSur -size 16G -layout SPUD -fs HFS+J
+hdiutil create -o /tmp/BigSur -size 16G -layout SPUD -fs HFS+J
 ``` 
 - 1、创建一个用于镜像制作的空dmg文件镜像并且挂载 
 ```bash
-$ hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur
+hdiutil attach /tmp/BigSur.dmg -noverify -mountpoint /Volumes/BigSur
 ```
 - 2、写入镜像道dmg盘
 ```bash
-$ sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/BigSur --nointeraction
+sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/BigSur --nointeraction
 ```
 - 3、卸载写好后的磁盘
 ```bash
-$ hdiutil detach /volumes/"Install macOS Big sur"
+hdiutil detach /volumes/"Install macOS Big sur"
 ```
 - 4、转换dmg镜像为cdr格式,并且拷贝到桌面
 ```bash
@@ -129,11 +129,11 @@ $ hdiutil convert /tmp/BigSur.dmg -format UDTO -o ~/Desktop/BigSur.cdr
 ```
 - 5、重命名为iso格式
 ```bash
-$ mv ~/Desktop/BigSur.cdr ~/Desktop/BigSur.iso
+mv ~/Desktop/BigSur.cdr ~/Desktop/BigSur.iso
 ```
 - 6、删除不在需要的临时文件
 ```bash 
-$ rm -rf /tmp/BigSur.dmg
+rm -rf /tmp/BigSur.dmg
 ``` 
 - 这样我们就制作完成了，可以往虚拟机里面安装了。
 
