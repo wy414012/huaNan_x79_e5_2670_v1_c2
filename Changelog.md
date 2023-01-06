@@ -7,6 +7,7 @@
 - 重构默认USB驱动
 - 添加`agdpmod=pikera`到引导参数解决`57xx,67xx XT`显卡引导跑完代码黑屏无信号
 - 添加macOS 13 需求的电源管理补丁`AppleIntelCPUPowerManagement.kext,AppleIntelCPUPowerManagementClient.kext`
+- 更新核心到0.8.8稳定版
 
 ### 0.8.7 ###
 - 同步核心到主库最新
