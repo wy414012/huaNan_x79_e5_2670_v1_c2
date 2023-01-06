@@ -1,4 +1,4 @@
-name: CI
+name: build
 
 on:
   push:
@@ -33,7 +33,20 @@ jobs:
 
       - run: ./build.sh
 
-
+      - name: 配置安全密钥
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GIT_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
+          
+      - name: 检查URL并且传输到服务器
+        env:
+          SECRET_CHECK_SCRIPT_URL: ${{ secrets.SECRET_CHECK_SCRIPT_URL }}
+        run: scp -r ./build/* ${SECRET_CHECK_SCRIPT_URL}OC/REL/
+        
       - name: 打包上传工作件
         uses: actions/upload-artifact@v2
         with:
