@@ -16,8 +16,8 @@
 - 修改配置文件禁用SIP和关闭amfi验证
 ```
 Misc-->Security-->SecureBootModel-->Default 改 Disabled  
-NVRAM-->Add-->csr-active-config-->EF0F0000(禁用SIP)
-            boot-args-->添加amfi=0x80
+NVRAM-->Add-->csr-active-config-->EF0F0000(禁用SIP，默认配置文件开启完全安全支持，未关闭SIP)
+            boot-args-->添加 amfi=0x80 -cryptbeta (开启macOS13支持)
 ```
 - 部分rx588进入桌面会出现灰屏假死状态，只需要在`boot-args-->添加 -x`用安全模式进入桌面安装显卡补丁后删除 `-x`重启即可
 - 使用[OpenCore-Patcher-GUI](https://github.com/dortania/OpenCore-Legacy-Patcher/)打显卡补丁
