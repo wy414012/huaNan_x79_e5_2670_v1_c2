@@ -4,7 +4,7 @@ name="OpenCore-"
 src_file="/"
 src_path="./OpenCore"
 target_path="./build"
-version="0.8.9"
+version=$(grep OPEN_CORE_VERSION ./VERsion | sed 's/.*"\(.*\)".*/\1/' | grep -E '^[0-9.]+$')
 date=$(date +%Y%m%d)
 cpu="-REL"
 
