@@ -10,8 +10,81 @@
 - **v1 32纳米系列cpu止步12.2.1，过后将不在提供变频数据支持，请悉知!**
 - 免驱N卡注入驱动的方式经过测试在`12.6.2`下依然有效请使用[Geforce Kepler patcher-V5](https://github.com/chris1111/Geforce-Kepler-patcher/releases/tag/V5)补丁
 ![](./OpenCore/docs/12.6.2.png)
-- 关于`macOS Monterey`意外需要重启多次才能进入系统说明
-- 修补CPU描述改为不超过24核心即可 参考[DSDT.dsl](./OpenCore/ssdt/DSDT.dsl)仓库内可以找到
+### 关于`macOS Monterey`意外需要重启多次才能进入系统说明
+- 修补`DSDT`种CPU描述部分，改为不超过24核心即可 参考[DSDT.dsl](./OpenCore/ssdt/DSDT.dsl)仓库内可以找到，具体修补段落示范如下：
+```bash
+     Device (SCK0)
+        {
+            Name (_HID, "ACPI0004" /* Module Device */)  // _HID: Hardware ID
+            Name (_UID, "CPUSCK0")  // _UID: Unique ID
+            Name (SCKN, Zero)
+            Name (LSTA, 0xFF)
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                CUU0 = "CPUSCK0"
+                Local0 = PSTA (Zero)
+                Local1 = (Local0 & 0x03)
+                LSTA = Local1
+                Return (Local0)
+            }
+
+            Processor (C000, 0x00, 0x00000400, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  
+                Name (_UID, Zero)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, Zero) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+            ......
+            ......
+            ......
+            Processor (C017, 0x17, 0x00000400, 0x06)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  
+                Name (_UID, 0x17)  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x17) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+            Device (C018)
+            {
+                Name (_HID, "ACPI0007" /* Processor Device */)  
+                Name (_UID, "PCI0-CP018")  // _UID: Unique ID
+                Name (_PXM, Zero)  // _PXM: Device Proximity
+                Method (_STA, 0, NotSerialized)  // _STA: Status
+                {
+                    If ((CSTA (Zero, 0x18) == Zero))
+                    {
+                        Return (Zero)
+                    }
+                    Else
+                    {
+                        Return (0x0F)
+                    }
+                }
+            }
+```
+- 0x18开始的核心以及`SCK1-SCK3`均按照c018格式修改，然后替换原始固件在刷入到主板，即可完成修复
+
 ### 关于macOS  Ventura![](./OpenCore/docs/13.1.png)支持说明
 - 修改配置文件禁用SIP和关闭amfi验证
 ```
