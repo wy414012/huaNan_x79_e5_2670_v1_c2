@@ -20,20 +20,19 @@
  */
 DefinitionBlock ("", "SSDT", 2, "ACDT", "UNC", 0x00000000)
 {
-    External (_SB_.PCI0, DeviceObj)
-    External (PRBM, IntObj)
+    External (_SB_.PCI0.UNC0, DeviceObj)
 
-    Scope (\_SB.PCI0)
+    Scope (\_SB.PCI0.UNC0)
     {
-        Device (UNC0)
+        Method (_STA, 0, NotSerialized)  // _STA: Status
         {
-            Name (_HID, EisaId ("PNP0A03") /* PCI Bus */)  // _HID: Hardware ID
-            Method (_INI, 0, NotSerialized)  // _INI: Initialize
+            If (_OSI ("Darwin"))
             {
-                If (_OSI ("Darwin"))
-                {
-                    PRBM = Zero
-                }
+                Return (Zero)
+            }
+            Else
+            {
+                Return (0x0F)
             }
         }
     }
