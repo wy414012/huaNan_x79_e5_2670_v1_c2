@@ -8,9 +8,10 @@
 - 现在支持升级，但是不保证能正常使用想尝试的请克隆仓库最新提交，使用一块独立磁盘尝试
 - **数据很重要，升级请三思.**
 - **v1 32纳米系列cpu止步12.2.1，过后将不在提供变频数据支持，请悉知!**
-- 免驱N卡注入驱动的方式经过测试在`12.6.2`下依然有效请使用[Geforce Kepler patcher-V5](https://github.com/chris1111/Geforce-Kepler-patcher/releases/tag/V5)补丁
+- 免驱N卡注入驱动的方式经过测试在`12.6.5`下依然有效请使用[Geforce Kepler patcher-V6](https://github.com/chris1111/Geforce-Kepler-patcher/releases/tag/V6)补丁
 ![](./OpenCore/docs/12.6.2.png)
 ### 关于`macOS Monterey`意外需要重启多次才能进入系统说明
+![](./OpenCore/docs/12.6.5.png)
 - 修补`DSDT`种CPU描述部分，改为不超过24核心即可 参考[DSDT.dsl](./OpenCore/ssdt/DSDT.dsl)仓库内可以找到，具体修补段落示范如下：
 ```bash
      Device (SCK0)
