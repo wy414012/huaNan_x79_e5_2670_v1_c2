@@ -93,7 +93,7 @@ Misc-->Security-->SecureBootModel-->Default 改 Disabled
 NVRAM-->Add-->csr-active-config-->EF0F0000(禁用SIP，默认配置文件开启完全安全支持，未关闭SIP)
             boot-args-->添加 amfi=0x80 -cryptbeta (开启macOS13支持)
 ```
-- 部分rx588进入桌面会出现灰屏假死状态，只需要在`boot-args-->添加 -x`用安全模式进入桌面安装显卡补丁后删除 `-x`重启即可
+- 部分rx588进入桌面会出现灰屏假死状态，只需要在`boot-args-->添加 -amd_no_dgpu_accel`禁用amd硬件加速 `-amd_no_dgpu_accel`重启即可
 - 使用[OpenCore-Patcher-GUI](https://github.com/dortania/OpenCore-Legacy-Patcher/)打显卡补丁
 - 更多补丁使用请自行尝试，**请勿升级生产环境**
 - **尝鲜有风险，请酌情谨慎升级，部分老旧AMD显卡在13中已经丢失掉了免驱**
