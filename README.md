@@ -97,6 +97,9 @@ NVRAM-->Add-->csr-active-config-->EF0F0000(禁用SIP，默认配置文件开启�
 - 使用[OpenCore-Patcher-GUI](https://github.com/dortania/OpenCore-Legacy-Patcher/)打显卡补丁
 - 更多补丁使用请自行尝试，**请勿升级生产环境**
 - **尝鲜有风险，请酌情谨慎升级，部分老旧AMD显卡在13中已经丢失掉了免驱**
+### 关于macOS Sonoma
+- Wi-Fi损坏，在目前的beta版本中，Apple删除了`0x43A0`无线网卡驱动，即`94360 94360CD`等2019年之前白果拆机的Wi-Fi网卡。
+- 不出意外又损失掉了部分amd免驱显卡，`x79系列`依然需要等待`OpenCore-Legacy-Patcher`更新北极星系列显卡的驱动补丁，开普勒核心n卡也需要等待。
 ### 硬件 ###
 
 |             |                                                       |
