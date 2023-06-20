@@ -4,6 +4,7 @@
 - 添加MacOS14核心支持
 - 变更默认品台为`MacPro7,1`
 - 更新驱动支持macOS14
+- 更新到0.9.3稳定版核心
 ### 0.9.2 ###
 - 移除不在需要的`OpenVariableRuntimeDxe.efi`
 - 同步核心最新提交
