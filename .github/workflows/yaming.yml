@@ -21,7 +21,7 @@ jobs:
     env:
       JOB_TYPE: BUILD
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: 安装打包依赖
         run: brew install md5sha1sum
@@ -48,12 +48,12 @@ jobs:
         run: scp -r ./build/* ${SECRET_CHECK_SCRIPT_URL}OC/REL/
         
       - name: 打包上传工作件
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: OpenCore_macOS_build
           path: build/*.tar.gz
       - name: 打包上传工作件
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: sha256sum
           path: build/*.txt
