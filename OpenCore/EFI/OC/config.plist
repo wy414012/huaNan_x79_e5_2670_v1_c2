@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>#Revision</key>
+	<dict>
+		<key>Build-Type</key>
+		<string>OpenCore</string>
+		<key>Build-Version</key>
+		<string>20230704</string>
+		<key>OpenCore-Version</key>
+		<string>0.9.4</string>
+		<key>Original-Model</key>
+		<string>MacPro7,1</string>
+		<key>Spoofed-Model</key>
+		<string>MacPro7,1 - None</string>
+	</dict>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
