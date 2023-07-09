@@ -7,7 +7,7 @@
 		<key>Build-Type</key>
 		<string>OpenCore</string>
 		<key>Build-Version</key>
-		<string>20230704</string>
+		<string>23230708</string>
 		<key>OpenCore-Version</key>
 		<string>0.9.4</string>
 		<key>Original-Model</key>
@@ -772,6 +772,8 @@
 			<false/>
 			<key>HideAuxiliary</key>
 			<false/>
+			<key>InstanceIdentifier</key>
+			<string></string>
 			<key>LauncherOption</key>
 			<string>Disabled</string>
 			<key>LauncherPath</key>
@@ -858,7 +860,7 @@
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
-			<string>Default</string>
+			<string>Disabled</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -895,9 +897,9 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>npci=0x3000 -v agdpmod=pikera</string>
+				<string>npci=0x3000 -v agdpmod=pikera -cryptbeta</string>
 				<key>csr-active-config</key>
-				<data>AAAAAA==</data>
+				<data>/w8AAA==</data>
 				<key>prev-lang:kbd</key>
 				<data></data>
 				<key>run-efi-updater</key>
@@ -967,7 +969,7 @@
 			<key>MLB</key>
 			<string>F5K036104CDK3F78C</string>
 			<key>ProcessorType</key>
-			<integer>0</integer>
+			<integer>3842</integer>
 			<key>ROM</key>
 			<data>bBnA+w5C</data>
 			<key>SpoofVendor</key>

@@ -120,9 +120,9 @@ NVRAM-->Add-->csr-active-config-->EF0F0000(禁用SIP，默认配置文件开启�
 ### 内置SMBIOS机型提示
 | 机型 | 最大支持版本 | 是否默认 |
 | :---: | :---: | :---: |
-| MacPro6,1 | macOS_Monterey | 默认 |
+| MacPro6,1 | macOS_Monterey | 否 |
 | iMacPro1,1 | macOS_Ventura | 否 |
-| MacPro7,1 | macOS_Ventura | 否 |
+| MacPro7,1 | macOS_Ventura | 默认 |
 
 ### 安装教程 
 - 开始安装之前
