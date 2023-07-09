@@ -59,6 +59,14 @@
 				<key>Path</key>
 				<string>SSDT-HDEF.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>DSDT-APPLE.aml</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>DSDT-APPLE.aml</string>
+			</dict>
 		</array>
 		<key>Delete</key>
 		<array>
