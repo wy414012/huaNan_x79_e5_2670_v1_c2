@@ -7,9 +7,9 @@
 		<key>Build-Type</key>
 		<string>OpenCore</string>
 		<key>Build-Version</key>
-		<string>23230708</string>
+		<string>20240705</string>
 		<key>OpenCore-Version</key>
-		<string>0.9.4</string>
+		<string>1.0.1</string>
 		<key>Original-Model</key>
 		<string>MacPro7,1</string>
 		<key>Spoofed-Model</key>
@@ -50,14 +50,6 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-USB-RESET.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-HDEF.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-HDEF.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -233,7 +225,7 @@
 			<key>ResetHwSig</key>
 			<false/>
 			<key>ResetLogoStatus</key>
-			<false/>
+			<true/>
 			<key>SyncTableIds</key>
 			<false/>
 		</dict>
@@ -304,6 +296,8 @@
 			<true/>
 			<key>EnableWriteUnprotector</key>
 			<true/>
+			<key>FixupAppleEfiImages</key>
+			<false/>
 			<key>ForceBooterSignature</key>
 			<false/>
 			<key>ForceExitBootServices</key>
@@ -1251,9 +1245,9 @@
 			<key>JumpstartHotPlug</key>
 			<false/>
 			<key>MinDate</key>
-			<integer>0</integer>
+			<integer>-1</integer>
 			<key>MinVersion</key>
-			<integer>0</integer>
+			<integer>-1</integer>
 		</dict>
 		<key>AppleInput</key>
 		<dict>
@@ -1500,6 +1494,8 @@
 			<key>ResizeGpuBars</key>
 			<integer>-1</integer>
 			<key>ResizeUsePciRbIo</key>
+			<false/>
+			<key>ShimRetainProtocol</key>
 			<false/>
 			<key>TscSyncTimeout</key>
 			<integer>500000</integer>
